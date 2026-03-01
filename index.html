@@ -1548,7 +1548,7 @@
           </div>
           <div class="verify-group-card">
             <div class="vg-info"><div class="vg-name">🌳 강남 놀이터 탐험대</div><div class="vg-meta">📍 강남구 대치동 · 멤버 8명 · 매주 수요일</div></div>
-            <button class="verify-join-btn" onclick="event.stopPropagation();goTab('s-coparenting',document.querySelectorAll('.nav-btn')[3])">나도 참여 →</button>
+            <button class="verify-join-btn" onclick="event.stopPropagation();goTab('s-coparenting',document.querySelectorAll('.nav-btn')[2])">나도 참여 →</button>
           </div>
           <div class="reactions"><button class="react-btn on" onclick="toggleReact(this)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="rc">68</div><div class="rl">좋아요</div></button><button class="react-btn" onclick="openPostDetail(this.closest('.post'))"><div class="ri"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="rc">11</div><div class="rl">댓글</div></button><button class="react-btn" onclick="sharePost(this)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div><div class="rc"></div><div class="rl">공유</div></button></div>
         </div>
@@ -3439,9 +3439,6 @@
     <button class="nav-btn active" onclick="goTab('s-community',this)">
       <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>커뮤니티
     </button>
-    <button class="nav-btn" onclick="goTab('s-info',this)">
-      <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>육아정보
-    </button>
     <button class="nav-btn" onclick="goTab('s-standard',this)">
       <div class="icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>스탠다드
     </button>
@@ -3451,6 +3448,9 @@
     <button class="nav-btn" onclick="goTab('s-market',this)">
       <div class="icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>별똥별마켓
       <div class="badge">3</div>
+    </button>
+    <button class="nav-btn" onclick="goTab('s-info',this)">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>육아정보
     </button>
     <button class="nav-btn" onclick="goTab('s-profile',this)">
       <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>프로필
@@ -3639,7 +3639,7 @@
 // ─── Navigation ───
 var currentTab = 's-community';
 var navHistory = [];
-var mainTabs = ['s-community','s-info','s-standard','s-coparenting','s-market','s-profile'];
+var mainTabs = ['s-community','s-standard','s-coparenting','s-market','s-info','s-profile'];
 
 function goTab(id, btn) {
   // Close any sub-screens
@@ -5257,7 +5257,7 @@ function updateBabyBadges(month){
 
 // ═══════ 프로필 → 맞춤 정보 연결 ═══════
 function goToMatchedInfo(){
-  var infoBtn = document.querySelectorAll('.nav-btn')[1];
+  var infoBtn = document.querySelectorAll('.nav-btn')[4];
   goTab('s-info', infoBtn);
   setTimeout(function(){ showPersonalizedInfo(); }, 300);
 }
