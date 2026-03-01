@@ -311,11 +311,7 @@
     padding:16px;cursor:pointer;transition:transform .15s;
   }
   .daily-q:active{transform:scale(0.98);}
-  .daily-q::before{
-    content:'';position:absolute;top:-30%;right:-10%;
-    width:100px;height:100px;border-radius:50%;
-    background:rgba(206,147,216,0.2);
-  }
+  .daily-q::before{display:none;}
   .dq-top{display:flex;align-items:center;gap:8px;margin-bottom:10px;position:relative;z-index:1;}
   .dq-badge{font-size:9px;font-weight:800;color:#A87750;background:rgba(200,149,108,0.15);padding:3px 10px;border-radius:8px;}
   .dq-new{font-size:8px;font-weight:700;color:#fff;background:var(--acc);padding:2px 6px;border-radius:6px;}
