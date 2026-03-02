@@ -136,10 +136,16 @@
   }
   .write-screen-header .ws-submit:disabled{opacity:0.4;cursor:default;}
   .write-category-bar{
-    display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid var(--border);
-    overflow-x:auto;scrollbar-width:none;background:#fff;
+    display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px 8px;border-bottom:1px solid var(--border);
+    background:#fff;overflow:hidden;max-height:46px;transition:max-height .25s ease;
   }
-  .write-category-bar::-webkit-scrollbar{display:none;}
+  .write-category-bar.expanded{max-height:200px;}
+  .write-cat-more{
+    padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;
+    border:1.5px dashed var(--sub);color:var(--sub);cursor:pointer;
+    white-space:nowrap;transition:all .15s;background:#fff;
+  }
+  .write-cat-more:active{opacity:0.7;}
   .write-cat{
     padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;
     border:1.5px solid var(--border);color:var(--sub);cursor:pointer;
@@ -1702,11 +1708,12 @@
 
   /* ═══════ DESKTOP WRAPPER ═══════ */
   @media(min-width:500px){
-    body{background:#2A2320;display:flex;align-items:center;justify-content:center;}
+    html,body{overflow-y:auto;}
+    body{background:#2A2320;display:flex;justify-content:center;padding:20px 0;}
     .app{
       width:390px;height:844px;border-radius:36px;overflow:hidden;
       box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 0 0 2px rgba(255,255,255,0.1);
-      border:12px solid #111;
+      border:12px solid #111;margin:auto;flex-shrink:0;
     }
   }
 </style>
@@ -1983,9 +1990,9 @@
     <!-- ═══════ SCREEN: 육아정보 ═══════ -->
     <div class="screen hidden-right" id="s-info">
       <div class="info-header">
-        <div class="ih-emoji">👩‍👧‍👦</div>
-        <h2>선배맘들이 알려주는<br>육아정보</h2>
-        <p>경험에서 나온 진짜 꿀팁을 나눠요</p>
+        <div class="ih-emoji">🧭</div>
+        <h2>선배맘들이 알려주는<br>항해도</h2>
+        <p>육아 우주를 항해하는 진짜 꿀팁을 나눠요</p>
       </div>
       <div class="seg-tabs" id="info-tabs">
         <div class="seg-tab active" data-info="info-all">전체</div>
@@ -2041,7 +2048,7 @@
     <!-- ═══════ SCREEN: 스탠다드 ═══════ -->
     <div class="screen hidden-right" id="s-standard">
       <div class="std-screen-header">
-        <h2>📐 스탠다드</h2>
+        <h2>⭐ 북극성</h2>
         <p>엄마들이 직접 기준을 세우고,<br>기준에 맞는 인정템을 찾아요</p>
         <div class="std-stat-row">
           <div class="std-stat">🗳️ 진행 중 투표 <strong style="margin:0 0 0 4px;display:inline;">12</strong></div>
@@ -2240,8 +2247,8 @@
     <!-- ═══════ SCREEN: 공동육아 ═══════ -->
     <div class="screen hidden-right" id="s-coparenting">
       <div class="std-screen-header">
-        <h2>👨‍👩‍👧 공동육아</h2>
-        <p>우리 동네 엄마들과 함께 키우고,<br>아이도 엄마도 함께 성장해요</p>
+        <h2>✨ 별무리 소모임</h2>
+        <p>우리 동네 엄마별들과 함께 모여,<br>아이도 엄마도 함께 빛나요</p>
         <div class="std-stat-row">
           <div class="std-stat">🏘️ 내 주변 모임 <strong style="margin:0 0 0 4px;display:inline;">24</strong>개</div>
           <div class="std-stat">👩‍👧‍👦 함께하는 엄마 <strong style="margin:0 0 0 4px;display:inline;">389</strong>명</div>
@@ -3448,17 +3455,18 @@
         <div class="ws-title">글쓰기</div>
         <button class="ws-submit" id="writeSubmitBtn" onclick="submitPost()">등록</button>
       </div>
-      <div class="write-category-bar">
+      <div class="write-category-bar" id="writeCatBar">
         <div class="write-cat active" onclick="pickWriteCat(this)">자유수다</div>
         <div class="write-cat" onclick="pickWriteCat(this)">수유/이유식</div>
-        <div class="write-cat" onclick="pickWriteCat(this)">수면/밤잠</div>
+        <div class="write-cat" onclick="pickWriteCat(this)">핫딜</div>
+        <div class="write-cat-more" onclick="toggleWriteCats()">더보기 ▾</div>
         <div class="write-cat" onclick="pickWriteCat(this)">육아템 추천</div>
+        <div class="write-cat" onclick="pickWriteCat(this)">수면/밤잠</div>
         <div class="write-cat" onclick="pickWriteCat(this)">육아템 나눔</div>
         <div class="write-cat" onclick="pickWriteCat(this)">발달/성장</div>
         <div class="write-cat" onclick="pickWriteCat(this)">건강/병원</div>
         <div class="write-cat" onclick="pickWriteCat(this)">놀이/교육</div>
         <div class="write-cat" onclick="pickWriteCat(this)">산후조리</div>
-        <div class="write-cat" onclick="pickWriteCat(this)">핫딜</div>
       </div>
       <div class="write-body">
         <input class="write-title-input" id="writeTitle" type="text" placeholder="제목을 입력해주세요" oninput="checkWriteReady()">
@@ -4002,20 +4010,20 @@
       <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>커뮤니티
     </button>
     <button class="nav-btn" onclick="goTab('s-standard',this)">
-      <div class="icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>스탠다드
+      <div class="icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/><circle cx="12" cy="12" r="3" fill="none"/></svg></div>북극성
     </button>
     <button class="nav-btn" onclick="goTab('s-coparenting',this)">
-      <div class="icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>공동육아
+      <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="8" r="2"/><circle cx="19" cy="8" r="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M9.5 10.5L7 9M14.5 10.5L17 9M9 14l-1 2.5M15 14l1 2.5"/></svg></div>별무리
     </button>
     <button class="nav-btn" onclick="goTab('s-market',this)">
       <div class="icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>별똥별마켓
       <div class="badge">3</div>
     </button>
     <button class="nav-btn" onclick="goTab('s-info',this)">
-      <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>육아정보
+      <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M16.24 7.76l-1.41 1.41M7.76 16.24l-1.41 1.41"/></svg></div>항해도
     </button>
     <button class="nav-btn" onclick="goTab('s-profile',this)">
-      <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>프로필
+      <div class="icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/><circle cx="12" cy="10" r="3" fill="none"/><path d="M7.5 16.5C8.5 15 10 14 12 14s3.5 1 4.5 2.5"/></svg></div>나의별
     </button>
   </div>
 
@@ -4753,6 +4761,13 @@ document.querySelectorAll('.seg-tabs:not(#comm-tabs):not(#std-screen-tabs)').for
 
 // ─── Write Post Functions ───
 var writeCategory = '💬 자유';
+
+function toggleWriteCats(){
+  var bar = document.getElementById('writeCatBar');
+  var btn = bar.querySelector('.write-cat-more');
+  bar.classList.toggle('expanded');
+  btn.textContent = bar.classList.contains('expanded') ? '접기 ▴' : '더보기 ▾';
+}
 
 function pickWriteCat(el) {
   document.querySelectorAll('.write-cat').forEach(function(c){ c.classList.remove('active'); });
