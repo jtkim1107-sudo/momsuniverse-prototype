@@ -565,34 +565,45 @@
   .prod-tags{display:flex;gap:3px;margin-top:4px;flex-wrap:wrap;}
   .prod-tag{font-size:8px;padding:2px 5px;border-radius:5px;background:var(--bg);color:var(--pri);font-weight:600;}
 
-  /* ═══════ VOTE DETAIL ═══════ */
-  .vd-header{padding:16px 18px;background:linear-gradient(135deg,var(--pri),#B8845E);color:#fff;}
-  .vd-header h2{font-size:18px;font-weight:800;margin-bottom:4px;}
-  .vd-header p{font-size:12px;opacity:0.8;}
-  .vd-item{
-    display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fff;
-    border-radius:12px;margin:0 14px 10px;border:1.5px solid var(--border);
-    cursor:pointer;transition:all .15s;position:relative;overflow:hidden;
-  }
-  .vd-item:active{transform:scale(0.98);}
-  .vd-item.voted{border-color:var(--pri);background:#FAF7F4;}
-  .vd-bar{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(168,119,80,0.1),rgba(168,119,80,0.02));transition:width 1s ease;}
-  .vd-icon{font-size:22px;position:relative;z-index:1;}
-  .vd-text{flex:1;position:relative;z-index:1;}
-  .vd-text h4{font-size:14px;font-weight:600;}
-  .vd-text p{font-size:11px;color:var(--sub);}
-  .vd-pct{font-size:18px;font-weight:800;color:var(--pri);z-index:1;}
-  .vd-meta{text-align:center;padding:14px;font-size:12px;color:var(--sub);}
-  .vd-meta strong{color:var(--pri);}
-  .vote-done .vd-item{pointer-events:none;opacity:0.7;}
-  .vote-done .vd-item.voted{opacity:1;}
-  .vd-cta{
-    margin:0 14px;padding:14px 18px;
-    background:linear-gradient(135deg,#FAF7F4,#FAF7F4);
-    border:1px solid #FFE8B8;border-radius:12px;
-    display:flex;align-items:center;gap:10px;
-    font-size:12px;font-weight:600;color:#E8890C;cursor:pointer;
-  }
+  /* ═══════ NORTH STAR (시기별 정답지) ═══════ */
+  .ns-header{padding:24px 20px 16px;background:linear-gradient(135deg,#F5EDE4,#EDE4D8);}
+  .ns-header h2{font-size:20px;font-weight:900;color:var(--text);margin-bottom:4px;}
+  .ns-header p{font-size:12px;color:var(--sub);line-height:1.6;}
+  .ns-stage-tabs{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-bottom:1px solid var(--border);background:#fff;scrollbar-width:none;}
+  .ns-stage-tabs::-webkit-scrollbar{display:none;}
+  .ns-stage-tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap;border:1.5px solid var(--border);color:var(--sub);cursor:pointer;background:#fff;transition:all .15s;}
+  .ns-stage-tab.active{border-color:var(--pri);color:#fff;background:var(--pri);}
+  .ns-stage-tab:active{opacity:0.8;}
+  .ns-checklist{padding:12px 16px;}
+  .ns-section-title{font-size:13px;font-weight:700;color:var(--sub);padding:4px 0 8px;display:flex;align-items:center;justify-content:space-between;}
+  .ns-section-title span{font-size:11px;font-weight:500;}
+  .ns-item{background:#fff;border-radius:12px;margin-bottom:8px;border:1px solid var(--border);overflow:hidden;transition:all .2s;}
+  .ns-item.checked{opacity:0.55;}
+  .ns-item.checked .ns-item-name{text-decoration:line-through;}
+  .ns-item-row{display:flex;align-items:center;padding:14px 16px;gap:12px;cursor:pointer;}
+  .ns-item-check{width:22px;height:22px;border-radius:6px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;font-size:12px;color:#fff;}
+  .ns-item.checked .ns-item-check{background:var(--pri);border-color:var(--pri);}
+  .ns-item-icon{font-size:20px;flex-shrink:0;}
+  .ns-item-info{flex:1;min-width:0;}
+  .ns-item-name{font-size:14px;font-weight:700;color:var(--text);}
+  .ns-item-meta{font-size:11px;color:var(--sub);margin-top:2px;}
+  .ns-item-arrow{color:var(--sub);font-size:12px;flex-shrink:0;transition:transform .2s;}
+  .ns-item.open .ns-item-arrow{transform:rotate(90deg);}
+  .ns-picks{max-height:0;overflow:hidden;transition:max-height .3s ease;background:#FAFAF7;border-top:0px solid var(--border);}
+  .ns-item.open .ns-picks{max-height:300px;border-top-width:1px;}
+  .ns-pick{display:flex;align-items:center;padding:10px 16px 10px 50px;gap:10px;border-bottom:1px solid rgba(0,0,0,0.04);}
+  .ns-pick:last-of-type{border-bottom:none;}
+  .ns-rank{width:24px;height:24px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .ns-rank.gold{background:#F5E6C8;color:#B8860B;}
+  .ns-rank.silver{background:#E8E8E8;color:#666;}
+  .ns-rank.bronze{background:#F0DCC8;color:#A87750;}
+  .ns-pick-info{flex:1;min-width:0;}
+  .ns-pick-name{font-size:13px;font-weight:600;color:var(--text);}
+  .ns-pick-tags{display:flex;gap:4px;margin-top:2px;}
+  .ns-pick-tag{font-size:10px;padding:2px 6px;border-radius:4px;background:var(--muted);color:var(--tag);}
+  .ns-pick-pct{font-size:14px;font-weight:800;color:var(--pri);flex-shrink:0;}
+  .ns-vote-btn{display:block;margin:8px 16px 12px 50px;padding:8px 0;text-align:center;font-size:12px;font-weight:700;color:var(--pri);border:1.5px solid var(--pri);border-radius:8px;cursor:pointer;background:#fff;transition:all .15s;}
+  .ns-vote-btn:active{background:var(--pri);color:#fff;}
 
   /* ═══════ PRODUCT DETAIL ═══════ */
   .pd-image{height:200px;background:linear-gradient(135deg,#F5EDE4,#EDE4D8);display:flex;align-items:center;justify-content:center;font-size:72px;}
@@ -626,92 +637,7 @@
   .coupang-btn:active{transform:scale(0.98);}
   .coupang-sub{text-align:center;font-size:10px;color:var(--sub);}
 
-  /* ═══════ 스탠다드 SCREEN ═══════ */
-  .std-screen-header{
-    padding:20px 18px 14px;
-    background:linear-gradient(135deg,#F5EDE4,#EDE4D8);
-    border-bottom:1px solid var(--border);
-  }
-  .std-screen-header h2{font-size:18px;font-weight:900;color:var(--text);margin-bottom:2px;}
-  .std-screen-header p{font-size:12px;color:var(--sub);line-height:1.6;}
-  .std-screen-header .std-stat-row{
-    display:flex;gap:12px;margin-top:12px;
-  }
-  .std-screen-header .std-stat{
-    display:flex;align-items:center;gap:4px;
-    font-size:11px;font-weight:600;color:var(--pri);
-    background:#fff;padding:5px 12px;border-radius:10px;
-  }
-
-  /* 카테고리 투표 카드 */
-  .vote-category{
-    margin:12px 14px;background:#fff;border-radius:16px;
-    border:1px solid var(--border);overflow:hidden;
-    cursor:pointer;transition:transform .15s;
-    box-shadow:0 2px 8px rgba(0,0,0,0.04);
-  }
-  .vote-category:active{transform:scale(0.98);}
-  .vc-top{
-    display:flex;align-items:center;gap:12px;padding:14px 16px;
-  }
-  .vc-icon{
-    width:44px;height:44px;border-radius:12px;
-    display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
-  }
-  .vc-info{flex:1;}
-  .vc-info h4{font-size:14px;font-weight:800;margin-bottom:2px;}
-  .vc-info p{font-size:11px;color:var(--sub);}
-  .vc-arrow{font-size:14px;color:var(--sub);}
-  .vc-bar-row{padding:0 16px 10px;display:flex;align-items:center;gap:8px;}
-  .vc-bar-track{flex:1;height:6px;background:#F5EDE4;border-radius:6px;overflow:hidden;}
-  .vc-bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--pri),var(--pri-l));}
-  .vc-bar-label{font-size:10px;font-weight:700;color:var(--pri);white-space:nowrap;}
-  .vc-bottom{
-    display:flex;gap:0;border-top:1px solid var(--border);
-  }
-  .vc-stat{
-    flex:1;text-align:center;padding:10px 0;
-    font-size:10px;color:var(--sub);
-    border-right:1px solid var(--border);
-  }
-  .vc-stat:last-child{border-right:none;}
-  .vc-stat strong{display:block;font-size:14px;font-weight:800;color:var(--text);margin-bottom:1px;}
-  .vc-status-badge{
-    font-size:9px;font-weight:700;padding:3px 8px;border-radius:8px;
-    margin-left:auto;flex-shrink:0;
-  }
-  .vc-status-badge.active{background:#EBFBEE;color:var(--mint);}
-  .vc-status-badge.done{background:#F5EDE4;color:var(--pri);}
-  .vc-status-badge.hot{background:#FBF5F0;color:var(--acc);}
-
-  /* 인정템 가로 스크롤 */
-  .approved-section{padding:16px 0 0;}
-  .approved-section .sec-title{
-    padding:0 16px 10px;font-size:14px;font-weight:800;
-    display:flex;align-items:center;gap:6px;
-  }
-  .approved-scroll{display:flex;gap:10px;padding:0 14px 16px;overflow-x:auto;scrollbar-width:none;}
-  .approved-scroll::-webkit-scrollbar{display:none;}
-  .approved-card{
-    flex:0 0 150px;background:#fff;border-radius:14px;
-    border:1px solid var(--border);overflow:hidden;cursor:pointer;
-    transition:transform .15s;box-shadow:0 2px 6px rgba(0,0,0,0.04);
-  }
-  .approved-card:active{transform:scale(0.97);}
-  .approved-card-img{
-    height:100px;display:flex;align-items:center;justify-content:center;
-    font-size:36px;position:relative;
-  }
-  .approved-card-img .a-badge{
-    position:absolute;top:6px;left:6px;
-    font-size:8px;font-weight:700;padding:3px 7px;border-radius:6px;
-    background:var(--pri);color:#fff;
-  }
-  .approved-card-body{padding:8px 10px 10px;}
-  .approved-card-body h5{font-size:11px;font-weight:700;line-height:1.4;margin-bottom:4px;
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  .approved-card-body .a-criteria{font-size:9px;color:var(--mint);font-weight:600;margin-bottom:2px;}
-  .approved-card-body .a-price{font-size:12px;font-weight:800;color:var(--acc);}
+  /* (기존 스탠다드/투표/인정템 CSS 삭제됨 — .ns-* 로 대체) */
 
   /* ═══════ PROFILE SCREEN ═══════ */
   .prof-header{text-align:center;padding:40px 18px 20px;background:linear-gradient(135deg,var(--pri),#B8845E);color:#fff;}
@@ -2047,201 +1973,12 @@
 
     <!-- ═══════ SCREEN: 스탠다드 ═══════ -->
     <div class="screen hidden-right" id="s-standard">
-      <div class="std-screen-header">
+      <div class="ns-header">
         <h2>⭐ 북극성</h2>
-        <p>엄마들이 직접 기준을 세우고,<br>기준에 맞는 인정템을 찾아요</p>
-        <div class="std-stat-row">
-          <div class="std-stat">🗳️ 진행 중 투표 <strong style="margin:0 0 0 4px;display:inline;">12</strong></div>
-          <div class="std-stat">🏅 인정템 <strong style="margin:0 0 0 4px;display:inline;">48</strong>개</div>
-        </div>
+        <p>엄마들이 선택한 육아 정답지 — 고민 없이 따라가세요</p>
       </div>
-
-      <div class="seg-tabs" id="std-screen-tabs">
-        <div class="seg-tab active">투표 진행중</div>
-        <div class="seg-tab">인정템 모아보기</div>
-      </div>
-
-      <!-- 투표 진행중 탭 -->
-      <div id="std-screen-vote">
-        <!-- 카테고리 1: 아기 로션 -->
-        <div class="vote-category" onclick="openVoteDetail(0)">
-          <div class="vc-top">
-            <div class="vc-icon" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">🧴</div>
-            <div class="vc-info">
-              <h4>아기 로션 기준 세우기</h4>
-              <p>보습력 vs 성분 vs 가성비 — 뭐가 가장 중요해요?</p>
-            </div>
-            <span class="vc-status-badge hot">🔥 HOT</span>
-          </div>
-          <div class="vc-bar-row">
-            <div class="vc-bar-track"><div class="vc-bar-fill" style="width:78%;"></div></div>
-            <div class="vc-bar-label">286명 참여</div>
-          </div>
-          <div class="vc-bottom">
-            <div class="vc-stat"><strong>4</strong>기준 항목</div>
-            <div class="vc-stat"><strong>6</strong>인정템</div>
-            <div class="vc-stat"><strong>3일</strong>남음</div>
-          </div>
-        </div>
-
-        <!-- 카테고리 2: 아기 물티슈 -->
-        <div class="vote-category" onclick="openVoteDetail(1)">
-          <div class="vc-top">
-            <div class="vc-icon" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">🧻</div>
-            <div class="vc-info">
-              <h4>아기 물티슈 기준 세우기</h4>
-              <p>성분 안전성이 82%로 1위! 두께/내구성은?</p>
-            </div>
-            <span class="vc-status-badge done">✓ 확정</span>
-          </div>
-          <div class="vc-bar-row">
-            <div class="vc-bar-track"><div class="vc-bar-fill" style="width:100%;"></div></div>
-            <div class="vc-bar-label">412명 참여</div>
-          </div>
-          <div class="vc-bottom">
-            <div class="vc-stat"><strong>5</strong>기준 항목</div>
-            <div class="vc-stat"><strong>8</strong>인정템</div>
-            <div class="vc-stat"><strong>확정</strong>완료</div>
-          </div>
-        </div>
-
-        <!-- 카테고리 3: 기저귀 -->
-        <div class="vote-category" onclick="openVoteDetail(2)">
-          <div class="vc-top">
-            <div class="vc-icon" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">👶</div>
-            <div class="vc-info">
-              <h4>기저귀 기준 세우기</h4>
-              <p>흡수력 vs 피부자극 vs 가격 — 투표 중!</p>
-            </div>
-            <span class="vc-status-badge active">🟢 진행중</span>
-          </div>
-          <div class="vc-bar-row">
-            <div class="vc-bar-track"><div class="vc-bar-fill" style="width:45%;"></div></div>
-            <div class="vc-bar-label">189명 참여</div>
-          </div>
-          <div class="vc-bottom">
-            <div class="vc-stat"><strong>5</strong>기준 항목</div>
-            <div class="vc-stat"><strong>—</strong>인정템</div>
-            <div class="vc-stat"><strong>7일</strong>남음</div>
-          </div>
-        </div>
-
-        <!-- 카테고리 4: 이유식 도구 -->
-        <div class="vote-category" onclick="openVoteDetail(3)">
-          <div class="vc-top">
-            <div class="vc-icon" style="background:linear-gradient(135deg,#F5EDE4,#E8D5C8);">🍚</div>
-            <div class="vc-info">
-              <h4>이유식 도구 기준 세우기</h4>
-              <p>블렌더? 찜기? 올인원? 어떤 게 최고예요?</p>
-            </div>
-            <span class="vc-status-badge active">🟢 진행중</span>
-          </div>
-          <div class="vc-bar-row">
-            <div class="vc-bar-track"><div class="vc-bar-fill" style="width:32%;"></div></div>
-            <div class="vc-bar-label">134명 참여</div>
-          </div>
-          <div class="vc-bottom">
-            <div class="vc-stat"><strong>4</strong>기준 항목</div>
-            <div class="vc-stat"><strong>—</strong>인정템</div>
-            <div class="vc-stat"><strong>12일</strong>남음</div>
-          </div>
-        </div>
-
-        <!-- 카테고리 5: 유모차 -->
-        <div class="vote-category" onclick="openVoteDetail(4)">
-          <div class="vc-top">
-            <div class="vc-icon" style="background:linear-gradient(135deg,#FAF7F4,#FAF7F4);">🚼</div>
-            <div class="vc-info">
-              <h4>유모차 기준 세우기</h4>
-              <p>무게 vs 접이편의 vs 서스펜션 — 어떤 기준?</p>
-            </div>
-            <span class="vc-status-badge active">🟢 진행중</span>
-          </div>
-          <div class="vc-bar-row">
-            <div class="vc-bar-track"><div class="vc-bar-fill" style="width:22%;"></div></div>
-            <div class="vc-bar-label">91명 참여</div>
-          </div>
-          <div class="vc-bottom">
-            <div class="vc-stat"><strong>6</strong>기준 항목</div>
-            <div class="vc-stat"><strong>—</strong>인정템</div>
-            <div class="vc-stat"><strong>14일</strong>남음</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 인정템 모아보기 탭 -->
-      <div id="std-screen-approved" style="display:none;">
-        <!-- 아기 로션 인정템 -->
-        <div class="approved-section">
-          <div class="sec-title">🧴 아기 로션 인정템 <span style="font-size:11px;color:var(--sub);font-weight:500;">286명이 세운 기준</span></div>
-          <div class="approved-scroll">
-            <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">🧴<div class="a-badge">🏅 인정템</div></div>
-              <div class="approved-card-body">
-                <div class="a-criteria">✓ 기준 4/4 충족</div>
-                <h5>아토팜 MLE 크림 로션 300ml</h5>
-                <div class="a-price">18,900원</div>
-              </div>
-            </div>
-            <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">🧴<div class="a-badge">🏅 인정템</div></div>
-              <div class="approved-card-body">
-                <div class="a-criteria">✓ 기준 4/4 충족</div>
-                <h5>세타필 베이비 데일리 로션</h5>
-                <div class="a-price">15,200원</div>
-              </div>
-            </div>
-            <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#F5EDE4,#EDE4D8);">🧴<div class="a-badge">🏅 인정템</div></div>
-              <div class="approved-card-body">
-                <div class="a-criteria">✓ 기준 3/4 충족</div>
-                <h5>라놀린 내츄럴 베이비 로션</h5>
-                <div class="a-price">22,500원</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 아기 물티슈 인정템 -->
-        <div class="approved-section">
-          <div class="sec-title">🧻 아기 물티슈 인정템 <span style="font-size:11px;color:var(--sub);font-weight:500;">412명이 세운 기준</span></div>
-          <div class="approved-scroll">
-            <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">🧻<div class="a-badge">🏅 인정템</div></div>
-              <div class="approved-card-body">
-                <div class="a-criteria">✓ 기준 5/5 충족</div>
-                <h5>마더케이 순수물 아기물티슈</h5>
-                <div class="a-price">9,900원</div>
-              </div>
-            </div>
-            <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#FAF7F4,#FAF7F4);">🧻<div class="a-badge">🏅 인정템</div></div>
-              <div class="approved-card-body">
-                <div class="a-criteria">✓ 기준 5/5 충족</div>
-                <h5>베베숲 시그니처 엠보</h5>
-                <div class="a-price">11,200원</div>
-              </div>
-            </div>
-            <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#F5EDE4,#E8D5C8);">🧻<div class="a-badge">🏅 인정템</div></div>
-              <div class="approved-card-body">
-                <div class="a-criteria">✓ 기준 4/5 충족</div>
-                <h5>궁중비책 순수 물티슈</h5>
-                <div class="a-price">8,500원</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 기저귀 - 아직 투표중 -->
-        <div class="approved-section" style="opacity:0.5;">
-          <div class="sec-title">👶 기저귀 인정템 <span style="font-size:11px;color:var(--warm);font-weight:600;">🗳️ 투표 진행중</span></div>
-          <div style="padding:20px 16px;text-align:center;">
-            <div style="font-size:36px;margin-bottom:8px;">🗳️</div>
-            <div style="font-size:12px;color:var(--sub);line-height:1.7;">아직 기준이 확정되지 않았어요<br><strong style="color:var(--pri);">투표에 참여</strong>해서 기준을 세워주세요!</div>
-          </div>
-        </div>
-      </div>
+      <div class="ns-stage-tabs" id="nsStageTabs"></div>
+      <div class="ns-checklist" id="nsChecklist"></div>
     </div>
 
     <!-- ═══════ SCREEN: 공동육아 ═══════ -->
@@ -2850,7 +2587,7 @@
     <!-- ═══════ SUB: 투표 상세 ═══════ -->
     <div class="screen sub-screen hidden-right" id="s-vote-detail">
       <div class="back-header" onclick="goBack()">
-        <span class="arrow">←</span> 스탠다드
+        <span class="arrow">←</span> 북극성
       </div>
       <div id="voteDetailBody"></div>
     </div>
@@ -4599,124 +4336,275 @@ function pickEmpathy(el, pct) {
   showToast('투표 완료! ' + count + '명의 엄마가 함께했어요');
 }
 
-// ─── Vote Data ───
-var voteData = [
-  {
-    icon:'🧴', title:'아기 로션 기준 세우기', count:286, status:'진행중',
-    items:[
-      {icon:'💧',name:'보습력',desc:'바른 후 촉촉함 유지 시간',pct:78},
-      {icon:'🧪',name:'성분 안전성',desc:'유해성분 무첨가 여부',pct:65},
-      {icon:'💰',name:'가성비',desc:'용량 대비 가격',pct:52},
-      {icon:'👃',name:'향 유무',desc:'무향 or 저자극 향',pct:41}
-    ],
-    products:[
-      {name:'아토팜 MLE 크림 로션 300ml',price:'18,900원',emoji:'🧴',tags:['무향','재구매92%']},
-      {name:'세타필 베이비 로션 400ml',price:'15,900원',emoji:'🧴',tags:['저자극','대용량']},
-      {name:'큐텐 베이비 로션 200ml',price:'12,500원',emoji:'🧴',tags:['성분A+','가성비']}
-    ]
-  },
-  {
-    icon:'🧻', title:'아기 물티슈 기준 세우기', count:412, status:'확정',
-    items:[
-      {icon:'🧪',name:'성분 안전성',desc:'유해성분 무첨가 여부',pct:82},
-      {icon:'📏',name:'두께/내구성',desc:'찢어지지 않는 튼튼함',pct:65},
-      {icon:'💰',name:'가격 대비 매수',desc:'1매당 가격 기준',pct:51},
-      {icon:'👃',name:'향 유무',desc:'무향 여부',pct:43},
-      {icon:'💧',name:'수분 함량',desc:'촉촉한 정도',pct:31}
-    ],
-    products:[
-      {name:'마더케이 순수물 아기물티슈',price:'9,900원',emoji:'🧻',tags:['무향','재구매89%']},
-      {name:'보솜이 리얼코튼 물티슈',price:'11,500원',emoji:'🧻',tags:['두꺼움','대용량']},
-      {name:'궁중비책 물티슈',price:'8,900원',emoji:'🧻',tags:['성분A+','가성비']}
-    ]
-  },
-  {
-    icon:'🩲', title:'기저귀 기준 세우기', count:189, status:'진행중',
-    items:[
-      {icon:'💨',name:'흡수력',desc:'샘 없이 쏙쏙 흡수',pct:75},
-      {icon:'🌿',name:'피부자극',desc:'발진/피부트러블 여부',pct:68},
-      {icon:'💰',name:'가격',desc:'1매당 가격 기준',pct:45},
-      {icon:'📐',name:'핏감',desc:'아기 체형에 맞는 핏',pct:38}
-    ],
-    products:[
-      {name:'하기스 네이처메이드',price:'28,900원',emoji:'🩲',tags:['흡수력↑','인기1위']},
-      {name:'팸퍼스 베이비드라이',price:'25,500원',emoji:'🩲',tags:['부드러움','무자극']}
-    ]
-  },
-  {
-    icon:'🥄', title:'이유식 도구 기준 세우기', count:134, status:'진행중',
-    items:[
-      {icon:'🧪',name:'소재 안전성',desc:'BPA-free, 실리콘 등급',pct:72},
-      {icon:'🧹',name:'세척 편의성',desc:'분리세척 가능 여부',pct:58},
-      {icon:'👶',name:'아기 사용감',desc:'아기가 거부 안 하는 디자인',pct:44},
-      {icon:'💰',name:'가성비',desc:'세트 구성 대비 가격',pct:35}
-    ],
-    products:[
-      {name:'베베쿡 이유식 스타터 세트',price:'32,000원',emoji:'🥄',tags:['인기','풀세트']},
-      {name:'에디슨 실리콘 스푼 세트',price:'8,900원',emoji:'🥄',tags:['BPA-free','가성비']}
-    ]
-  },
-  {
-    icon:'🚼', title:'유모차 기준 세우기', count:98, status:'진행중',
-    items:[
-      {icon:'⚖️',name:'무게',desc:'가볍고 접기 쉬운 정도',pct:70},
-      {icon:'🛡️',name:'안전성',desc:'프레임 강도, 인증 여부',pct:62},
-      {icon:'🪑',name:'시트 편안함',desc:'아기가 편한 시트 구조',pct:48},
-      {icon:'💰',name:'가격대',desc:'합리적 가격',pct:30}
-    ],
-    products:[
-      {name:'잉글레시나 퀴드2',price:'590,000원',emoji:'🚼',tags:['경량','접이식']},
-      {name:'부가부 폭스5',price:'1,290,000원',emoji:'🚼',tags:['프리미엄','올라운드']}
-    ]
-  }
+// ─── North Star Data (시기별 정답지) ───
+var northStarData = [
+  { id:'pregnancy', name:'임신준비', icon:'🤰', items:[
+    {name:'엽산제',icon:'💊',desc:'임신 3개월 전부터 복용 권장',votes:342,picks:[
+      {name:'뉴트리원 활성엽산',pct:45,tags:['활성엽산','1일1정']},
+      {name:'솔가 엽산 400',pct:32,tags:['가성비']},
+      {name:'센트룸 프리나탈',pct:23,tags:['종합영양']}]},
+    {name:'임신테스트기',icon:'🧪',desc:'초기 임신 확인 필수',votes:289,picks:[
+      {name:'얼리체크 임신테스트기',pct:52,tags:['고감도','빠른결과']},
+      {name:'원포 임신진단시약',pct:31,tags:['병원납품']},
+      {name:'클리어블루 디지털',pct:17,tags:['디지털표시']}]},
+    {name:'기초체온계',icon:'🌡️',desc:'배란일 추적용 소수점 체온계',votes:198,picks:[
+      {name:'옴론 기초체온계',pct:48,tags:['정확도↑']},
+      {name:'페미닝 스마트 체온계',pct:35,tags:['앱연동']},
+      {name:'시티즌 기초체온계',pct:17,tags:['가성비']}]},
+    {name:'산부인과 선택',icon:'🏥',desc:'산전검사 가능한 병원 찾기',votes:412,picks:[
+      {name:'대학병원 (고위험)',pct:38,tags:['정밀검사','고위험']},
+      {name:'개인 산부인과',pct:45,tags:['접근성','친절']},
+      {name:'조산원',pct:17,tags:['자연분만','가정적']}]},
+    {name:'보험 정리',icon:'📋',desc:'태아보험·실비보험 가입 시기',votes:267,picks:[
+      {name:'삼성생명 태아보험',pct:40,tags:['보장넓음']},
+      {name:'현대해상 굿앤굿',pct:35,tags:['가성비']},
+      {name:'DB손해 태아보험',pct:25,tags:['특약다양']}]},
+    {name:'임신 영양제',icon:'💛',desc:'철분·칼슘·오메가3 등',votes:356,picks:[
+      {name:'뉴트리원 임산부 종합',pct:42,tags:['올인원']},
+      {name:'네이처메이드 프리나탈',pct:33,tags:['미국직구']},
+      {name:'일동제약 지아이 프리나탈',pct:25,tags:['국산','흡수율↑']}]}
+  ]},
+  { id:'birth-prep', name:'출산준비', icon:'🎒', items:[
+    {name:'기저귀',icon:'🩲',desc:'신생아용 1단계부터 준비',votes:523,picks:[
+      {name:'하기스 네이처메이드',pct:45,tags:['흡수력↑','인기1위']},
+      {name:'팸퍼스 퓨어프로텍션',pct:32,tags:['순한성분']},
+      {name:'보솜이 리얼코튼',pct:23,tags:['가성비']}]},
+    {name:'물티슈',icon:'🧻',desc:'무향·저자극 아기 전용',votes:487,picks:[
+      {name:'마더케이 순수물티슈',pct:44,tags:['무향','재구매89%']},
+      {name:'보솜이 리얼코튼',pct:34,tags:['두꺼움']},
+      {name:'궁중비책 순수',pct:22,tags:['성분A+']}]},
+    {name:'젖병/젖꼭지',icon:'🍼',desc:'수유 방식에 맞게 선택',votes:398,picks:[
+      {name:'닥터브라운 옵션플러스',pct:41,tags:['배앓이방지']},
+      {name:'피죤 모유실감',pct:36,tags:['모유수유병행']},
+      {name:'더블하트 젖병',pct:23,tags:['가성비']}]},
+    {name:'속싸개/배냇저고리',icon:'👶',desc:'신생아 필수 의류',votes:312,picks:[
+      {name:'에이든아네이 속싸개',pct:48,tags:['모슬린','통기성']},
+      {name:'머미쿨 속싸개',pct:30,tags:['지퍼식','편리']},
+      {name:'컨비 배냇저고리세트',pct:22,tags:['국산면']}]},
+    {name:'카시트',icon:'🚗',desc:'퇴원 시 필수! 신생아용',votes:445,picks:[
+      {name:'싸이벡스 클라우드Z2',pct:43,tags:['i-Size','회전형']},
+      {name:'맥시코시 페블360',pct:35,tags:['경량','인기']},
+      {name:'다이치 원픽스360',pct:22,tags:['가성비','국산']}]},
+    {name:'유모차',icon:'🚼',desc:'디럭스/절충형/휴대용 선택',votes:389,picks:[
+      {name:'잉글레시나 퀴드2',pct:38,tags:['경량','접이식']},
+      {name:'부가부 드래곤플라이',pct:35,tags:['올라운드']},
+      {name:'요야 플러스4',pct:27,tags:['휴대용','가성비']}]},
+    {name:'아기침대',icon:'🛏️',desc:'신생아 수면 안전 필수',votes:278,picks:[
+      {name:'도노도노 범퍼침대',pct:46,tags:['인기1위','범퍼']},
+      {name:'쁘레베베 아기침대',pct:32,tags:['원목','인테리어']},
+      {name:'알집 슈퍼싱글',pct:22,tags:['가성비']}]},
+    {name:'수유쿠션',icon:'🤱',desc:'수유 자세 보조',votes:301,picks:[
+      {name:'보보에코 수유쿠션',pct:44,tags:['인체공학']},
+      {name:'그래비티 수유쿠션',pct:33,tags:['높이조절']},
+      {name:'이케아 렌 수유쿠션',pct:23,tags:['가성비']}]},
+    {name:'체온계',icon:'🌡️',desc:'비접촉식 권장',votes:356,picks:[
+      {name:'브라운 써모스캔7',pct:48,tags:['귀체온계','정확']},
+      {name:'휴비딕 비접촉',pct:32,tags:['이마체온']},
+      {name:'보령 비접촉 체온계',pct:20,tags:['가성비']}]},
+    {name:'산모패드/위생용품',icon:'🩹',desc:'출산 후 산모 회복용',votes:234,picks:[
+      {name:'마더케이 산모패드',pct:45,tags:['대용량']},
+      {name:'네이처메이드 산모패드',pct:33,tags:['순면']},
+      {name:'유한킴벌리 산모패드',pct:22,tags:['가성비']}]}
+  ]},
+  { id:'0-3m', name:'0-3개월', icon:'👶', items:[
+    {name:'분유 (혼합수유시)',icon:'🍼',desc:'모유와 병행하거나 완분 시',votes:367,picks:[
+      {name:'앱솔루트 명작',pct:40,tags:['소화흡수']},
+      {name:'일동후디스 산양분유',pct:35,tags:['산양유']},
+      {name:'남양 임페리얼XO',pct:25,tags:['가성비']}]},
+    {name:'아기로션',icon:'🧴',desc:'보습 필수! 목욕 후 바로',votes:445,picks:[
+      {name:'아토팜 MLE 크림',pct:46,tags:['무향','재구매92%']},
+      {name:'세타필 베이비',pct:32,tags:['저자극']},
+      {name:'큐텐 베이비 로션',pct:22,tags:['성분A+']}]},
+    {name:'아기세제',icon:'🧼',desc:'아기옷 전용 세탁세제',votes:312,picks:[
+      {name:'아우누리 세탁세제',pct:43,tags:['무향','식물성']},
+      {name:'닥터아토 아기세제',pct:34,tags:['피부과추천']},
+      {name:'우리아기 세탁세제',pct:23,tags:['가성비']}]},
+    {name:'바운서',icon:'💺',desc:'잠깐 내려놓을 때 필수',votes:289,picks:[
+      {name:'베이비뵨 바운서 블리스',pct:48,tags:['인기1위']},
+      {name:'리치웰 바운서',pct:30,tags:['가성비']},
+      {name:'콤비 로이스',pct:22,tags:['접이식']}]},
+    {name:'공갈젖꼭지',icon:'🍬',desc:'진정/수면 보조',votes:267,picks:[
+      {name:'누크 지니어스',pct:42,tags:['교정형']},
+      {name:'필립스 아벤트',pct:35,tags:['인기']},
+      {name:'MAM 퍼펙트',pct:23,tags:['디자인']}]},
+    {name:'모빌',icon:'🎠',desc:'시각 자극 발달 도움',votes:198,picks:[
+      {name:'타이니러브 테이크어롱',pct:45,tags:['다기능']},
+      {name:'브이텍 뮤지컬 모빌',pct:33,tags:['음악다양']},
+      {name:'이케아 클라파 모빌',pct:22,tags:['가성비']}]},
+    {name:'수유등',icon:'🌙',desc:'밤중수유 시 은은한 조명',votes:189,picks:[
+      {name:'루미 수유등',pct:44,tags:['밝기조절']},
+      {name:'이케아 수유등',pct:34,tags:['가성비']},
+      {name:'무아스 수유등',pct:22,tags:['충전식']}]},
+    {name:'기저귀크림',icon:'🧴',desc:'기저귀 발진 예방',votes:234,picks:[
+      {name:'데시틴 래피드릴리프',pct:46,tags:['즉효']},
+      {name:'수드크림',pct:32,tags:['영국직구']},
+      {name:'아토팜 페이스트',pct:22,tags:['순한성분']}]}
+  ]},
+  { id:'4-6m', name:'4-6개월', icon:'🍚', items:[
+    {name:'이유식 도구',icon:'🥣',desc:'블렌더·찜기·소분용기 세트',votes:398,picks:[
+      {name:'베베쿡 이유식 마스터',pct:44,tags:['올인원']},
+      {name:'브라운 핸드블렌더',pct:33,tags:['다용도']},
+      {name:'에디슨 이유식 세트',pct:23,tags:['가성비']}]},
+    {name:'아기의자 (하이체어)',icon:'🪑',desc:'이유식 시작과 함께 필수',votes:356,picks:[
+      {name:'스토케 트립트랩',pct:42,tags:['성장형','인기']},
+      {name:'이케아 안틸롭',pct:35,tags:['가성비','실용']},
+      {name:'부메랑 하이체어',pct:23,tags:['접이식']}]},
+    {name:'턱받이',icon:'🧣',desc:'이유식 시 필수 침·음식 방지',votes:278,picks:[
+      {name:'먹깨비 실리콘 턱받이',pct:46,tags:['실리콘','세척편리']},
+      {name:'에이든아네이 턱받이',pct:32,tags:['모슬린']},
+      {name:'비팝 턱받이 세트',pct:22,tags:['가성비','10장']}]},
+    {name:'이유식 용기',icon:'📦',desc:'소분 냉동 보관',votes:312,picks:[
+      {name:'글라스락 이유식용기',pct:44,tags:['유리','안전']},
+      {name:'옥소 이유식 소분용기',pct:34,tags:['편리']},
+      {name:'베베쿡 소분용기',pct:22,tags:['실리콘']}]},
+    {name:'아기수저',icon:'🥄',desc:'BPA-free 실리콘 수저',votes:267,picks:[
+      {name:'에디슨 실리콘 스푼',pct:45,tags:['BPA-free']},
+      {name:'누크 이유식 스푼세트',pct:33,tags:['단계별']},
+      {name:'베베쿡 실리콘 스푼',pct:22,tags:['가성비']}]},
+    {name:'놀이매트',icon:'🏠',desc:'바닥 활동 시 안전 쿠션',votes:334,picks:[
+      {name:'알집 폴더매트',pct:43,tags:['인기1위','접이식']},
+      {name:'도노도노 PVC매트',pct:34,tags:['세척편리']},
+      {name:'아이코닉 층간소음매트',pct:23,tags:['두꺼움']}]},
+    {name:'치발기',icon:'🦷',desc:'이가 나기 시작할 때',votes:223,picks:[
+      {name:'소피 기린 치발기',pct:44,tags:['천연고무']},
+      {name:'누크 냉장 치발기',pct:34,tags:['쿨링']},
+      {name:'에디슨 치발기',pct:22,tags:['가성비']}]}
+  ]},
+  { id:'7-12m', name:'7-12개월', icon:'🧸', items:[
+    {name:'걸음마 보조기',icon:'🚶',desc:'걸음마 시작 시기',votes:289,picks:[
+      {name:'브이텍 걸음마학습기',pct:44,tags:['다기능']},
+      {name:'피셔프라이스 보행기',pct:33,tags:['안전인증']},
+      {name:'하페 걸음마 수레',pct:23,tags:['원목']}]},
+    {name:'아기 간식',icon:'🍘',desc:'쌀과자·퍼프 등 핑거푸드',votes:412,picks:[
+      {name:'떡뻥 유기농 쌀과자',pct:45,tags:['유기농','인기']},
+      {name:'베베쿡 퍼프',pct:33,tags:['무첨가']},
+      {name:'일동후디스 아이간식',pct:22,tags:['다양한맛']}]},
+    {name:'아기 식기세트',icon:'🍽️',desc:'흡착 그릇·칸막이 식판',votes:334,picks:[
+      {name:'에즈피지 미니매트',pct:43,tags:['실리콘','흡착']},
+      {name:'먹깨비 흡착식판',pct:34,tags:['칸막이']},
+      {name:'옥소 흡착 그릇',pct:23,tags:['뚜껑포함']}]},
+    {name:'놀이울타리',icon:'🏰',desc:'안전한 놀이 공간',votes:278,picks:[
+      {name:'아이팜 베이비룸',pct:44,tags:['인기','확장가능']},
+      {name:'리치웰 울타리',pct:33,tags:['가성비']},
+      {name:'세이지폴 베이비룸',pct:23,tags:['디자인']}]},
+    {name:'아기 물병/빨대컵',icon:'🥤',desc:'빨대컵으로 음수 연습',votes:312,picks:[
+      {name:'리치웰 빨대컵',pct:44,tags:['인기1위']},
+      {name:'누크 액티브컵',pct:33,tags:['역류방지']},
+      {name:'먹깨비 빨대컵',pct:23,tags:['가성비']}]},
+    {name:'아기 신발',icon:'👟',desc:'첫 걸음마 신발',votes:234,picks:[
+      {name:'뉴발란스 996 키즈',pct:42,tags:['발달지지']},
+      {name:'아식스 아이다호',pct:35,tags:['일본인기']},
+      {name:'이퓨 첫신발',pct:23,tags:['부드러움']}]},
+    {name:'선크림',icon:'☀️',desc:'외출 시 자외선 차단',votes:267,picks:[
+      {name:'에토랑 베이비 선크림',pct:44,tags:['물리차단']},
+      {name:'닥터지 그린마일드',pct:34,tags:['순한성분']},
+      {name:'마더케이 선크림',pct:22,tags:['가성비']}]}
+  ]},
+  { id:'after-1yr', name:'돌이후', icon:'🎂', items:[
+    {name:'킥보드/세발자전거',icon:'🛴',desc:'대근육 발달 놀이',votes:234,picks:[
+      {name:'마이크로 미니 킥보드',pct:45,tags:['인기1위']},
+      {name:'스마트라이크 세발기',pct:33,tags:['성장형']},
+      {name:'옥소 마이라이드',pct:22,tags:['가성비']}]},
+    {name:'놀이매트 (두꺼운)',icon:'🏠',desc:'뛰어놀 수 있는 두꺼운 매트',votes:289,picks:[
+      {name:'알집 칼라폴더 4단',pct:44,tags:['두꺼움','접이식']},
+      {name:'도노도노 놀이방매트',pct:34,tags:['세척편리']},
+      {name:'파크론 실리콘매트',pct:22,tags:['프리미엄']}]},
+    {name:'아기 가방/배낭',icon:'🎒',desc:'외출 시 아기 소지품',votes:178,picks:[
+      {name:'스킵홉 동물 배낭',pct:46,tags:['귀여운디자인']},
+      {name:'미니멜리사 배낭',pct:32,tags:['방수']},
+      {name:'코지코트 배낭',pct:22,tags:['가성비']}]},
+    {name:'아기 식판',icon:'🍽️',desc:'혼자 먹기 연습용',votes:312,picks:[
+      {name:'먹깨비 흡착식판',pct:44,tags:['실리콘','흡착']},
+      {name:'에즈피지 해피매트',pct:34,tags:['인기']},
+      {name:'베베쿡 나눔식판',pct:22,tags:['스텐']}]},
+    {name:'칫솔/치약',icon:'🪥',desc:'첫 이빨 관리 시작',votes:267,picks:[
+      {name:'조르단 스텝1 칫솔',pct:45,tags:['첫칫솔','부드러움']},
+      {name:'2080 키즈 치약',pct:33,tags:['저불소']},
+      {name:'벨레다 어린이 치약',pct:22,tags:['천연성분']}]},
+    {name:'학습교구/장난감',icon:'📚',desc:'인지·언어 발달 자극',votes:345,picks:[
+      {name:'플레이도 클래식세트',pct:40,tags:['소근육']},
+      {name:'레고 듀플로',pct:35,tags:['창의력']},
+      {name:'한글나라 교구세트',pct:25,tags:['한글학습']}]}
+  ]}
 ];
 
-// ─── Open Vote Detail ───
-function openVoteDetail(idx){
-  var d = voteData[idx];
-  if(!d) return;
-  var html = '';
-  // 헤더
-  html += '<div class="vd-header"><h2>'+d.icon+' '+d.title+'</h2><p>'+d.count+'명 참여 · '+d.status+'</p></div>';
-  // 투표 항목
-  html += '<div style="padding:16px 0;">';
-  d.items.forEach(function(item){
-    html += '<div class="vd-item" onclick="voteSelect(this)">'+
-      '<div class="vd-bar" style="width:'+item.pct+'%;"></div>'+
-      '<div class="vd-icon">'+item.icon+'</div>'+
-      '<div class="vd-text"><h4>'+item.name+'</h4><p>'+item.desc+'</p></div>'+
-      '<div class="vd-pct">'+item.pct+'%</div></div>';
-  });
-  html += '<div class="vd-meta">같은 우주의 엄마 <strong>'+d.count+'명</strong>이 기준을 세웠어요</div>';
-  html += '</div>';
-  // CTA
-  html += '<div class="vd-cta" onclick="goSub(\'s-product-detail\')"><span style="font-size:18px;">🏅</span><div><div style="font-weight:700;">이 기준으로 고른 제품 보러가기</div><div style="font-size:10px;color:#B8860B;font-weight:400;">기준 충족 제품 '+d.products.length+'개를 골라봤어요</div></div><span style="margin-left:auto;">→</span></div>';
-  // 제품 목록
-  html += '<div style="padding:16px 0;"><div style="font-size:14px;font-weight:800;padding:0 14px 10px;">기준 충족 제품</div><div class="prod-scroll">';
-  d.products.forEach(function(p){
-    html += '<div class="prod-card" onclick="goSub(\'s-product-detail\')"><div class="prod-img">'+p.emoji+'<div class="prod-badge">기준충족</div></div><div class="prod-info"><h4>'+p.name+'</h4><div class="prod-price">'+p.price+'</div><div class="prod-tags">';
-    p.tags.forEach(function(t){ html += '<span class="prod-tag">'+t+'</span>'; });
-    html += '</div></div></div>';
-  });
-  html += '</div></div>';
+// ─── North Star: 시기별 정답지 ───
+var nsCurrentStage = 0;
+var nsCheckedItems = {};
 
-  document.getElementById('voteDetailBody').innerHTML = html;
-  goSub('s-vote-detail');
+function renderNorthStar(stageIdx) {
+  nsCurrentStage = stageIdx;
+  var stage = northStarData[stageIdx];
+  if(!stage) return;
+  // 탭 렌더링
+  var tabsHtml = '';
+  northStarData.forEach(function(s, i){
+    tabsHtml += '<div class="ns-stage-tab'+(i===stageIdx?' active':'')+'" onclick="renderNorthStar('+i+')">'+s.icon+' '+s.name+'</div>';
+  });
+  document.getElementById('nsStageTabs').innerHTML = tabsHtml;
+  // 체크리스트 렌더링
+  var html = '<div class="ns-section-title">'+stage.icon+' '+stage.name+' 체크리스트 <span>'+stage.items.length+'개 항목</span></div>';
+  stage.items.forEach(function(item, idx){
+    var key = stageIdx+'-'+idx;
+    var isChecked = nsCheckedItems[key] ? ' checked' : '';
+    var rankClasses = ['gold','silver','bronze'];
+    html += '<div class="ns-item'+isChecked+'" id="ns-'+key+'">';
+    html += '<div class="ns-item-row" onclick="toggleNsItem(this.parentElement)">';
+    html += '<div class="ns-item-check" onclick="toggleNsCheck(this,event)">'+(nsCheckedItems[key]?'✓':'')+'</div>';
+    html += '<div class="ns-item-icon">'+item.icon+'</div>';
+    html += '<div class="ns-item-info"><div class="ns-item-name">'+item.name+'</div>';
+    html += '<div class="ns-item-meta">'+item.votes+'명 참여 · 1위 '+item.picks[0].name+' '+item.picks[0].pct+'%</div></div>';
+    html += '<div class="ns-item-arrow">▶</div></div>';
+    // 인라인 랭킹
+    html += '<div class="ns-picks">';
+    item.picks.forEach(function(pick, pi){
+      html += '<div class="ns-pick"><div class="ns-rank '+rankClasses[pi]+'">'+(pi+1)+'</div>';
+      html += '<div class="ns-pick-info"><div class="ns-pick-name">'+pick.name+'</div>';
+      html += '<div class="ns-pick-tags">';
+      pick.tags.forEach(function(t){ html += '<span class="ns-pick-tag">'+t+'</span>'; });
+      html += '</div></div><div class="ns-pick-pct">'+pick.pct+'%</div></div>';
+    });
+    html += '<div class="ns-vote-btn" onclick="nsVote('+stageIdx+','+idx+',event)">나도 투표하기</div>';
+    html += '</div></div>';
+  });
+  document.getElementById('nsChecklist').innerHTML = html;
+  // 스크롤 탭 보이도록
+  var activeTab = document.querySelector('.ns-stage-tab.active');
+  if(activeTab) activeTab.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
 }
 
-// ─── Vote Detail Select ───
-function voteSelect(el) {
-  var container = el.parentElement;
-  if(container.classList.contains('vote-done')) return;
-  container.querySelectorAll('.vd-item').forEach(function(i){ i.classList.remove('voted'); });
-  el.classList.add('voted');
-  container.classList.add('vote-done');
-  var pctEl = el.querySelector('.vd-pct');
-  pctEl.textContent = pctEl.textContent + ' ✓';
-  var meta = container.querySelector('.vd-meta');
-  if(meta) meta.innerHTML = meta.innerHTML.replace('기준을 세웠어요', '기준을 세웠어요 <span style="color:var(--pri);font-weight:700;">· 나도 참여 ✓</span>');
-  showToast('기준 투표 완료! 🗳️');
+function toggleNsItem(el) {
+  if(el.classList.contains('open')){
+    el.classList.remove('open');
+  } else {
+    // 다른 열린 항목 닫기
+    document.querySelectorAll('.ns-item.open').forEach(function(o){ o.classList.remove('open'); });
+    el.classList.add('open');
+  }
 }
+
+function toggleNsCheck(el, e) {
+  e.stopPropagation();
+  var item = el.closest('.ns-item');
+  var id = item.id.replace('ns-','');
+  if(nsCheckedItems[id]){
+    delete nsCheckedItems[id];
+    item.classList.remove('checked');
+    el.textContent = '';
+  } else {
+    nsCheckedItems[id] = true;
+    item.classList.add('checked');
+    el.textContent = '✓';
+  }
+}
+
+function nsVote(stageIdx, itemIdx, e) {
+  e.stopPropagation();
+  showToast(northStarData[stageIdx].items[itemIdx].name+' 투표 완료! ⭐');
+}
+
+// 초기 렌더링
+renderNorthStar(0);
 
 // ─── Toast ───
 function showToast(msg) {
@@ -4828,21 +4716,7 @@ function submitPost() {
   }, 400);
 }
 
-// ─── 스탠다드 screen tab switch ───
-var stdScreenTabs = document.querySelectorAll('#std-screen-tabs .seg-tab');
-var stdScreenPanels = ['std-screen-vote','std-screen-approved'];
-stdScreenTabs.forEach(function(tab, idx){
-  tab.addEventListener('click', function(){
-    stdScreenTabs.forEach(function(t){ t.classList.remove('active'); });
-    tab.classList.add('active');
-    stdScreenPanels.forEach(function(id){
-      var el = document.getElementById(id);
-      if(el) el.style.display = 'none';
-    });
-    var target = document.getElementById(stdScreenPanels[idx]);
-    if(target) target.style.display = '';
-  });
-});
+// (스탠다드 탭 전환 로직 삭제됨 — 북극성은 renderNorthStar()로 대체)
 
 // ─── 알림 탭 전환 ───
 document.querySelectorAll('#notiTabs .noti-tab').forEach(function(tab){
