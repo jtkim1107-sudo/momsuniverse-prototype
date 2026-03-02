@@ -1740,6 +1740,10 @@
   .noti-dot{width:8px;height:8px;border-radius:50%;background:var(--pri);flex-shrink:0;margin-top:6px;}
   .noti-empty{text-align:center;padding:50px 20px;color:var(--sub);}
   .noti-empty .emoji{font-size:48px;margin-bottom:12px;}
+  .noti-demo-banner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(135deg,#FFF8F0,#FBF0E8);border-bottom:1px solid var(--border);}
+  .noti-demo-info{display:flex;align-items:center;gap:10px;}
+  .noti-demo-btn{background:var(--pri);color:#fff;border:none;border-radius:20px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;}
+  .noti-demo-btn:active{transform:scale(0.95);opacity:0.9;}
 
   /* ═══════ 검색 화면 ═══════ */
   .search-overlay{position:absolute;inset:0;z-index:80;background:var(--bg);display:none;flex-direction:column;}
@@ -2812,6 +2816,18 @@
     <div class="screen sub-screen hidden-right" id="s-notifications">
       <div class="back-header" onclick="goBack()">
         <span class="arrow">←</span> 알림
+      </div>
+
+      <!-- 푸시 알림 데모 영역 -->
+      <div class="noti-demo-banner">
+        <div class="noti-demo-info">
+          <div style="font-size:20px;">🔔</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);">푸시 알림 미리보기</div>
+            <div style="font-size:11px;color:var(--sub);margin-top:2px;">실제 앱에서는 잠금화면·상단바에 표시돼요</div>
+          </div>
+        </div>
+        <button class="noti-demo-btn" onclick="demoPushNotification()">알림 보내기</button>
       </div>
 
       <div class="noti-tabs" id="notiTabs">
@@ -6988,6 +7004,37 @@ function handlePushClick(){
   var gotoTab = banner._goto;
   if(gotoTab) goTab(gotoTab);
 }
+// ─── 데모 푸시 버튼 ───
+var demoIdx = 0;
+function demoPushNotification(){
+  var msg = pushMessages[demoIdx % pushMessages.length];
+  demoIdx++;
+  // 알림센터 목록 상단에 새 항목 추가
+  var allPanel = document.getElementById('noti-all');
+  if(allPanel){
+    var bgMap = {'💬':'#F5EDE4','⭐':'#FBF5F0','🎁':'#FBF5F0','👶':'#E3F2FD','🔥':'#FBF5F0','💛':'#F5EDE4','🗳️':'#FCE4EC','🌳':'#EEF2EA'};
+    var bg = bgMap[msg.icon] || '#F5EDE4';
+    var tabMap = {'s-community':'tab:0','s-standard':'tab:1','s-coparenting':'tab:2','s-market':'tab:3','s-info':'tab:4','s-profile':'tab:5'};
+    var gotoVal = tabMap[msg.goto] || 'tab:0';
+    var newItem = document.createElement('div');
+    newItem.className = 'noti-item unread';
+    newItem.setAttribute('data-goto', gotoVal);
+    newItem.innerHTML = '<div class="noti-icon" style="background:'+bg+';">'+msg.icon+'</div>'
+      +'<div class="noti-content">'
+      +'<div class="noti-title">'+msg.title+'</div>'
+      +'<div class="noti-desc">'+msg.body+'</div>'
+      +'<div class="noti-time">방금 전</div>'
+      +'</div><div class="noti-dot"></div>';
+    allPanel.insertBefore(newItem, allPanel.firstChild);
+  }
+  // 뱃지 표시
+  var bellBadge = document.querySelector('#appHeader .hi + span');
+  // goBack → 잠시 후 배너 표시
+  goBack();
+  setTimeout(function(){ showPushBanner(msg); }, 400);
+  showToast('📱 푸시 알림이 발송되었어요!');
+}
+
 // 온보딩 완료 후 랜덤 푸시 시작
 function startPushSimulation(){
   setInterval(function(){
