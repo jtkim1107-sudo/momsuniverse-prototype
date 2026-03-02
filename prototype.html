@@ -79,8 +79,8 @@
   }
   .nav-btn{
     display:flex;flex-direction:column;align-items:center;gap:1px;
-    font-size:8px;color:var(--sub);font-weight:500;
-    background:none;border:none;cursor:pointer;padding:4px 4px;
+    font-size:10px;color:var(--sub);font-weight:500;
+    background:none;border:none;cursor:pointer;padding:8px 4px 4px;
     position:relative;transition:color .2s;
   }
   .nav-btn .icon{display:flex;align-items:center;justify-content:center;height:22px;transition:transform .2s;}
@@ -117,7 +117,7 @@
     background:linear-gradient(135deg,var(--pri),#B8845E);
     color:#fff;border:none;cursor:pointer;
     display:flex;align-items:center;justify-content:center;
-    font-size:24px;box-shadow:0 4px 16px rgba(108,92,231,0.4);
+    font-size:24px;box-shadow:0 4px 16px rgba(168,119,80,0.4);
     transition:transform .15s,box-shadow .15s;
   }
   .fab-write:active{transform:scale(0.9);}
@@ -210,7 +210,7 @@
   .live-banner{
     margin:0 14px 10px;padding:8px 14px;
     background:#FAF7F4;
-    border-radius:12px;border:1px solid #E8E0D8;
+    border-radius:12px;border:1px solid var(--border);
     display:flex;align-items:center;gap:8px;flex-wrap:wrap;
     font-size:12px;color:var(--sub);font-weight:600;
   }
@@ -271,7 +271,7 @@
   .month-match{
     margin:0 14px 10px;padding:10px 14px;
     background:linear-gradient(135deg,#FBF5F0,#FAF7F4);
-    border-radius:12px;border:1px solid #E8E0D8;
+    border-radius:12px;border:1px solid var(--border);
     display:flex;align-items:center;gap:10px;
     cursor:pointer;transition:transform .15s;
   }
@@ -338,7 +338,7 @@
   .p-avatar.g2{background:linear-gradient(135deg,#9CB5C4,#7A9AAE);}
   .p-avatar.g3{background:linear-gradient(135deg,#D4A88C,#C48B8B);}
   .p-avatar.g4{background:linear-gradient(135deg,#00B894,#55EFC4);}
-  .p-name{font-size:13px;font-weight:700;cursor:pointer;}
+  .p-name{font-size:13px;font-weight:700;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .p-meta{font-size:10px;color:var(--sub);}
   .p-tier{font-size:9px;padding:2px 6px;border-radius:6px;font-weight:700;}
   .p-tier.t1{background:#F5EDE4;color:var(--pri);}
@@ -363,7 +363,7 @@
   .react-btn .ri svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
   .react-btn.on .ri svg{fill:currentColor;}
   .react-btn .rc{font-size:9px;font-weight:700;}
-  .react-btn .rl{font-size:7px;color:var(--sub);font-weight:500;}
+  .react-btn .rl{font-size:10px;color:var(--sub);font-weight:500;}
 
   /* ═══════ EMPATHY VOTE ═══════ */
   .empathy{
@@ -462,7 +462,7 @@
     margin-left:auto;
     display:inline-flex;align-items:center;gap:4px;
     background:linear-gradient(135deg,#FAF7F4,#FAF7F4);
-    border:1px solid #E8E0D8;
+    border:1px solid var(--border);
     padding:5px 12px;border-radius:16px;
     font-size:11px;font-weight:700;color:#B8704A;
   }
@@ -570,7 +570,7 @@
   }
   .vd-item:active{transform:scale(0.98);}
   .vd-item.voted{border-color:var(--pri);background:#FAF7F4;}
-  .vd-bar{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(108,92,231,0.1),rgba(108,92,231,0.02));transition:width 1s ease;}
+  .vd-bar{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(168,119,80,0.1),rgba(168,119,80,0.02));transition:width 1s ease;}
   .vd-icon{font-size:22px;position:relative;z-index:1;}
   .vd-text{flex:1;position:relative;z-index:1;}
   .vd-text h4{font-size:14px;font-weight:600;}
@@ -797,7 +797,7 @@
   .baby-card-info{flex:1;}
   .baby-card-info h4{font-size:15px;font-weight:800;}
   .baby-card-info p{font-size:11px;color:var(--sub);margin-top:2px;}
-  .baby-card-dday{text-align:center;background:linear-gradient(135deg,#FBF5F0,#E8E0D8);padding:8px 12px;border-radius:12px;flex-shrink:0;}
+  .baby-card-dday{text-align:center;background:linear-gradient(135deg,#FBF5F0,var(--border));padding:8px 12px;border-radius:12px;flex-shrink:0;}
   .dday-label{font-size:9px;color:#B8860B;font-weight:600;}
   .dday-num{font-size:16px;font-weight:900;color:#B8704A;}
   .baby-progress-row{display:flex;align-items:center;gap:16px;margin-bottom:14px;padding:12px;background:#FAF7F4;border-radius:12px;}
@@ -815,7 +815,7 @@
   .baby-badges{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 0 12px;-webkit-overflow-scrolling:touch;}
   .baby-badges::-webkit-scrollbar{display:none;}
   .baby-badge{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:56px;padding:8px 4px;border-radius:10px;background:#FAF7F4;border:1px solid var(--border);}
-  .baby-badge.earned{background:linear-gradient(135deg,#FAF7F4,#FAF7F4);border-color:#E8E0D8;}
+  .baby-badge.earned{background:linear-gradient(135deg,#FAF7F4,#FAF7F4);border-color:var(--border);}
   .baby-badge.locked{opacity:.4;}
   .bb-icon{font-size:20px;}
   .bb-label{font-size:8px;font-weight:600;color:var(--text);white-space:nowrap;}
@@ -829,7 +829,7 @@
   .baby-cta:active{transform:scale(.98);}
 
   /* ═══════ INFO PERSONALIZED ═══════ */
-  .info-personalized{margin:0 14px 14px;background:linear-gradient(135deg,#F5EDE4,#EDE4D8);border-radius:16px;padding:14px;border:1.5px solid #E8E0D8;}
+  .info-personalized{margin:0 14px 14px;background:linear-gradient(135deg,#F5EDE4,#EDE4D8);border-radius:16px;padding:14px;border:1.5px solid var(--border);}
   .ip-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
   .ip-emoji{font-size:28px;}
   .ip-text{flex:1;}
@@ -854,7 +854,7 @@
     display:flex;align-items:center;justify-content:center;gap:8px;
     padding:20px;margin:0 0 16px;
     background:linear-gradient(135deg,#FAF7F4,#FAF7F4);
-    border:1px solid #E8E0D8;border-radius:16px;text-align:center;
+    border:1px solid var(--border);border-radius:16px;text-align:center;
   }
   .star-summary .star-total{font-size:28px;font-weight:900;color:#B8704A;}
   .star-summary .star-label{font-size:12px;color:#B8860B;font-weight:600;}
@@ -1259,7 +1259,7 @@
   .loc-search input:focus{border-color:var(--pri);}
   .loc-list{display:flex;flex-direction:column;gap:0;}
   .loc-item{padding:14px 12px;border-bottom:1px solid var(--border);font-size:14px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:background .15s;}
-  .loc-item:active{background:rgba(108,92,231,0.06);}
+  .loc-item:active{background:rgba(168,119,80,0.06);}
   .loc-item .loc-icon{font-size:16px;}
   .loc-item .loc-name{font-weight:700;}
   .loc-item .loc-addr{font-size:11px;color:var(--sub);margin-top:2px;}
@@ -1272,7 +1272,7 @@
   .cp-card{background:#fff;border-radius:16px;padding:16px;margin-bottom:12px;border:1px solid var(--border);cursor:pointer;transition:transform .15s;}
   .cp-card:active{transform:scale(0.98);}
   .cp-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
-  .cp-card-title{font-size:15px;font-weight:800;color:var(--text);}
+  .cp-card-title{font-size:15px;font-weight:800;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .cp-card-badge{font-size:10px;padding:3px 10px;border-radius:12px;font-weight:700;}
   .cp-card-badge.open{background:#EEF2EA;color:#5B8060;}
   .cp-card-badge.full{background:#FBF5F0;color:#B8704A;}
@@ -1444,6 +1444,45 @@
   .app.secret-mode .hot-chart-body .hc-meta{color:#7A6858;}
   .app.secret-mode .hot-chart-score{background:#2A2320;color:#C8956C;}
 
+  /* Secret mode: bottom sheet */
+  .app.secret-mode .bottom-sheet{background:#2D2520;}
+  .app.secret-mode .bs-handle{background:#4A3F36;}
+  .app.secret-mode .pm-option{border-color:#4A3F36;}
+  .app.secret-mode .pm-label{color:#E8DDD4;}
+  .app.secret-mode .pm-desc{color:#7A6858;}
+  .app.secret-mode .pm-icon{color:#E8DDD4;}
+
+  /* Secret mode: report UI */
+  .app.secret-mode .report-title{color:#E8DDD4;}
+  .app.secret-mode .report-desc{color:#7A6858;}
+  .app.secret-mode .report-option{border-color:#4A3F36;}
+  .app.secret-mode .ro-icon{background:#3D3229;}
+  .app.secret-mode .ro-text h5{color:#E8DDD4;}
+  .app.secret-mode .ro-text p{color:#7A6858;}
+  .app.secret-mode .ro-arrow{color:#7A6858;}
+  .app.secret-mode .report-textarea{background:#2D2520;border-color:#4A3F36;color:#E8DDD4;}
+  .app.secret-mode .report-textarea:focus{border-color:var(--pri);}
+  .app.secret-mode .report-complete{color:#E8DDD4;}
+  .app.secret-mode .rc-title{color:#E8DDD4;}
+  .app.secret-mode .rc-desc{color:#7A6858;}
+
+  /* Secret mode: search overlay */
+  .app.secret-mode .search-overlay{background:#2A2320;}
+  .app.secret-mode .search-top{background:#2D2520;border-color:#4A3F36;}
+  .app.secret-mode .search-top .back{color:#E8DDD4;}
+  .app.secret-mode .search-top input{background:#2D2520;border-color:#4A3F36;color:#E8DDD4;}
+  .app.secret-mode .search-body{background:#2A2320;}
+  .app.secret-mode .search-section-title{color:#E8DDD4;}
+  .app.secret-mode .search-tag{background:#3D3229;border-color:#4A3F36;color:#E8DDD4;}
+  .app.secret-mode .search-result{background:#2D2520;border-color:#4A3F36;}
+  .app.secret-mode .search-result-title{color:#E8DDD4;}
+  .app.secret-mode .search-result-desc{color:#7A6858;}
+  .app.secret-mode .search-result-meta{color:#7A6858;}
+  .app.secret-mode .search-recent{border-color:#4A3F36;}
+  .app.secret-mode .search-recent .text{color:#E8DDD4;}
+  .app.secret-mode .search-recent .time{color:#7A6858;}
+  .app.secret-mode .search-empty{color:#7A6858;}
+
   /* ═══════ 온보딩 ═══════ */
   .onboarding{
     position:fixed;inset:0;z-index:200;
@@ -1582,11 +1621,11 @@
   .dm-list-wrap{flex:1;overflow-y:auto;}
   .dm-list-empty{text-align:center;padding:80px 20px;}
   .dm-list-item{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
-  .dm-list-item:active{background:rgba(108,92,231,0.05);}
-  .dm-list-item.unread{background:rgba(108,92,231,0.04);}
+  .dm-list-item:active{background:rgba(168,119,80,0.05);}
+  .dm-list-item.unread{background:rgba(168,119,80,0.04);}
   .dml-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
   .dml-content{flex:1;min-width:0;}
-  .dml-name{font-size:13px;font-weight:700;color:var(--text);}
+  .dml-name{font-size:13px;font-weight:700;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .dml-preview{font-size:12px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px;}
   .dml-meta{text-align:right;flex-shrink:0;}
   .dml-time{font-size:10px;color:var(--sub);}
@@ -1607,11 +1646,11 @@
   .noti-panel{display:none;}
   .noti-panel.active{display:block;}
   .noti-item{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);align-items:flex-start;cursor:pointer;transition:background .15s;}
-  .noti-item:active{background:rgba(108,92,231,0.05);}
-  .noti-item.unread{background:rgba(108,92,231,0.04);}
+  .noti-item:active{background:rgba(168,119,80,0.05);}
+  .noti-item.unread{background:rgba(168,119,80,0.04);}
   .noti-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
   .noti-content{flex:1;min-width:0;}
-  .noti-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.4;}
+  .noti-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .noti-desc{font-size:12px;color:var(--sub);line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .noti-time{font-size:10px;color:var(--sub);margin-top:4px;}
   .noti-dot{width:8px;height:8px;border-radius:50%;background:var(--pri);flex-shrink:0;margin-top:6px;}
@@ -1663,7 +1702,7 @@
 
   /* ═══════ DESKTOP WRAPPER ═══════ */
   @media(min-width:500px){
-    body{background:#1A1733;display:flex;align-items:center;justify-content:center;}
+    body{background:#2A2320;display:flex;align-items:center;justify-content:center;}
     .app{
       width:390px;height:844px;border-radius:36px;overflow:hidden;
       box-shadow:0 20px 60px rgba(0,0,0,0.5),inset 0 0 0 2px rgba(255,255,255,0.1);
@@ -1763,7 +1802,7 @@
           <div class="verify-photo-grid">
             <div class="vp" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">🌳</div>
             <div class="vp" style="background:linear-gradient(135deg,#FAF7F4,#FFECB3);">👶</div>
-            <div class="vp" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">🍪</div>
+            <div class="vp" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">🍪</div>
           </div>
           <div class="verify-group-card">
             <div class="vg-info"><div class="vg-name">🌳 강남 놀이터 탐험대</div><div class="vg-meta">📍 강남구 대치동 · 멤버 8명 · 매주 수요일</div></div>
@@ -1968,15 +2007,15 @@
           </div>
           <div class="ip-cards" id="ipCards"></div>
         </div>
-        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">📊</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>11개월 아기 발달 체크리스트</h4><p>대근육·소근육·언어·사회성 발달 단계별 확인</p></div><div class="info-card-tags"><span class="info-tag">11개월</span><span class="info-tag">발달</span></div></div>
-        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#FBF5F0,#E8E0D8);">🍚</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 도윤맘 외 2명 참여</span></div><div class="info-card-body"><h4>이유식 시기별 완벽 가이드</h4><p>초기·중기·후기·완료기 단계별 식단과 주의사항</p></div><div class="info-card-tags"><span class="info-tag">이유식</span><span class="info-tag">영양</span></div></div>
+        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">📊</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>11개월 아기 발달 체크리스트</h4><p>대근육·소근육·언어·사회성 발달 단계별 확인</p></div><div class="info-card-tags"><span class="info-tag">11개월</span><span class="info-tag">발달</span></div></div>
+        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">🍚</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 도윤맘 외 2명 참여</span></div><div class="info-card-body"><h4>이유식 시기별 완벽 가이드</h4><p>초기·중기·후기·완료기 단계별 식단과 주의사항</p></div><div class="info-card-tags"><span class="info-tag">이유식</span><span class="info-tag">영양</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">💉</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>예방접종 스케줄 총정리</h4><p>BCG부터 인플루엔자까지 시기별 접종 안내</p></div><div class="info-card-tags"><span class="info-tag">예방접종</span><span class="info-tag">건강</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F5EDE4,#E8D5C8);">😴</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 서연맘 외 4명 참여</span></div><div class="info-card-body"><h4>수면교육, 언제 어떻게 시작할까?</h4><p>퍼버법·안아재우기·스스로잠 비교 분석</p></div><div class="info-card-tags"><span class="info-tag">수면</span><span class="info-tag">생활</span></div></div>
       </div>
 
       <!-- 발달 -->
       <div class="comm-tab-content" id="info-dev">
-        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">📊</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>11개월 아기 발달 체크리스트</h4><p>대근육·소근육·언어·사회성 발달 단계별 확인</p></div><div class="info-card-tags"><span class="info-tag">11개월</span><span class="info-tag">발달</span></div></div>
+        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">📊</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>11개월 아기 발달 체크리스트</h4><p>대근육·소근육·언어·사회성 발달 단계별 확인</p></div><div class="info-card-tags"><span class="info-tag">11개월</span><span class="info-tag">발달</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#FAF7F4,#FAF7F4);">🧒</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 수아맘 외 3명 참여</span></div><div class="info-card-body"><h4>월령별 대근육 발달 이정표</h4><p>목 가누기 → 뒤집기 → 앉기 → 기기 → 걷기</p></div><div class="info-card-tags"><span class="info-tag">대근육</span><span class="info-tag">발달</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F5EDE4,#D4A88C);">🗣️</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>아기 언어 발달 촉진법</h4><p>옹알이부터 첫 단어까지, 월령별 언어 자극 방법</p></div><div class="info-card-tags"><span class="info-tag">언어발달</span><span class="info-tag">12개월</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0E8DF,#9FA8DA);">🧩</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 도윤맘 외 2명 참여</span></div><div class="info-card-body"><h4>소근육 발달을 위한 놀이 10가지</h4><p>손가락 힘부터 젓가락 잡기까지 단계별 놀이법</p></div><div class="info-card-tags"><span class="info-tag">소근육</span><span class="info-tag">놀이</span></div></div>
@@ -1986,16 +2025,16 @@
       <div class="comm-tab-content" id="info-health">
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">💉</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>예방접종 스케줄 총정리</h4><p>BCG부터 인플루엔자까지 시기별 접종 안내</p></div><div class="info-card-tags"><span class="info-tag">예방접종</span><span class="info-tag">필수</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#FBF5F0,#FFCDD2);">🤒</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 하은맘 외 2명 참여</span></div><div class="info-card-body"><h4>아기 열 날 때 응급 대처법</h4><p>체온별 대처법, 해열제 복용 가이드, 병원 가야할 때</p></div><div class="info-card-tags"><span class="info-tag">응급</span><span class="info-tag">발열</span></div></div>
-        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">🏥</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>영유아 건강검진 시기와 항목</h4><p>무료 건강검진 일정, 검사 항목, 준비물 안내</p></div><div class="info-card-tags"><span class="info-tag">건강검진</span><span class="info-tag">무료</span></div></div>
+        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">🏥</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>영유아 건강검진 시기와 항목</h4><p>무료 건강검진 일정, 검사 항목, 준비물 안내</p></div><div class="info-card-tags"><span class="info-tag">건강검진</span><span class="info-tag">무료</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F5EDE4,#E8D5C8);">🦷</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 수아맘 외 3명 참여</span></div><div class="info-card-body"><h4>이앓이 증상과 대처법</h4><p>잇몸 부음, 침 많이 흘림, 보채기 — 어떻게 도와줄까?</p></div><div class="info-card-tags"><span class="info-tag">이앓이</span><span class="info-tag">7~12개월</span></div></div>
       </div>
 
       <!-- 영양 -->
       <div class="comm-tab-content" id="info-nutrition">
-        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#FBF5F0,#E8E0D8);">🍚</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 도윤맘 외 2명 참여</span></div><div class="info-card-body"><h4>이유식 시기별 완벽 가이드</h4><p>초기·중기·후기·완료기 단계별 식단과 주의사항</p></div><div class="info-card-tags"><span class="info-tag">이유식</span><span class="info-tag">기초</span></div></div>
+        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">🍚</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 도윤맘 외 2명 참여</span></div><div class="info-card-body"><h4>이유식 시기별 완벽 가이드</h4><p>초기·중기·후기·완료기 단계별 식단과 주의사항</p></div><div class="info-card-tags"><span class="info-tag">이유식</span><span class="info-tag">기초</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">🥦</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 서연맘 외 4명 참여</span></div><div class="info-card-body"><h4>알레르기 유발 식품 안전 가이드</h4><p>계란, 우유, 밀, 견과류 — 언제 어떻게 시작할까?</p></div><div class="info-card-tags"><span class="info-tag">알레르기</span><span class="info-tag">이유식</span></div></div>
         <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#FAF7F4,#FAF7F4);">🍼</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 민준맘 외 3명 참여</span></div><div class="info-card-body"><h4>분유에서 우유로 전환 가이드</h4><p>12개월 전후 우유 전환 타이밍과 주의사항</p></div><div class="info-card-tags"><span class="info-tag">우유전환</span><span class="info-tag">12개월</span></div></div>
-        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">🥄</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 도윤맘 외 2명 참여</span></div><div class="info-card-body"><h4>아기 철분 부족 신호와 보충법</h4><p>6개월 이후 필수! 철분 많은 이유식 레시피</p></div><div class="info-card-tags"><span class="info-tag">철분</span><span class="info-tag">영양</span></div></div>
+        <div class="info-card"><div class="info-card-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">🥄</div><div class="info-card-author"><span class="ica-avatar">✏️</span><span class="ica-name">엄마의우주</span><span class="ica-badge">에디터</span><span class="ica-collab">· 도윤맘 외 2명 참여</span></div><div class="info-card-body"><h4>아기 철분 부족 신호와 보충법</h4><p>6개월 이후 필수! 철분 많은 이유식 레시피</p></div><div class="info-card-tags"><span class="info-tag">철분</span><span class="info-tag">영양</span></div></div>
       </div>
     </div>
 
@@ -2020,7 +2059,7 @@
         <!-- 카테고리 1: 아기 로션 -->
         <div class="vote-category" onclick="openVoteDetail(0)">
           <div class="vc-top">
-            <div class="vc-icon" style="background:linear-gradient(135deg,#FBF5F0,#E8E0D8);">🧴</div>
+            <div class="vc-icon" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">🧴</div>
             <div class="vc-info">
               <h4>아기 로션 기준 세우기</h4>
               <p>보습력 vs 성분 vs 가성비 — 뭐가 가장 중요해요?</p>
@@ -2062,7 +2101,7 @@
         <!-- 카테고리 3: 기저귀 -->
         <div class="vote-category" onclick="openVoteDetail(2)">
           <div class="vc-top">
-            <div class="vc-icon" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">👶</div>
+            <div class="vc-icon" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">👶</div>
             <div class="vc-info">
               <h4>기저귀 기준 세우기</h4>
               <p>흡수력 vs 피부자극 vs 가격 — 투표 중!</p>
@@ -2130,7 +2169,7 @@
           <div class="sec-title">🧴 아기 로션 인정템 <span style="font-size:11px;color:var(--sub);font-weight:500;">286명이 세운 기준</span></div>
           <div class="approved-scroll">
             <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#FBF5F0,#E8E0D8);">🧴<div class="a-badge">🏅 인정템</div></div>
+              <div class="approved-card-img" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">🧴<div class="a-badge">🏅 인정템</div></div>
               <div class="approved-card-body">
                 <div class="a-criteria">✓ 기준 4/4 충족</div>
                 <h5>아토팜 MLE 크림 로션 300ml</h5>
@@ -2161,7 +2200,7 @@
           <div class="sec-title">🧻 아기 물티슈 인정템 <span style="font-size:11px;color:var(--sub);font-weight:500;">412명이 세운 기준</span></div>
           <div class="approved-scroll">
             <div class="approved-card" onclick="goSub('s-product-detail')">
-              <div class="approved-card-img" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">🧻<div class="a-badge">🏅 인정템</div></div>
+              <div class="approved-card-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">🧻<div class="a-badge">🏅 인정템</div></div>
               <div class="approved-card-body">
                 <div class="a-criteria">✓ 기준 5/5 충족</div>
                 <h5>마더케이 순수물 아기물티슈</h5>
@@ -2465,8 +2504,8 @@
           </div>
         </div>
 
-        <div class="std-card" onclick="openReviewPromise({emoji:'🧴',bg:'linear-gradient(135deg,#F0EBE4,#E8E0D8)',brand:'아토팜',name:'MLE 크림 로션 300ml 체험 리뷰',period:'03/05 ~ 03/25',slots:'총 10명',stars:'15조각',dest:'쿠팡 리뷰',applicants:'87명이 응모했어요',status:'live',info:'아토팜 MLE 크림 로션 300ml\n피부과 테스트 완료 · EWG 그린등급\n무향 · 보습 지속 12시간\n정가 24,000원 상당',conditions:['제품 수령 후 7일 이내 리뷰 작성','쿠팡에 솔직한 사용 후기 등록','사진 3장 이상 포함 (실사용 사진)','최소 100자 이상 작성']})">
-          <div class="std-card-img" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">
+        <div class="std-card" onclick="openReviewPromise({emoji:'🧴',bg:'linear-gradient(135deg,#F0EBE4,var(--border))',brand:'아토팜',name:'MLE 크림 로션 300ml 체험 리뷰',period:'03/05 ~ 03/25',slots:'총 10명',stars:'15조각',dest:'쿠팡 리뷰',applicants:'87명이 응모했어요',status:'live',info:'아토팜 MLE 크림 로션 300ml\n피부과 테스트 완료 · EWG 그린등급\n무향 · 보습 지속 12시간\n정가 24,000원 상당',conditions:['제품 수령 후 7일 이내 리뷰 작성','쿠팡에 솔직한 사용 후기 등록','사진 3장 이상 포함 (실사용 사진)','최소 100자 이상 작성']})">
+          <div class="std-card-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">
             🧴
             <div class="std-card-timer">⏰ 3d 08h 15m</div>
             <div class="std-card-status live">응모중</div>
@@ -2544,7 +2583,7 @@
       <div id="std-tab-exchange" style="padding:12px 0 0;display:none;">
         <div class="std-grid">
           <div class="std-grid-card">
-            <div class="std-grid-img" style="background:linear-gradient(135deg,#FBF5F0,#E8E0D8);">
+            <div class="std-grid-img" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">
               🧴
               <div class="left-tag">5개 남음</div>
             </div>
@@ -2566,7 +2605,7 @@
             </div>
           </div>
           <div class="std-grid-card">
-            <div class="std-grid-img" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">
+            <div class="std-grid-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">
               👶
               <div class="left-tag">3개 남음</div>
             </div>
@@ -2598,7 +2637,7 @@
           이 우주에 처음 오신 엄마들을 위한<br>특별 웰컴 혜택이 준비되어 있어요!
         </div>
         <div class="std-card">
-          <div class="std-card-img" style="background:linear-gradient(135deg,#F5EDE4,#E8E0D8);">
+          <div class="std-card-img" style="background:linear-gradient(135deg,#F5EDE4,var(--border));">
             🎁
             <div class="std-card-status soon">신규회원</div>
           </div>
@@ -3203,7 +3242,7 @@
       <!-- 월령 정보 -->
       <div class="lounge-panel" id="lounge-info">
         <div style="padding:14px;">
-          <div style="background:linear-gradient(135deg,#FBF5F0,#E8E0D8);border-radius:16px;padding:18px;margin-bottom:12px;">
+          <div style="background:linear-gradient(135deg,#FBF5F0,var(--border));border-radius:16px;padding:18px;margin-bottom:12px;">
             <div style="font-size:14px;font-weight:800;margin-bottom:8px;">📊 11개월 발달 기준</div>
             <div style="font-size:12px;line-height:2;color:var(--text);">
               ✅ 혼자 잡고 서기<br>
@@ -3226,7 +3265,7 @@
               ⚠️ 꿀, 생우유 아직 금지!
             </div>
           </div>
-          <div style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);border-radius:16px;padding:18px;">
+          <div style="background:linear-gradient(135deg,#F0EBE4,var(--border));border-radius:16px;padding:18px;">
             <div style="font-size:14px;font-weight:800;margin-bottom:8px;">💉 예방접종 체크</div>
             <div style="font-size:12px;line-height:2;color:var(--text);">
               ✅ BCG (0개월)<br>
@@ -3606,7 +3645,7 @@
           </div>
           <div class="toggle-switch" onclick="this.classList.toggle('on')"></div>
         </div>
-        <div style="margin-top:20px;padding:14px;background:#FAF7F4;border-radius:12px;border:1px solid #E8E0D8;">
+        <div style="margin-top:20px;padding:14px;background:#FAF7F4;border-radius:12px;border:1px solid var(--border);">
           <div style="font-size:11px;color:#B8860B;line-height:1.7;">
             💡 <strong>야간 알림을 끄면</strong> 22시~8시 사이에는 푸시 알림이 오지 않아요. 아기와 함께 편안한 밤 보내세요 🌙
           </div>
@@ -4305,7 +4344,8 @@ function goTab(id, btn) {
 }
 
 function goSub(id) {
-  navHistory.push(currentTab);
+  var activeSub = document.querySelector('.sub-screen.active');
+  navHistory.push(activeSub ? activeSub.id : currentTab);
   var target = document.getElementById(id);
   if(target){
     target.scrollTop = 0;
@@ -4435,6 +4475,8 @@ function selectReportCategory(cat){
   document.getElementById('reportDetail').classList.add('show');
 }
 function submitReport(){
+  var reportText = document.getElementById('reportReasonText').value.trim();
+  if(!reportText){ showToast('신고 사유를 입력해주세요'); return; }
   document.getElementById('reportDetail').classList.remove('show');
   document.getElementById('reportComplete').classList.add('show');
   if(currentMenuPost){
@@ -4748,12 +4790,9 @@ function submitPost() {
     '<div class="post-head"><div class="p-avatar '+randomGrad+'">'+randomAvatar+'</div><div><div class="p-name">하은맘 <span style="font-size:9px;background:#F5EDE4;color:var(--pri);padding:2px 6px;border-radius:6px;font-weight:700;">'+writeCategory+'</span></div><div class="p-badges"><span class="p-tier t1">별맘</span> <span class="p-meta">11개월 · 방금</span></div></div><div class="p-more" onclick="event.stopPropagation();showPostMenu()">⋯</div></div>' +
     '<div class="p-body"><strong style="font-size:14px;">'+title+'</strong><br>'+bodyLines+'<br>'+tagHtml+'</div>' +
     '<div class="reactions">' +
-    '<button class="react-btn" onclick="toggleReact(this)"><div class="ri">😢</div><div class="rc">0</div><div class="rl">공감</div></button>' +
-    '<button class="react-btn" onclick="toggleReact(this)"><div class="ri">😂</div><div class="rc">0</div><div class="rl">ㅋㅋ</div></button>' +
-    '<button class="react-btn" onclick="toggleReact(this)"><div class="ri">💡</div><div class="rc">0</div><div class="rl">도움돼요</div></button>' +
-    '<button class="react-btn" onclick="toggleReact(this)"><div class="ri">💪</div><div class="rc">0</div><div class="rl">응원해요</div></button>' +
+    '<button class="react-btn" onclick="toggleReact(this)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="rc">0</div><div class="rl">좋아요</div></button>' +
     '<button class="react-btn" onclick="openPostDetail(this.parentElement.parentElement)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="rc">0</div><div class="rl">댓글</div></button>' +
-    '<button class="react-btn" onclick="sharePost(this)"><div class="ri">🔗</div><div class="rc"></div><div class="rl">공유</div></button></div></div>';
+    '<button class="react-btn" onclick="sharePost(this)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div><div class="rc"></div><div class="rl">공유</div></button></div></div>';
 
   var area = document.getElementById('new-posts-area');
   area.insertAdjacentHTML('afterbegin', postHtml);
@@ -4825,7 +4864,7 @@ document.getElementById('s-notifications').addEventListener('click', function(e)
     setTimeout(function(){
       var navBtns = document.querySelectorAll('.nav-btn');
       var tabIdx = parseInt(value);
-      var tabIds = ['s-community','s-info','s-standard','s-coparenting','s-market','s-profile'];
+      var tabIds = ['s-community','s-standard','s-coparenting','s-market','s-info','s-profile'];
       if(tabIds[tabIdx]) goTab(tabIds[tabIdx], navBtns[tabIdx]);
     }, 350);
   } else if(type === 'sub'){
@@ -5036,7 +5075,7 @@ document.querySelectorAll('#info-tabs .seg-tab').forEach(function(tab){
 // ─── 육아정보 아티클 데이터 & 상세 ───
 var infoArticles = {
   '11개월 아기 발달 체크리스트': {
-    emoji:'📊', grad:'linear-gradient(135deg,#F0EBE4,#E8E0D8)',
+    emoji:'📊', grad:'linear-gradient(135deg,#F0EBE4,var(--border))',
     tags:['11개월','발달','체크리스트'],
     authorName:'엄마의우주', authorAvatar:'✏️', authorGrad:'#C8956C,#DDB896', authorInfo:'에디터',
     contributors:[{name:'민준맘',avatar:'🦊',grad:'#D4836A,#B8704A'},{name:'하은맘',avatar:'🐥',grad:'#E8C97A,#D4A574'},{name:'서연맘',avatar:'👶',grad:'#9CB5C4,#7A9AAE'},{name:'수아맘',avatar:'🐰',grad:'#DDB896,#C8956C'}], date:'2025.02.15', readTime:'5분',
@@ -5049,7 +5088,7 @@ var infoArticles = {
     tip:'아기마다 발달 속도가 달라요. 체크리스트에 해당하지 않는 항목이 있어도 1~2개월 여유를 두고 지켜봐주세요. 걱정된다면 영유아 건강검진에서 상담 받으실 수 있어요!'
   },
   '이유식 시기별 완벽 가이드': {
-    emoji:'🍚', grad:'linear-gradient(135deg,#FBF5F0,#E8E0D8)',
+    emoji:'🍚', grad:'linear-gradient(135deg,#FBF5F0,var(--border))',
     tags:['이유식','영양','6개월'],
     authorName:'엄마의우주', authorAvatar:'✏️', authorGrad:'#C8956C,#DDB896', authorInfo:'에디터',
     contributors:[{name:'도윤맘',avatar:'🌻',grad:'#E8C97A,#D4A574'},{name:'민준맘',avatar:'🦊',grad:'#D4836A,#B8704A'},{name:'하은맘',avatar:'🐥',grad:'#E8C97A,#D4A574'}], date:'2025.02.10', readTime:'7분',
@@ -5140,7 +5179,7 @@ var infoArticles = {
     tip:'열이 나면 당황하기 쉽지만, 대부분의 발열은 바이러스 감염으로 3~5일 내 자연 호전돼요. 아기의 전반적인 컨디션(잘 먹는지, 잘 노는지)을 함께 관찰해주세요.'
   },
   '영유아 건강검진 시기와 항목': {
-    emoji:'🏥', grad:'linear-gradient(135deg,#F0EBE4,#E8E0D8)',
+    emoji:'🏥', grad:'linear-gradient(135deg,#F0EBE4,var(--border))',
     tags:['건강검진','무료','영유아'],
     authorName:'엄마의우주', authorAvatar:'✏️', authorGrad:'#C8956C,#DDB896', authorInfo:'에디터',
     contributors:[{name:'민준맘',avatar:'🦊',grad:'#D4836A,#B8704A'},{name:'하은맘',avatar:'🐥',grad:'#E8C97A,#D4A574'},{name:'서연맘',avatar:'👶',grad:'#9CB5C4,#7A9AAE'},{name:'수아맘',avatar:'🐰',grad:'#DDB896,#C8956C'}], date:'2025.01.15', readTime:'5분',
@@ -5192,7 +5231,7 @@ var infoArticles = {
     tip:'우유를 거부하는 아기에게는 치즈, 요거트 등 유제품으로 칼슘을 보충할 수 있어요. 우유 알레르기가 의심되면 소아과에서 검사를 받아보세요.'
   },
   '아기 철분 부족 신호와 보충법': {
-    emoji:'🥄', grad:'linear-gradient(135deg,#F0EBE4,#E8E0D8)',
+    emoji:'🥄', grad:'linear-gradient(135deg,#F0EBE4,var(--border))',
     tags:['철분','영양','이유식'],
     authorName:'엄마의우주', authorAvatar:'✏️', authorGrad:'#C8956C,#DDB896', authorInfo:'에디터',
     contributors:[{name:'도윤맘',avatar:'🌻',grad:'#E8C97A,#D4A574'},{name:'민준맘',avatar:'🦊',grad:'#D4836A,#B8704A'},{name:'하은맘',avatar:'🐥',grad:'#E8C97A,#D4A574'}], date:'2025.02.22', readTime:'5분',
@@ -5261,7 +5300,12 @@ var hotChartData = [
   {title:'첫 뒤집기 성공했어요!!', author:'하은맘', time:'1시간 전', likes:98, comments:32, change:'up', delta:8},
   {title:'이유식 시작 타이밍 언제가 좋을까요?', author:'서연맘', time:'5시간 전', likes:87, comments:28, change:'same', delta:0},
   {title:'놀이매트 추천 부탁드려요', author:'수아맘', time:'어제', likes:64, comments:15, change:'down', delta:2},
-  {title:'남편 육아 분담 어떻게 하시나요?', author:'민준맘', time:'30분 전', likes:45, comments:22, change:'new', delta:0}
+  {title:'남편 육아 분담 어떻게 하시나요?', author:'민준맘', time:'30분 전', likes:45, comments:22, change:'new', delta:0},
+  {title:'산후조리원 vs 산후도우미 뭐가 나을까요?', author:'새봄맘', time:'2시간 전', likes:112, comments:35, change:'up', delta:5},
+  {title:'아기 간식 직접 만들어 주시나요? 🍪', author:'예은맘', time:'4시간 전', likes:73, comments:19, change:'down', delta:3},
+  {title:'유치원 적응기간 울음바다예요 ㅠㅠ', author:'소율맘', time:'6시간 전', likes:58, comments:27, change:'same', delta:0},
+  {title:'첫 단어가 "맘마"!! 감동이에요 🥹', author:'도윤맘', time:'어제', likes:130, comments:31, change:'new', delta:0},
+  {title:'수면교육 언제 시작하셨나요?', author:'하은맘', time:'1시간 전', likes:42, comments:14, change:'up', delta:7}
 ];
 
 function renderHotChart(){
@@ -5331,13 +5375,19 @@ var topicPosts = {
     {name:'지안맘',tier:'새싹맘',t:'t1',avatar:'🌸',g:'g4',age:'9개월',time:'오늘',body:'9개월인데 아직 기지 못해요...<br>주변 아기들은 다 기는데 괜찮은 건지 걱정이에요',tags:'#발달걱정 #9개월'}
   ],
   '건강/병원': [
-    {name:'지우맘',tier:'새싹맘',t:'t1',avatar:'🌸',g:'g4',age:'3개월',time:'5시간 전',body:'배앓이가 너무 심해요 😭<br>가스 찬 것 같은데 어떻게 해주시나요?',tags:'#배앓이 #3개월아기'}
+    {name:'지우맘',tier:'새싹맘',t:'t1',avatar:'🌸',g:'g4',age:'3개월',time:'5시간 전',body:'배앓이가 너무 심해요 😭<br>가스 찬 것 같은데 어떻게 해주시나요?',tags:'#배앓이 #3개월아기'},
+    {name:'하은맘',tier:'별맘',t:'t1',avatar:'🐥',g:'g1',age:'11개월',time:'어제',body:'아기가 열이 38.5도인데 해열제 먹이고 기다려도 될까요?<br>응급실 갈 정도인지 모르겠어요 😰',tags:'#발열 #해열제 #소아과'},
+    {name:'민준맘',tier:'인증단',t:'t3',avatar:'🦊',g:'g3',age:'24개월',time:'3시간 전',body:'영유아 건강검진 4차 다녀왔어요!<br>발달검사 결과 다 정상이라 안심 😊<br>검진 항목 정리해서 공유할게요',tags:'#영유아건강검진 #발달검사'}
   ],
   '놀이/교육': [
-    {name:'예은맘',tier:'별맘',t:'t1',avatar:'🐱',g:'g2',age:'18개월',time:'오늘',body:'집에서 할 수 있는 감각놀이 추천해요!<br>쌀에 장난감 숨겨놓기 — 소근육 발달에 최고 👍',tags:'#감각놀이 #18개월'}
+    {name:'예은맘',tier:'별맘',t:'t1',avatar:'🐱',g:'g2',age:'18개월',time:'오늘',body:'집에서 할 수 있는 감각놀이 추천해요!<br>쌀에 장난감 숨겨놓기 — 소근육 발달에 최고 👍',tags:'#감각놀이 #18개월'},
+    {name:'수아맘',tier:'별맘',t:'t1',avatar:'🐰',g:'g1',age:'14개월',time:'2시간 전',body:'요즘 물감놀이에 빠졌어요 🎨<br>지퍼백에 물감 넣고 주물럭거리면<br>손 안 더럽히고 색 탐색 가능해요!',tags:'#물감놀이 #14개월 #엄마표놀이'},
+    {name:'도윤맘',tier:'별맘',t:'t1',avatar:'🐣',g:'g1',age:'8개월',time:'어제',body:'촉감판 만들어줬더니 반응이 폭발적이에요 ㅋㅋ<br>스펀지, 알루미늄호일, 벨크로 붙여서 DIY했어요',tags:'#촉감놀이 #DIY장난감'}
   ],
   '산후조리': [
-    {name:'새봄맘',tier:'새싹맘',t:'t1',avatar:'🌷',g:'g4',age:'2개월',time:'오늘',body:'산후조리원 나온 지 2주인데<br>허리가 너무 아파요... 산후도우미분 추천 있으실까요?',tags:'#산후조리 #허리통증'}
+    {name:'새봄맘',tier:'새싹맘',t:'t1',avatar:'🌷',g:'g4',age:'2개월',time:'오늘',body:'산후조리원 나온 지 2주인데<br>허리가 너무 아파요... 산후도우미분 추천 있으실까요?',tags:'#산후조리 #허리통증'},
+    {name:'서연맘',tier:'별똥별맘',t:'t2',avatar:'👶',g:'g2',age:'6개월',time:'4시간 전',body:'산후우울증 경험하신 분 계세요?<br>출산 후 2주쯤부터 이유 없이 눈물이 나와서요 😢<br>혼자만 이런 건 아니겠죠...',tags:'#산후우울증 #출산후'},
+    {name:'지안맘',tier:'새싹맘',t:'t1',avatar:'🌸',g:'g4',age:'9개월',time:'어제',body:'산후조리할 때 미역국 말고 뭐 드셨나요?<br>미역국만 먹으니까 질리네요 😅<br>산후조리 식단 공유해주세요~',tags:'#산후식단 #산후조리음식'}
   ],
   '자유수다': [
     {name:'민준맘',tier:'인증단',t:'t3',avatar:'🦊',g:'g3',age:'24개월',time:'2시간 전',body:'오늘 아기가 뽀뽀하면서 "맘마~ 사랑!" 했는데<br>이거 완전 세상 다 가진 기분이에요 🥰🥰',tags:'#육아일상 #행복'},
@@ -5399,10 +5449,14 @@ var monthPosts = {
     {name:'수아맘',tier:'별맘',t:'t1',avatar:'🐰',g:'g1',age:'14개월',time:'어제',body:'걸음마 시작했는데 자꾸 넘어져요<br>아기 신발 추천 부탁드려요!',tags:'#걸음마 #아기신발'}
   ],
   '25~36개월': [
-    {name:'예은맘',tier:'별맘',t:'t1',avatar:'🐱',g:'g2',age:'30개월',time:'오늘',body:'어린이집 적응기간 2주째인데<br>아침마다 안 가겠다고 울어서 마음이 아파요 ㅠㅠ',tags:'#어린이집 #적응기간'}
+    {name:'예은맘',tier:'별맘',t:'t1',avatar:'🐱',g:'g2',age:'30개월',time:'오늘',body:'어린이집 적응기간 2주째인데<br>아침마다 안 가겠다고 울어서 마음이 아파요 ㅠㅠ',tags:'#어린이집 #적응기간'},
+    {name:'민준맘',tier:'인증단',t:'t3',avatar:'🦊',g:'g3',age:'24개월',time:'3시간 전',body:'두돌 지나니까 "싫어" "안 해"가 입에 붙었어요 😂<br>미운 세살이 시작인 건가요...<br>훈육 어떻게 하시나요?',tags:'#미운세살 #훈육방법'},
+    {name:'수아맘',tier:'별맘',t:'t1',avatar:'🐰',g:'g1',age:'28개월',time:'어제',body:'배변훈련 시작했는데 변기 앉는 걸 무서워해요 😭<br>캐릭터 변기시트 사줬는데도 소용없어요<br>성공하신 분들 팁 좀 주세요!',tags:'#배변훈련 #25개월이상'}
   ],
   '37개월 이상': [
-    {name:'소율맘',tier:'별똥별맘',t:'t2',avatar:'🌼',g:'g2',age:'40개월',time:'오늘',body:'유치원 보내는 중인데 친구관계 고민이에요<br>혼자 노는 걸 좋아하는데 괜찮은 걸까요?',tags:'#유치원 #사회성'}
+    {name:'소율맘',tier:'별똥별맘',t:'t2',avatar:'🌼',g:'g2',age:'40개월',time:'오늘',body:'유치원 보내는 중인데 친구관계 고민이에요<br>혼자 노는 걸 좋아하는데 괜찮은 걸까요?',tags:'#유치원 #사회성'},
+    {name:'하은맘',tier:'별맘',t:'t1',avatar:'🐥',g:'g1',age:'38개월',time:'5시간 전',body:'한글 공부 언제부터 시키셨나요?<br>주변에서 빨리 시작해야 한다는데<br>아직 놀이 위주로 하고 있거든요 📖',tags:'#한글공부 #37개월이상'},
+    {name:'예은맘',tier:'별맘',t:'t1',avatar:'🐱',g:'g2',age:'42개월',time:'어제',body:'아이가 "왜?"를 하루에 백번은 물어봐요 ㅋㅋ<br>대답해주다가 지치는데 이 시기가 원래 그런 거죠? 😂',tags:'#호기심폭발 #질문시기'}
   ]
 };
 
@@ -5438,7 +5492,14 @@ var allDemoComments = [
   {name:'지우맘',avatar:'🌸',g:'g2',text:'이거 진짜 꿀팁이에요 ㅎㅎ 저장해둬야겠다',time:'5시간 전'},
   {name:'하은맘',avatar:'🐥',g:'g1',text:'너무 공감돼요... 눈물 나네요 ㅠ',time:'6시간 전'},
   {name:'서연맘',avatar:'👶',g:'g2',text:'혹시 어디 제품이에요? 저도 사고 싶어요!',time:'어제'},
-  {name:'민준맘',avatar:'🦊',g:'g3',text:'선배맘으로서 한마디! 이것도 지나갑니다 🙏',time:'어제'}
+  {name:'민준맘',avatar:'🦊',g:'g3',text:'선배맘으로서 한마디! 이것도 지나갑니다 🙏',time:'어제'},
+  {name:'예은맘',avatar:'🐱',g:'g2',text:'ㅋㅋㅋ 너무 웃겨요 우리 아기도 똑같아요 😂',time:'2시간 전'},
+  {name:'지안맘',avatar:'🌸',g:'g4',text:'혹시 소아과 어디 다니세요? 저도 바꿀까 고민 중이에요',time:'3시간 전'},
+  {name:'수아맘',avatar:'🐰',g:'g1',text:'저는 이렇게 했더니 효과 좋았어요! 한번 시도해보세요 😊',time:'4시간 전'},
+  {name:'도윤맘',avatar:'🌻',g:'g4',text:'오늘도 육아 화이팅!! 우리 모두 대단한 엄마들이에요 ✨',time:'5시간 전'},
+  {name:'하은맘',avatar:'🐥',g:'g1',text:'와 저만 이런 줄 알았는데 동지를 만났네요 ㅠㅠ',time:'6시간 전'},
+  {name:'지우맘',avatar:'🌸',g:'g2',text:'이건 몰랐던 정보네요! 감사합니다 메모해둘게요 📝',time:'어제'},
+  {name:'서연맘',avatar:'👶',g:'g2',text:'나중에 후기도 올려주세요~ 궁금해요!',time:'어제'}
 ];
 
 function generateDemoComments(count){
@@ -5667,7 +5728,7 @@ function openGroupDetail(idx){
   html += '</div>';
   html += '<div class="gd-desc">'+d.desc+'</div>';
   html += '<div class="gd-section" style="border-bottom:1px solid var(--border);"><div class="gd-section-title">활동 사진</div><div class="gd-photos">';
-  var colors = ['#EEF2EA,#D2E0CE','#FAF7F4,#FFECB3','#F0EBE4,#E8E0D8','#F5EDE4,#E8D5C8'];
+  var colors = ['#EEF2EA,#D2E0CE','#FAF7F4,#FFECB3','#F0EBE4,var(--border)','#F5EDE4,#E8D5C8'];
   d.photos.forEach(function(p,i){ html += '<div class="gd-photo" style="background:linear-gradient(135deg,'+colors[i%colors.length]+');">'+p+'</div>'; });
   html += '</div></div>';
   html += '<div class="gd-section" style="border-bottom:1px solid var(--border);"><div class="gd-section-title">멤버 ('+d.current+'/'+d.capacity+'명)</div>';
@@ -5767,7 +5828,7 @@ function addVerifyPhoto(){
     var e = emojis[Math.floor(Math.random()*emojis.length)];
     if(picked.indexOf(e)===-1) picked.push(e);
   }
-  var colors = ['#EEF2EA,#D2E0CE','#FAF7F4,#FFECB3','#F0EBE4,#E8E0D8'];
+  var colors = ['#EEF2EA,#D2E0CE','#FAF7F4,#FFECB3','#F0EBE4,var(--border)'];
   pa.innerHTML = '<div style="display:flex;gap:4px;width:100%;height:100%;padding:6px;">' +
     picked.map(function(e,i){ return '<div style="flex:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,'+colors[i]+');">'+e+'</div>'; }).join('') +
     '</div>';
@@ -5784,7 +5845,7 @@ function submitMeetupVerify(){
     photoHtml = '<div class="verify-photo-grid">' +
       '<div class="vp" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">🌳</div>' +
       '<div class="vp" style="background:linear-gradient(135deg,#FAF7F4,#FFECB3);">👶</div>' +
-      '<div class="vp" style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);">🍪</div>' +
+      '<div class="vp" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">🍪</div>' +
       '</div>';
   }
 
@@ -6058,7 +6119,7 @@ function finishOnboarding(){
   var ob = document.getElementById('onboarding');
   ob.style.transition = 'opacity .5s ease';
   ob.style.opacity = '0';
-  setTimeout(function(){ ob.remove(); }, 500);
+  setTimeout(function(){ ob.style.display = 'none'; ob.style.opacity = '1'; }, 500);
 }
 
 // ═══════ 온라인바 동적 업데이트 ═══════
@@ -6275,7 +6336,7 @@ function switchToPregnantContent(){
   var lInfo = document.getElementById('lounge-info');
   if(lInfo) lInfo.innerHTML =
     '<div style="padding:14px;">' +
-    '<div style="background:linear-gradient(135deg,#FBF5F0,#E8E0D8);border-radius:16px;padding:18px;margin-bottom:12px;">' +
+    '<div style="background:linear-gradient(135deg,#FBF5F0,var(--border));border-radius:16px;padding:18px;margin-bottom:12px;">' +
       '<div style="font-size:14px;font-weight:800;margin-bottom:8px;">📊 '+label+' 태아 발달</div>' +
       '<div style="font-size:12px;line-height:2;color:var(--text);">' +
         (pm <= 3 ? '✅ 심장 박동 시작<br>✅ 뇌, 척추 형성 중<br>✅ 손가락, 발가락 형태 갖춤<br>✅ 크기: 약 5~8cm<br>⬜ 태동 느끼기 (16~20주)<br>⬜ 성별 확인 (18~22주)' :
@@ -6289,7 +6350,7 @@ function switchToPregnantContent(){
          pm <= 6 ? '📌 철분제 복용 시작 (16주~)<br>🥩 단백질 충분히 섭취<br>🐟 오메가3 — DHA 보충<br>🥛 칼슘 하루 1000mg<br>⚠️ 과도한 당분 섭취 주의<br>💊 임신성 당뇨 검사 (24~28주)' :
          '📌 철분제 꾸준히 복용<br>🥩 단백질 + 칼슘 강화<br>🍌 변비 예방 — 식이섬유 섭취<br>⚠️ 과식 주의 — 소량 자주 먹기<br>💧 부기 관리 — 저염식<br>📅 라즈베리 잎차 (36주~)') +
       '</div></div>' +
-    '<div style="background:linear-gradient(135deg,#F0EBE4,#E8E0D8);border-radius:16px;padding:18px;">' +
+    '<div style="background:linear-gradient(135deg,#F0EBE4,var(--border));border-radius:16px;padding:18px;">' +
       '<div style="font-size:14px;font-weight:800;margin-bottom:8px;">💉 임산부 검진 체크</div>' +
       '<div style="font-size:12px;line-height:2;color:var(--text);">' +
         (pm <= 3 ? '✅ 임신 확인 초음파<br>✅ 혈액검사 (빈혈, 혈액형 등)<br>✅ 풍진항체 검사<br>📅 다음: 기형아 선별검사 (11~13주)<br>📅 다음: 1차 통합검사 (11~14주)' :
@@ -6334,12 +6395,16 @@ var userProfiles = {
   '지우맘':{avatar:'🌸',grad:'#D4A88C,#C48B8B',tier:'새싹맘',meta:'3개월 아기 · 우주여행 32일째',posts:12,comments:47,likes:89},
   '도윤맘':{avatar:'🌻',grad:'#E8C97A,#D4A574',tier:'별똥별맘',meta:'9개월 아기 · 우주여행 201일째',posts:67,comments:245,likes:892},
   '민준맘':{avatar:'🦊',grad:'#D4836A,#B8704A',tier:'인증단',meta:'24개월 아기 · 우주여행 310일째',posts:134,comments:567,likes:2103},
-  '수아맘':{avatar:'🐰',grad:'#DDB896,#C8956C',tier:'별맘',meta:'14개월 아기 · 우주여행 120일째',posts:28,comments:95,likes:203}
+  '수아맘':{avatar:'🐰',grad:'#DDB896,#C8956C',tier:'별맘',meta:'14개월 아기 · 우주여행 120일째',posts:28,comments:95,likes:203},
+  '하윤맘':{avatar:'🌸',grad:'#C48B8B,#D4A88C',tier:'별맘',meta:'8개월 아기 · 우주여행 95일째',posts:19,comments:67,likes:142},
+  '예은맘':{avatar:'🐱',grad:'#9CB5C4,#8BAF8F',tier:'별맘',meta:'18개월 아기 · 우주여행 178일째',posts:53,comments:189,likes:714},
+  '소율맘':{avatar:'🌼',grad:'#E8C97A,#C8956C',tier:'별똥별맘',meta:'40개월 아기 · 우주여행 267일째',posts:72,comments:234,likes:1056},
+  '시우맘':{avatar:'🐥',grad:'#D4A574,#B8906C',tier:'새싹맘',meta:'5개월 아기 · 우주여행 28일째',posts:8,comments:31,likes:54}
 };
 
 function openProfilePopup(name){
   var data = userProfiles[name];
-  if(!data) return;
+  if(!data){ showToast('프로필 정보를 찾을 수 없어요'); return; }
   document.getElementById('ppAvatar').textContent = data.avatar;
   document.getElementById('ppAvatar').style.background = 'linear-gradient(135deg,'+data.grad+')';
   document.getElementById('ppName').textContent = name;
@@ -6462,7 +6527,36 @@ function showStreakToast(count){
 
 // ─── 1:1 쪽지 (DM) ───
 var dmTargetName = '';
-var dmConversations = {};
+var dmConversations = {
+  '서연맘': {
+    avatar: '👶', grad: '#9CB5C4,#7A9AAE',
+    messages: [
+      {text:'안녕하세요! 이유식 레시피 공유해주실 수 있나요? 😊', mine:false, time:'오전 10:23'},
+      {text:'네! 쌀미음 레시피 보내드릴게요~ 찹쌀가루 1스푼에 물 100ml로 시작하면 돼요', mine:true, time:'오전 10:30'},
+      {text:'감사해요!! 내일 바로 해볼게요 💛', mine:false, time:'오전 10:32'}
+    ],
+    unread: false
+  },
+  '민준맘': {
+    avatar: '🦊', grad: '#D4836A,#B8704A',
+    messages: [
+      {text:'혹시 언어발달 관련 좋은 책 있으면 추천해주세요!', mine:false, time:'오후 2:15'},
+      {text:'저는 "아이의 언어세계" 읽고 있는데 도움 많이 됐어요 📚', mine:true, time:'오후 2:40'},
+      {text:'오 감사합니다! 바로 주문할게요 😆', mine:false, time:'오후 2:42'}
+    ],
+    unread: true
+  },
+  '수아맘': {
+    avatar: '🐰', grad: '#DDB896,#C8956C',
+    messages: [
+      {text:'놀이매트 혹시 어디 제품 쓰시나요?', mine:false, time:'오후 5:10'},
+      {text:'저는 알집매트 써요! 두께감이 좋아서 추천드려요 👍', mine:true, time:'오후 5:25'}
+    ],
+    unread: true
+  }
+};
+// Initialize DM list on load
+setTimeout(function(){ updateDmList(); updateDmBadge(); }, 100);
 
 function getDmTimeStr(){
   var now = new Date();
@@ -6604,10 +6698,28 @@ var userPostsData = {
     {body:'어린이집 적응기간 2주차..<br>아직 매일 아침 울어요 ㅠㅠ 힘내자 우리 아기', tag:'#어린이집 #적응기간', time:'어제', reactions:[134,28,12,5]}
   ],
   '수아맘': [
-    {body:'14개월 아기 첫 걸음마!! 🎉<br>비틀비틀 3걸음 걷는데 세상 귀여워요', tag:'#첫걸음마 #성장기록', time:'2시간 전', reactions:[92,41,7,3]}
+    {body:'14개월 아기 첫 걸음마!! 🎉<br>비틀비틀 3걸음 걷는데 세상 귀여워요', tag:'#첫걸음마 #성장기록', time:'2시간 전', reactions:[92,41,7,3]},
+    {body:'아기 신발 뉴발란스 996 샀는데<br>발볼 넓은 아이한테 딱이에요! 사이즈 팁 공유합니다', tag:'#아기신발 #뉴발란스', time:'1일 전', reactions:[38,14,5,2]}
   ],
   '지우맘': [
-    {body:'3개월 아기 뒤집기 성공! 💪<br>텀블러로 기념 영상 찍었어요 ㅎㅎ', tag:'#뒤집기 #3개월아기', time:'4시간 전', reactions:[45,19,3,1]}
+    {body:'3개월 아기 뒤집기 성공! 💪<br>텀블러로 기념 영상 찍었어요 ㅎㅎ', tag:'#뒤집기 #3개월아기', time:'4시간 전', reactions:[45,19,3,1]},
+    {body:'배앓이 때문에 밤새 울었어요 😭<br>자전거타기 마사지 해줬더니 좀 나아진 것 같아요', tag:'#배앓이 #신생아', time:'2일 전', reactions:[67,25,8,2]}
+  ],
+  '하윤맘': [
+    {body:'기저귀 밤새 새서 매일 시트 빨아요 😩<br>사이즈 올렸더니 해결됐어요! 꿀팁 공유', tag:'#기저귀 #밤기저귀', time:'3시간 전', reactions:[48,11,6,2]},
+    {body:'8개월 아기 이유식 중기 진입!<br>소고기 큐브 만들기 생각보다 쉬워요 🥩', tag:'#이유식중기 #소고기큐브', time:'1일 전', reactions:[55,18,4,1]}
+  ],
+  '예은맘': [
+    {body:'범보 의자 나눔합니다!<br>하은이가 커서 이제 안 쓰는데 상태 좋아요<br>직거래 가능하신 분 댓글 주세요 🙌', tag:'#나눔 #범보의자 #직거래', time:'1시간 전', reactions:[34,22,9,3]},
+    {body:'집에서 할 수 있는 감각놀이 추천해요!<br>쌀에 장난감 숨겨놓기 — 소근육 발달에 최고 👍', tag:'#감각놀이 #18개월', time:'어제', reactions:[73,19,5,2]}
+  ],
+  '소율맘': [
+    {body:'유치원 보내는 중인데 친구관계 고민이에요<br>혼자 노는 걸 좋아하는데 괜찮은 걸까요?', tag:'#유치원 #사회성', time:'6시간 전', reactions:[58,27,11,4]},
+    {body:'40개월 아기 한글 관심 생겼어요!<br>낱말카드보다 생활 속 글자 알려주니 효과 굿 👍', tag:'#한글 #40개월', time:'어제', reactions:[82,31,7,3]}
+  ],
+  '시우맘': [
+    {body:'모유 + 분유 혼합수유 중인데<br>이유식 시작하면 수유량 줄여야 하나요?', tag:'#혼합수유 #이유식', time:'어제', reactions:[29,15,12,1]},
+    {body:'닥터브라운 젖병 160ml 3개 저렴하게 양도해요<br>소독기도 같이 드릴 수 있어요', tag:'#양도 #젖병 #닥터브라운', time:'2일 전', reactions:[18,8,3,1]}
   ]
 };
 
@@ -6620,20 +6732,19 @@ function openUserPosts(name){
     '<div class="up-avatar" style="background:linear-gradient(135deg,'+data.grad+');">'+data.avatar+'</div>' +
     '<div><div class="up-name">'+name+'</div><div class="up-count">게시글 '+data.posts+'개</div></div>';
   var posts = userPostsData[name] || [{body:'아직 작성한 게시글이 없어요 📝', tag:'', time:'', reactions:[0,0,0,0]}];
-  var emojis = ['😢','😮','💡','🔗'];
-  var labels = ['공감','놀라움','도움','공유'];
   var html = '';
   posts.forEach(function(p){
+    var likes = (p.reactions[0]||0)+(p.reactions[1]||0);
+    var comments = p.reactions[2]||0;
     html += '<div class="post">' +
       '<div class="post-head"><div class="p-avatar" style="background:linear-gradient(135deg,'+data.grad+');">'+data.avatar+'</div>' +
       '<div><div class="p-name">'+name+'</div><div class="p-badges"><span class="p-tier t1">'+data.tier+'</span>'+(p.time?'<span class="p-meta">'+p.time+'</span>':'')+'</div></div></div>' +
       '<div class="p-body">'+p.body+(p.tag?'<br><span class="tag">'+p.tag+'</span>':'')+'</div>' +
-      '<div class="reactions">';
-    for(var i=0;i<4;i++){
-      var onclick = i<3 ? 'toggleReact(this)' : 'sharePost(this)';
-      html += '<button class="react-btn" onclick="'+onclick+'"><div class="ri">'+emojis[i]+'</div><div class="rc">'+p.reactions[i]+'</div><div class="rl">'+labels[i]+'</div></button>';
-    }
-    html += '</div></div>';
+      '<div class="reactions">' +
+      '<button class="react-btn on" onclick="toggleReact(this)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="rc">'+likes+'</div><div class="rl">좋아요</div></button>' +
+      '<button class="react-btn" onclick="openPostDetail(this.parentElement.parentElement)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="rc">'+comments+'</div><div class="rl">댓글</div></button>' +
+      '<button class="react-btn" onclick="sharePost(this)"><div class="ri"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div><div class="rc"></div><div class="rl">공유</div></button>' +
+      '</div></div>';
   });
   document.getElementById('userPostsList').innerHTML = html;
   goSub('s-user-posts');
