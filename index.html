@@ -68,7 +68,8 @@
 
   /* Sub-screen (slides from right) */
   .sub-screen{z-index:10;}
-  .sub-screen.hidden-right{transform:translateX(100%);opacity:1;}
+  .sub-screen.hidden-right{transform:translateX(100%);opacity:1;visibility:hidden;}
+  .sub-screen.active{visibility:visible;}
 
   /* Bottom nav */
   .bottom-nav{
@@ -4050,6 +4051,9 @@ function goTab(id, btn) {
   // Close any sub-screens
   navHistory = [];
   document.querySelectorAll('.sub-screen').forEach(function(s){ s.classList.remove('active'); s.classList.add('hidden-right'); });
+  // Reset scroll position of screens container
+  var screensEl = document.querySelector('.screens');
+  if(screensEl) screensEl.scrollLeft = 0;
 
   // Switch tab
   var oldIdx = mainTabs.indexOf(currentTab);
@@ -6009,6 +6013,9 @@ function finishOnboarding(){
   ob.style.transition = 'opacity .5s ease';
   ob.style.opacity = '0';
   setTimeout(function(){ ob.style.display = 'none'; ob.style.opacity = '1'; }, 500);
+  // Reset screens scroll position
+  var screensEl = document.querySelector('.screens');
+  if(screensEl) screensEl.scrollLeft = 0;
 }
 
 // ═══════ 온라인바 동적 업데이트 ═══════
@@ -6649,6 +6656,14 @@ document.addEventListener('click', function(e){
   var name = nameEl.textContent.trim().split(' ')[0]; // "서연맘 인기" → "서연맘"
   openProfilePopup(name);
 });
+
+// ═══════ Prevent .screens horizontal scroll drift ═══════
+(function(){
+  var sc = document.querySelector('.screens');
+  if(!sc) return;
+  sc.addEventListener('scroll', function(){ if(sc.scrollLeft !== 0) sc.scrollLeft = 0; });
+  sc.scrollLeft = 0;
+})();
 </script>
 </body>
 </html>
