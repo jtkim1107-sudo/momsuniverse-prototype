@@ -1693,6 +1693,7 @@
   .pp-actions{display:flex;gap:10px;}
   .pp-action{flex:1;padding:12px;border-radius:12px;border:none;font-size:13px;font-weight:700;cursor:pointer;}
   .pp-action.primary{background:var(--pri);color:#fff;}
+  .pp-action.following{background:#F5EDE4;color:var(--pri);border:1.5px solid var(--pri);}
   .pp-action.secondary{background:var(--card);color:var(--text);}
 
   /* ═══════ DM 쪽지 화면 ═══════ */
@@ -2478,7 +2479,7 @@
       <!-- 별똥별 교환 탭 내용 -->
       <div id="std-tab-exchange" style="padding:12px 0 0;display:none;">
         <div class="std-grid">
-          <div class="std-grid-card">
+          <div class="std-grid-card" onclick="exchangeItem('베이비스탠다드 수딩 로션',3000)">
             <div class="std-grid-img" style="background:linear-gradient(135deg,#FBF5F0,var(--border));">
               🧴
               <div class="left-tag">5개 남음</div>
@@ -2489,7 +2490,7 @@
               <div class="stock">한정 수량</div>
             </div>
           </div>
-          <div class="std-grid-card">
+          <div class="std-grid-card" onclick="exchangeItem('베이비스탠다드 물티슈 10팩',3000)">
             <div class="std-grid-img" style="background:linear-gradient(135deg,#EEF2EA,#D2E0CE);">
               🧻
               <div class="left-tag">8개 남음</div>
@@ -2500,7 +2501,7 @@
               <div class="stock">한정 수량</div>
             </div>
           </div>
-          <div class="std-grid-card">
+          <div class="std-grid-card" onclick="exchangeItem('베이비스탠다드 기저귀 샘플팩',5000)">
             <div class="std-grid-img" style="background:linear-gradient(135deg,#F0EBE4,var(--border));">
               👶
               <div class="left-tag">3개 남음</div>
@@ -2511,7 +2512,7 @@
               <div class="stock">한정 수량</div>
             </div>
           </div>
-          <div class="std-grid-card">
+          <div class="std-grid-card" onclick="exchangeItem('엄마의우주 오리지널 턱받이 세트',2000)">
             <div class="std-grid-img" style="background:linear-gradient(135deg,#F5EDE4,#E8D5C8);">
               🎁
               <div class="left-tag">12개 남음</div>
@@ -2552,10 +2553,11 @@
 
     <!-- ═══════ SCREEN: 프로필 ═══════ -->
     <div class="screen hidden-right" id="s-profile">
-      <div class="prof-header">
-        <div class="prof-avatar">🐥</div>
-        <div class="prof-name">하은맘</div>
+      <div class="prof-header" style="position:relative;">
+        <div class="prof-avatar" id="profAvatar">🐥</div>
+        <div class="prof-name" id="profName">하은맘</div>
         <div class="prof-since">우주여행 84일째 🚀 · 11개월 아기</div>
+        <button onclick="goSub('s-edit-profile')" style="position:absolute;top:12px;right:12px;padding:6px 14px;border-radius:12px;border:1.5px solid var(--border);background:#fff;font-size:11px;font-weight:600;color:var(--sub);cursor:pointer;font-family:inherit;">수정</button>
       </div>
 
       <!-- 내 아이 카드 -->
@@ -3455,6 +3457,41 @@
       </div>
     </div>
 
+    <!-- ═══════ SUB: 프로필 수정 ═══════ -->
+    <div class="screen sub-screen hidden-right" id="s-edit-profile">
+      <div class="back-header" onclick="goBack()">
+        <span class="arrow">←</span> 프로필 수정
+      </div>
+      <div class="sub-content">
+        <div style="text-align:center;margin-bottom:24px;">
+          <div id="editProfAvatar" style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#E8C97A,#D4A574);display:inline-flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:8px;position:relative;cursor:pointer;" onclick="cycleAvatar()">🐥
+            <div style="position:absolute;bottom:0;right:0;width:24px;height:24px;border-radius:50%;background:var(--pri);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;">✎</div>
+          </div>
+          <div style="font-size:10px;color:var(--sub);margin-top:4px;">탭하면 아바타가 변경돼요</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">닉네임</label>
+          <input class="form-input" type="text" id="editNickname" value="하은맘" placeholder="닉네임을 입력해주세요">
+        </div>
+        <div class="form-group">
+          <label class="form-label">한줄 소개</label>
+          <input class="form-input" type="text" id="editBio" value="" placeholder="나를 소개하는 한줄! (선택)">
+        </div>
+        <div class="form-group">
+          <label class="form-label">관심사</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;" id="editInterests">
+            <span class="ob-chip sel" onclick="this.classList.toggle('sel')" style="font-size:12px;padding:8px 14px;">🍼 수유/이유식</span>
+            <span class="ob-chip" onclick="this.classList.toggle('sel')" style="font-size:12px;padding:8px 14px;">😴 수면/밤잠</span>
+            <span class="ob-chip sel" onclick="this.classList.toggle('sel')" style="font-size:12px;padding:8px 14px;">🧴 육아템추천</span>
+            <span class="ob-chip" onclick="this.classList.toggle('sel')" style="font-size:12px;padding:8px 14px;">📊 발달/성장</span>
+            <span class="ob-chip" onclick="this.classList.toggle('sel')" style="font-size:12px;padding:8px 14px;">🏥 건강/병원</span>
+            <span class="ob-chip" onclick="this.classList.toggle('sel')" style="font-size:12px;padding:8px 14px;">🎮 놀이/교육</span>
+          </div>
+        </div>
+        <button class="form-btn" onclick="saveProfile()">저장하기</button>
+      </div>
+    </div>
+
     <!-- ═══════ SUB: 아이정보 관리 ═══════ -->
     <div class="screen sub-screen hidden-right" id="s-child-info">
       <div class="back-header" onclick="goBack()">
@@ -3898,6 +3935,16 @@
   </div>
 
   <!-- Toast -->
+  <!-- 푸시 알림 배너 -->
+  <div id="pushBanner" style="position:absolute;top:-80px;left:12px;right:12px;z-index:100;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);display:flex;align-items:center;gap:12px;transition:top .4s cubic-bezier(.4,0,.2,1);cursor:pointer;" onclick="handlePushClick()">
+    <div id="pushIcon" style="width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#F5EDE4,#EDE4D8);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💬</div>
+    <div style="flex:1;min-width:0;">
+      <div id="pushTitle" style="font-size:12px;font-weight:800;color:var(--text);margin-bottom:2px;">엄마의우주</div>
+      <div id="pushBody" style="font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">새 알림이 있어요</div>
+    </div>
+    <div style="font-size:10px;color:var(--sub);flex-shrink:0;">지금</div>
+  </div>
+
   <div class="toast" id="toast">
     <div class="toast-icon">✅</div>
     <div class="toast-text"><h4 id="toastMsg">완료!</h4></div>
@@ -3987,25 +4034,39 @@
   <div class="sheet-overlay" id="postMenuSheet" onclick="closePostMenu()">
     <div class="bottom-sheet" onclick="event.stopPropagation()">
       <div class="bs-handle"></div>
-      <div class="pm-option" onclick="savePost()">
-        <div class="pm-icon">🔖</div>
-        <div><div class="pm-label">저장하기</div><div class="pm-desc">나중에 다시 볼 수 있어요</div></div>
+      <!-- 내 글 메뉴 -->
+      <div id="myPostMenu" style="display:none;">
+        <div class="pm-option" onclick="editPost()">
+          <div class="pm-icon">✏️</div>
+          <div><div class="pm-label">수정하기</div><div class="pm-desc">글 내용을 수정합니다</div></div>
+        </div>
+        <div class="pm-option danger" onclick="deletePost()">
+          <div class="pm-icon">🗑️</div>
+          <div><div class="pm-label">삭제하기</div><div class="pm-desc">이 글을 삭제합니다</div></div>
+        </div>
       </div>
-      <div class="pm-option" onclick="shareFromMenu()">
-        <div class="pm-icon">🔗</div>
-        <div><div class="pm-label">공유하기</div><div class="pm-desc">링크를 복사합니다</div></div>
-      </div>
-      <div class="pm-option" onclick="hidePost()">
-        <div class="pm-icon">🙈</div>
-        <div><div class="pm-label">이 글 숨기기</div><div class="pm-desc">피드에서 이 글을 숨깁니다</div></div>
-      </div>
-      <div class="pm-option danger" onclick="openReportSheet()">
-        <div class="pm-icon">🚨</div>
-        <div><div class="pm-label">신고하기</div><div class="pm-desc">부적절한 게시글을 신고합니다</div></div>
-      </div>
-      <div class="pm-option danger" onclick="blockUserFromPost()">
-        <div class="pm-icon">🚫</div>
-        <div><div class="pm-label">이 회원 차단</div><div class="pm-desc">이 회원의 글이 더 이상 보이지 않아요</div></div>
+      <!-- 다른 사람 글 메뉴 -->
+      <div id="otherPostMenu">
+        <div class="pm-option" onclick="savePost()">
+          <div class="pm-icon">🔖</div>
+          <div><div class="pm-label">저장하기</div><div class="pm-desc">나중에 다시 볼 수 있어요</div></div>
+        </div>
+        <div class="pm-option" onclick="shareFromMenu()">
+          <div class="pm-icon">🔗</div>
+          <div><div class="pm-label">공유하기</div><div class="pm-desc">링크를 복사합니다</div></div>
+        </div>
+        <div class="pm-option" onclick="hidePost()">
+          <div class="pm-icon">🙈</div>
+          <div><div class="pm-label">이 글 숨기기</div><div class="pm-desc">피드에서 이 글을 숨깁니다</div></div>
+        </div>
+        <div class="pm-option danger" onclick="openReportSheet()">
+          <div class="pm-icon">🚨</div>
+          <div><div class="pm-label">신고하기</div><div class="pm-desc">부적절한 게시글을 신고합니다</div></div>
+        </div>
+        <div class="pm-option danger" onclick="blockUserFromPost()">
+          <div class="pm-icon">🚫</div>
+          <div><div class="pm-label">이 회원 차단</div><div class="pm-desc">이 회원의 글이 더 이상 보이지 않아요</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -4099,7 +4160,8 @@
         <div class="pp-stat"><div class="pp-stat-num" id="ppLikes">356</div><div class="pp-stat-label">받은 공감</div></div>
       </div>
       <div class="pp-actions">
-        <button class="pp-action primary" onclick="openDM(document.getElementById('ppName').textContent)">1:1 쪽지</button>
+        <button class="pp-action primary" id="ppFollowBtn" onclick="toggleFollow()">팔로우</button>
+        <button class="pp-action secondary" onclick="openDM(document.getElementById('ppName').textContent)">1:1 쪽지</button>
         <button class="pp-action secondary" onclick="openUserPosts(document.getElementById('ppName').textContent)">글 모아보기</button>
       </div>
     </div>
@@ -4333,7 +4395,20 @@ var currentReportCategory = '';
 
 function showPostMenu(){
   var hovered = document.querySelector('.p-more:hover');
+  if(!hovered){
+    // fallback: try to find nearest post from event
+    var active = document.activeElement;
+    if(active) hovered = active.closest('.post');
+  }
   if(hovered) currentMenuPost = hovered.closest('.post');
+  // 내 글인지 판별 (이름이 "하은맘"이면 내 글)
+  var isMyPost = false;
+  if(currentMenuPost){
+    var nameEl = currentMenuPost.querySelector('.p-name');
+    if(nameEl && nameEl.textContent.trim().indexOf('하은맘') === 0) isMyPost = true;
+  }
+  document.getElementById('myPostMenu').style.display = isMyPost ? '' : 'none';
+  document.getElementById('otherPostMenu').style.display = isMyPost ? 'none' : '';
   document.getElementById('postMenuSheet').classList.add('show');
 }
 function closePostMenu(){
@@ -4366,6 +4441,49 @@ function blockUserFromPost(){
   setTimeout(function(){
     var ok = confirm(name + ' 님을 차단하시겠어요?\n\n차단하면 이 회원의 글과 댓글이\n커뮤니티에서 보이지 않습니다.');
     if(ok) showToast(name + ' 님이 차단되었습니다 🚫');
+  }, 250);
+}
+
+function editPost(){
+  if(!currentMenuPost) { closePostMenu(); return; }
+  closePostMenu();
+  // 기존 글 내용 추출
+  var titleEl = currentMenuPost.querySelector('.p-body strong');
+  var bodyEl = currentMenuPost.querySelector('.p-body');
+  var title = titleEl ? titleEl.textContent : '';
+  var bodyText = '';
+  if(bodyEl){
+    var clone = bodyEl.cloneNode(true);
+    var strong = clone.querySelector('strong');
+    if(strong) strong.remove();
+    var tags = clone.querySelectorAll('.tag');
+    tags.forEach(function(t){ t.remove(); });
+    bodyText = clone.innerHTML.replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]*>/g,'').trim();
+  }
+  // 글쓰기 화면으로 이동 + 기존 내용 채우기
+  setTimeout(function(){
+    document.getElementById('writeTitle').value = title;
+    document.getElementById('writeBody').value = bodyText;
+    checkWriteReady();
+    goSub('s-write-post');
+    // 수정 모드 표시
+    document.querySelector('.ws-title').textContent = '글 수정';
+    window._editingPost = currentMenuPost;
+  }, 300);
+}
+function deletePost(){
+  if(!currentMenuPost){ closePostMenu(); return; }
+  closePostMenu();
+  setTimeout(function(){
+    var ok = confirm('이 글을 삭제하시겠어요?\n삭제된 글은 복구할 수 없습니다.');
+    if(ok){
+      currentMenuPost.style.transition = 'opacity 0.3s, max-height 0.3s';
+      currentMenuPost.style.opacity = '0';
+      currentMenuPost.style.maxHeight = '0';
+      currentMenuPost.style.overflow = 'hidden';
+      setTimeout(function(){ currentMenuPost.remove(); }, 300);
+      showToast('게시글이 삭제되었어요 🗑️');
+    }
   }, 250);
 }
 
@@ -5167,19 +5285,35 @@ function submitPost() {
   var tags = document.getElementById('writeTags').value.trim();
   if(!title || !body) return;
 
-  var avatars = ['🐥','👶','🌸','🦊','🐰','🐱','🐻'];
-  var gradients = ['g1','g2','g3','g4'];
-  var randomAvatar = avatars[Math.floor(Math.random()*avatars.length)];
-  var randomGrad = gradients[Math.floor(Math.random()*gradients.length)];
-
   var tagHtml = '';
   if(tags){
     var tagList = tags.split(/\s+/).filter(function(t){ return t; });
     tagList = tagList.map(function(t){ return t.charAt(0)==='#' ? t : '#'+t; });
     tagHtml = '<span class="tag">' + tagList.join(' ') + '</span>';
   }
-
   var bodyLines = body.replace(/\n/g,'<br>');
+
+  // 수정 모드인 경우: 기존 글 본문만 교체
+  if(window._editingPost){
+    var pBody = window._editingPost.querySelector('.p-body');
+    if(pBody) pBody.innerHTML = '<strong style="font-size:14px;">'+title+'</strong><br>'+bodyLines+'<br>'+tagHtml;
+    window._editingPost.style.border = '2px solid var(--pri)';
+    window._editingPost.style.animation = 'fadeInUp .4s ease';
+    window._editingPost = null;
+    document.querySelector('.ws-title').textContent = '글쓰기';
+    document.getElementById('writeTitle').value = '';
+    document.getElementById('writeBody').value = '';
+    document.getElementById('writeTags').value = '';
+    document.getElementById('writeSubmitBtn').disabled = true;
+    goBack();
+    setTimeout(function(){ showToast('게시글이 수정되었어요 ✏️'); }, 400);
+    return;
+  }
+
+  var avatars = ['🐥','👶','🌸','🦊','🐰','🐱','🐻'];
+  var gradients = ['g1','g2','g3','g4'];
+  var randomAvatar = avatars[Math.floor(Math.random()*avatars.length)];
+  var randomGrad = gradients[Math.floor(Math.random()*gradients.length)];
 
   var postHtml = '<div class="post" style="animation:fadeInUp .4s ease;border:2px solid var(--pri);">' +
     '<div class="post-head"><div class="p-avatar '+randomGrad+'">'+randomAvatar+'</div><div><div class="p-name">하은맘 <span style="font-size:9px;background:#F5EDE4;color:var(--pri);padding:2px 6px;border-radius:6px;font-weight:700;">'+writeCategory+'</span></div><div class="p-badges"><span class="p-tier t1">별맘</span> <span class="p-meta">11개월 · 방금</span></div></div><div class="p-more" onclick="event.stopPropagation();showPostMenu()">⋯</div></div>' +
@@ -6809,10 +6943,112 @@ function openProfilePopup(name){
   document.getElementById('ppPosts').textContent = data.posts;
   document.getElementById('ppComments').textContent = data.comments;
   document.getElementById('ppLikes').textContent = data.likes;
+  // 팔로우 상태 반영
+  var fbtn = document.getElementById('ppFollowBtn');
+  if(followingList[name]){
+    fbtn.textContent = '팔로잉 ✓';
+    fbtn.classList.add('following');
+    fbtn.classList.remove('primary');
+  } else {
+    fbtn.textContent = '팔로우';
+    fbtn.classList.remove('following');
+    fbtn.classList.add('primary');
+  }
   document.getElementById('profilePopup').classList.add('show');
 }
 function closeProfilePopup(){
   document.getElementById('profilePopup').classList.remove('show');
+}
+
+// ─── 푸시 알림 시뮬레이션 ───
+var pushMessages = [
+  {icon:'💬',title:'커뮤니티',body:'하은맘님의 글에 새 댓글이 달렸어요',goto:'s-community'},
+  {icon:'⭐',title:'북극성 PICK',body:'이번 주 엽산 1 PICK이 바뀌었어요!',goto:'s-standard'},
+  {icon:'🎁',title:'별똥별마켓',body:'새로운 리뷰약속이 등록되었어요',goto:'s-market'},
+  {icon:'👶',title:'육아정보',body:'11개월 아기 발달 체크리스트를 확인해보세요',goto:'s-info'},
+  {icon:'🔥',title:'인기글',body:'"아기 로션 추천" 글이 인기글에 올랐어요!',goto:'s-community'},
+  {icon:'💛',title:'공감',body:'도윤맘님이 회원님의 글에 공감했어요',goto:'s-community'},
+  {icon:'🗳️',title:'투표',body:'기저귀 기준 세우기 투표가 시작됐어요',goto:'s-market'},
+  {icon:'🌳',title:'공동육아',body:'강남 놀이터 탐험대 새 모임이 열렸어요',goto:'s-coparenting'}
+];
+var pushTimeout;
+function showPushBanner(msg){
+  var banner = document.getElementById('pushBanner');
+  document.getElementById('pushIcon').textContent = msg.icon;
+  document.getElementById('pushTitle').textContent = msg.title;
+  document.getElementById('pushBody').textContent = msg.body;
+  banner._goto = msg.goto;
+  banner.style.top = '12px';
+  clearTimeout(pushTimeout);
+  pushTimeout = setTimeout(function(){ banner.style.top = '-80px'; }, 4000);
+}
+function handlePushClick(){
+  var banner = document.getElementById('pushBanner');
+  banner.style.top = '-80px';
+  var gotoTab = banner._goto;
+  if(gotoTab) goTab(gotoTab);
+}
+// 온보딩 완료 후 랜덤 푸시 시작
+function startPushSimulation(){
+  setInterval(function(){
+    if(document.getElementById('onboarding').style.display === 'none'){
+      var msg = pushMessages[Math.floor(Math.random()*pushMessages.length)];
+      showPushBanner(msg);
+    }
+  }, 30000 + Math.random() * 30000); // 30~60초 간격
+}
+setTimeout(startPushSimulation, 5000);
+
+// ─── 별똥별 교환 ───
+var myStarPoints = 1250;
+function exchangeItem(name, cost){
+  if(myStarPoints < cost){
+    showToast('별똥별 조각이 부족해요! (보유: '+myStarPoints+'조각)');
+    return;
+  }
+  var ok = confirm(name + '을(를) 교환하시겠어요?\n\n필요: ★ '+cost.toLocaleString()+'조각\n보유: ★ '+myStarPoints.toLocaleString()+'조각\n잔여: ★ '+(myStarPoints-cost).toLocaleString()+'조각');
+  if(ok){
+    myStarPoints -= cost;
+    showToast(name + ' 교환 완료! 남은 별조각: '+myStarPoints.toLocaleString());
+  }
+}
+
+// ─── 프로필 수정 ───
+var avatarOptions = ['🐥','🌸','🦊','🐰','🐱','🐻','🌙','⭐','🌈','🎀'];
+var currentAvatarIdx = 0;
+function cycleAvatar(){
+  currentAvatarIdx = (currentAvatarIdx + 1) % avatarOptions.length;
+  document.getElementById('editProfAvatar').childNodes[0].textContent = avatarOptions[currentAvatarIdx];
+}
+function saveProfile(){
+  var newName = document.getElementById('editNickname').value.trim();
+  var newAvatar = avatarOptions[currentAvatarIdx];
+  if(!newName){ showToast('닉네임을 입력해주세요'); return; }
+  // 프로필 탭 업데이트
+  document.getElementById('profName').textContent = newName;
+  document.getElementById('profAvatar').textContent = newAvatar;
+  goBack();
+  showToast('프로필이 수정되었어요 ✨');
+}
+
+// ─── 팔로우/언팔로우 ───
+var followingList = {};
+function toggleFollow(){
+  var name = document.getElementById('ppName').textContent;
+  var btn = document.getElementById('ppFollowBtn');
+  if(followingList[name]){
+    delete followingList[name];
+    btn.textContent = '팔로우';
+    btn.classList.remove('following');
+    btn.classList.add('primary');
+    showToast(name + ' 님 팔로우를 취소했어요');
+  } else {
+    followingList[name] = true;
+    btn.textContent = '팔로잉 ✓';
+    btn.classList.add('following');
+    btn.classList.remove('primary');
+    showToast(name + ' 님을 팔로우합니다 💛');
+  }
 }
 
 // ─── 동네 설정 ───
