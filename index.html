@@ -608,7 +608,7 @@
   .ns-item-arrow{color:var(--sub);font-size:12px;flex-shrink:0;transition:transform .2s;}
   .ns-item.open .ns-item-arrow{transform:rotate(90deg);}
   .ns-picks{max-height:0;overflow:hidden;transition:max-height .3s ease;background:#FAFAF7;border-top:0px solid var(--border);}
-  .ns-item.open .ns-picks{max-height:300px;border-top-width:1px;}
+  .ns-item.open .ns-picks{max-height:800px;border-top-width:1px;}
   .ns-pick{display:flex;align-items:center;padding:10px 16px 10px 50px;gap:10px;border-bottom:1px solid rgba(0,0,0,0.04);}
   .ns-pick:last-of-type{border-bottom:none;}
   .ns-rank{width:24px;height:24px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -619,9 +619,63 @@
   .ns-pick-name{font-size:13px;font-weight:600;color:var(--text);}
   .ns-pick-tags{display:flex;gap:4px;margin-top:2px;}
   .ns-pick-tag{font-size:10px;padding:2px 6px;border-radius:4px;background:var(--muted);color:var(--tag);}
-  .ns-pick-pct{font-size:14px;font-weight:800;color:var(--pri);flex-shrink:0;}
-  .ns-vote-btn{display:block;margin:8px 16px 12px 50px;padding:8px 0;text-align:center;font-size:12px;font-weight:700;color:var(--pri);border:1.5px solid var(--pri);border-radius:8px;cursor:pointer;background:#fff;transition:all .15s;}
-  .ns-vote-btn:active{background:var(--pri);color:#fff;}
+  .ns-pick-rating{font-size:12px;font-weight:700;color:var(--pri);flex-shrink:0;text-align:right;}
+  .ns-pick-rc{font-size:10px;color:var(--sub);font-weight:500;}
+  .ns-stars{color:#E8C97A;font-size:11px;letter-spacing:-1px;}
+
+  /* 리뷰 섹션 */
+  .ns-reviews-title{font-size:11px;font-weight:700;color:var(--sub);padding:10px 16px 4px 16px;border-top:1px solid var(--border);}
+  .ns-review{padding:10px 16px;border-bottom:1px solid rgba(0,0,0,0.04);}
+  .ns-review:last-of-type{border-bottom:none;}
+  .ns-review-top{display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap;}
+  .ns-review-avatar{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+  .ns-review-author{font-size:11px;font-weight:700;}
+  .ns-review-tier{font-size:9px;padding:1px 5px;border-radius:4px;background:#F5EDE4;color:var(--pri);font-weight:600;}
+  .ns-review-stars{font-size:10px;color:#E8C97A;letter-spacing:-1px;}
+  .ns-review-age{font-size:10px;color:var(--sub);}
+  .ns-review-time{font-size:9px;color:var(--sub);margin-left:auto;}
+  .ns-review-text{font-size:12px;line-height:1.6;color:var(--text);margin:2px 0;}
+  .ns-review-tags{display:flex;gap:4px;margin-top:4px;}
+  .ns-review-tag{font-size:9px;padding:2px 6px;border-radius:4px;background:#F0EBE5;color:var(--sub);}
+  .ns-no-review{padding:16px;text-align:center;font-size:12px;color:var(--sub);line-height:1.6;}
+  .ns-no-review strong{color:var(--pri);}
+
+  /* 리뷰 더보기 + 리뷰쓰기 버튼 */
+  .ns-review-actions{display:flex;gap:8px;padding:8px 16px 12px;}
+  .ns-more-btn{flex:1;padding:8px 0;text-align:center;font-size:11px;font-weight:600;color:var(--sub);border:1px solid var(--border);border-radius:8px;cursor:pointer;background:#fff;}
+  .ns-more-btn:active{background:var(--bg);}
+  .ns-write-btn{flex:1;padding:8px 0;text-align:center;font-size:11px;font-weight:700;color:var(--pri);border:1.5px solid var(--pri);border-radius:8px;cursor:pointer;background:#fff;transition:all .15s;}
+  .ns-write-btn:active{background:var(--pri);color:#fff;}
+
+  /* 리뷰 바텀시트 */
+  .ns-sheet-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:49;display:none;}
+  .ns-sheet-overlay.active{display:block;}
+  .ns-review-sheet{position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -4px 20px rgba(0,0,0,0.15);transform:translateY(100%);transition:transform .3s ease;z-index:50;max-height:85%;overflow-y:auto;}
+  .ns-review-sheet.active{transform:translateY(0);}
+  .ns-sheet-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+  .ns-sheet-header h3{font-size:16px;font-weight:800;}
+  .ns-sheet-close{font-size:20px;cursor:pointer;color:var(--sub);padding:4px;}
+  .ns-sheet-body{padding:16px 20px;}
+  .ns-sheet-label{font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;}
+  .ns-radio-group{margin:8px 0 16px;}
+  .ns-radio{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;border:1.5px solid var(--border);margin-bottom:6px;transition:all .15s;}
+  .ns-radio.selected{border-color:var(--pri);background:#FBF5F0;}
+  .ns-radio-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+  .ns-radio.selected .ns-radio-dot{border-color:var(--pri);}
+  .ns-radio.selected .ns-radio-dot::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--pri);}
+  .ns-radio-name{font-size:13px;font-weight:600;}
+  .ns-star-input{display:flex;gap:4px;margin:8px 0 16px;}
+  .ns-star-input span{font-size:28px;cursor:pointer;color:var(--border);transition:color .1s;}
+  .ns-star-input span.on{color:#E8C97A;}
+  .ns-review-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit;outline:none;resize:none;min-height:44px;box-sizing:border-box;}
+  .ns-review-input:focus{border-color:var(--pri);}
+  .ns-tag-select{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 16px;}
+  .ns-tag-option{font-size:11px;padding:6px 12px;border-radius:16px;border:1px solid var(--border);cursor:pointer;background:#fff;transition:all .15s;}
+  .ns-tag-option.selected{border-color:var(--pri);background:#FBF5F0;color:var(--pri);font-weight:600;}
+  .ns-submit-btn{width:100%;padding:14px 0;text-align:center;font-size:14px;font-weight:800;color:#fff;background:var(--pri);border:none;border-radius:12px;cursor:pointer;margin-top:12px;font-family:inherit;}
+  .ns-submit-btn:active{opacity:0.8;}
+  .ns-grade-notice{padding:12px 16px;text-align:center;font-size:11px;color:var(--sub);line-height:1.6;}
+  .ns-grade-notice strong{color:var(--pri);}
 
   /* ═══════ PRODUCT DETAIL ═══════ */
   .pd-image{height:200px;background:linear-gradient(135deg,#F5EDE4,#EDE4D8);display:flex;align-items:center;justify-content:center;font-size:72px;}
@@ -3753,6 +3807,16 @@
   <!-- FAB 글쓰기 버튼 -->
   <button class="fab-write" id="fabWrite" onclick="goSub('s-write-post')">✏️</button>
 
+  <!-- Review Bottom Sheet -->
+  <div class="ns-sheet-overlay" id="nsSheetOverlay" onclick="closeReviewSheet()"></div>
+  <div class="ns-review-sheet" id="nsReviewSheet">
+    <div class="ns-sheet-header">
+      <h3 id="nsSheetTitle">리뷰 쓰기</h3>
+      <span class="ns-sheet-close" onclick="closeReviewSheet()">✕</span>
+    </div>
+    <div class="ns-sheet-body" id="nsSheetBody"></div>
+  </div>
+
   <!-- Toast -->
   <div class="toast" id="toast">
     <div class="toast-icon">✅</div>
@@ -4357,195 +4421,292 @@ function pickEmpathy(el, pct) {
   showToast('투표 완료! ' + count + '명의 엄마가 함께했어요');
 }
 
-// ─── North Star Data (시기별 정답지) ───
+// ─── North Star Data (시기별 정답지 + 리뷰) ───
+var nsReviewTags = ['민감성피부','가성비','신생아','트러블없음','추천','재구매','선물용','프리미엄','대용량','휴대용','순한성분','흡수력좋음'];
+var currentUserGrade = 2; // 1=새싹맘, 2=별맘, 3=별똥별맘
+function canWriteReview(){ return currentUserGrade >= 2; }
+
 var northStarData = [
   { id:'pregnancy', name:'임신준비', icon:'🤰', items:[
-    {name:'엽산제',icon:'💊',desc:'임신 3개월 전부터 복용 권장',votes:342,picks:[
-      {name:'뉴트리원 활성엽산',pct:45,tags:['활성엽산','1일1정']},
-      {name:'솔가 엽산 400',pct:32,tags:['가성비']},
-      {name:'센트룸 프리나탈',pct:23,tags:['종합영양']}]},
-    {name:'임신테스트기',icon:'🧪',desc:'초기 임신 확인 필수',votes:289,picks:[
-      {name:'얼리체크 임신테스트기',pct:52,tags:['고감도','빠른결과']},
-      {name:'원포 임신진단시약',pct:31,tags:['병원납품']},
-      {name:'클리어블루 디지털',pct:17,tags:['디지털표시']}]},
-    {name:'기초체온계',icon:'🌡️',desc:'배란일 추적용 소수점 체온계',votes:198,picks:[
-      {name:'옴론 기초체온계',pct:48,tags:['정확도↑']},
-      {name:'페미닝 스마트 체온계',pct:35,tags:['앱연동']},
-      {name:'시티즌 기초체온계',pct:17,tags:['가성비']}]},
-    {name:'산부인과 선택',icon:'🏥',desc:'산전검사 가능한 병원 찾기',votes:412,picks:[
-      {name:'대학병원 (고위험)',pct:38,tags:['정밀검사','고위험']},
-      {name:'개인 산부인과',pct:45,tags:['접근성','친절']},
-      {name:'조산원',pct:17,tags:['자연분만','가정적']}]},
-    {name:'보험 정리',icon:'📋',desc:'태아보험·실비보험 가입 시기',votes:267,picks:[
-      {name:'삼성생명 태아보험',pct:40,tags:['보장넓음']},
-      {name:'현대해상 굿앤굿',pct:35,tags:['가성비']},
-      {name:'DB손해 태아보험',pct:25,tags:['특약다양']}]},
-    {name:'임신 영양제',icon:'💛',desc:'철분·칼슘·오메가3 등',votes:356,picks:[
-      {name:'뉴트리원 임산부 종합',pct:42,tags:['올인원']},
-      {name:'네이처메이드 프리나탈',pct:33,tags:['미국직구']},
-      {name:'일동제약 지아이 프리나탈',pct:25,tags:['국산','흡수율↑']}]}
+    {name:'엽산제',icon:'💊',desc:'임신 3개월 전부터 복용 권장',picks:[
+      {name:'뉴트리원 활성엽산',rating:4.8,reviewCount:15,tags:['활성엽산','1일1정']},
+      {name:'솔가 엽산 400',rating:4.3,reviewCount:8,tags:['가성비']},
+      {name:'센트룸 프리나탈',rating:4.1,reviewCount:5,tags:['종합영양']}],
+      reviews:[
+        {author:'서연맘',avatar:'👶',grade:'g2',tier:'별맘',rating:5,pick:0,text:'임신 준비하면서 꾸준히 먹고 있어요. 알 크기도 작아서 목넘김 좋아요!',babyAge:'임신준비중',tags:['추천'],time:'2일전'},
+        {author:'하늘맘',avatar:'🦊',grade:'g3',tier:'별똥별맘',rating:4,pick:1,text:'가성비 좋아요. 하루 한알이라 간편해요',babyAge:'임신초기',tags:['가성비'],time:'5일전'},
+        {author:'지우맘',avatar:'🐱',grade:'g2',tier:'별맘',rating:5,pick:0,text:'산부인과에서 추천받았어요. 활성형이라 흡수 잘 된대요',babyAge:'임신준비중',tags:['추천'],time:'1주전'}
+      ]},
+    {name:'임신테스트기',icon:'🧪',desc:'초기 임신 확인 필수',picks:[
+      {name:'얼리체크 임신테스트기',rating:4.6,reviewCount:12,tags:['고감도','빠른결과']},
+      {name:'원포 임신진단시약',rating:4.2,reviewCount:6,tags:['병원납품']},
+      {name:'클리어블루 디지털',rating:4.4,reviewCount:4,tags:['디지털표시']}],
+      reviews:[
+        {author:'민준맘',avatar:'🐻',grade:'g2',tier:'별맘',rating:5,pick:0,text:'감도가 좋아서 빠르게 확인됐어요!',babyAge:'임신초기',tags:['추천'],time:'3일전'}
+      ]},
+    {name:'기초체온계',icon:'🌡️',desc:'배란일 추적용 소수점 체온계',picks:[
+      {name:'옴론 기초체온계',rating:4.5,reviewCount:8,tags:['정확도↑']},
+      {name:'페미닝 스마트 체온계',rating:4.3,reviewCount:5,tags:['앱연동']},
+      {name:'시티즌 기초체온계',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[
+        {author:'예은맘',avatar:'🌸',grade:'g3',tier:'별똥별맘',rating:5,pick:0,text:'소수점 둘째자리까지 나와서 배란일 추적 정확해요',babyAge:'임신준비중',tags:['추천'],time:'4일전'}
+      ]},
+    {name:'산부인과 선택',icon:'🏥',desc:'산전검사 가능한 병원 찾기',picks:[
+      {name:'대학병원 (고위험)',rating:4.2,reviewCount:10,tags:['정밀검사','고위험']},
+      {name:'개인 산부인과',rating:4.5,reviewCount:14,tags:['접근성','친절']},
+      {name:'조산원',rating:4.0,reviewCount:3,tags:['자연분만','가정적']}],
+      reviews:[
+        {author:'소율맘',avatar:'🐰',grade:'g2',tier:'별맘',rating:5,pick:1,text:'집 근처 개인병원 다니는데 선생님이 정말 친절해요. 대기시간도 짧아요',babyAge:'임신중기',tags:['추천'],time:'1주전'}
+      ]},
+    {name:'보험 정리',icon:'📋',desc:'태아보험·실비보험 가입 시기',picks:[
+      {name:'삼성생명 태아보험',rating:4.3,reviewCount:7,tags:['보장넓음']},
+      {name:'현대해상 굿앤굿',rating:4.1,reviewCount:5,tags:['가성비']},
+      {name:'DB손해 태아보험',rating:4.0,reviewCount:3,tags:['특약다양']}],
+      reviews:[]},
+    {name:'임신 영양제',icon:'💛',desc:'철분·칼슘·오메가3 등',picks:[
+      {name:'뉴트리원 임산부 종합',rating:4.6,reviewCount:11,tags:['올인원']},
+      {name:'네이처메이드 프리나탈',rating:4.2,reviewCount:6,tags:['미국직구']},
+      {name:'일동제약 지아이 프리나탈',rating:4.0,reviewCount:4,tags:['국산','흡수율↑']}],
+      reviews:[
+        {author:'다은맘',avatar:'🦋',grade:'g2',tier:'별맘',rating:4,pick:0,text:'올인원이라 여러개 안 먹어도 돼서 편해요',babyAge:'임신중기',tags:['추천'],time:'3일전'}
+      ]}
   ]},
   { id:'birth-prep', name:'출산준비', icon:'🎒', items:[
-    {name:'기저귀',icon:'🩲',desc:'신생아용 1단계부터 준비',votes:523,picks:[
-      {name:'하기스 네이처메이드',pct:45,tags:['흡수력↑','인기1위']},
-      {name:'팸퍼스 퓨어프로텍션',pct:32,tags:['순한성분']},
-      {name:'보솜이 리얼코튼',pct:23,tags:['가성비']}]},
-    {name:'물티슈',icon:'🧻',desc:'무향·저자극 아기 전용',votes:487,picks:[
-      {name:'마더케이 순수물티슈',pct:44,tags:['무향','재구매89%']},
-      {name:'보솜이 리얼코튼',pct:34,tags:['두꺼움']},
-      {name:'궁중비책 순수',pct:22,tags:['성분A+']}]},
-    {name:'젖병/젖꼭지',icon:'🍼',desc:'수유 방식에 맞게 선택',votes:398,picks:[
-      {name:'닥터브라운 옵션플러스',pct:41,tags:['배앓이방지']},
-      {name:'피죤 모유실감',pct:36,tags:['모유수유병행']},
-      {name:'더블하트 젖병',pct:23,tags:['가성비']}]},
-    {name:'속싸개/배냇저고리',icon:'👶',desc:'신생아 필수 의류',votes:312,picks:[
-      {name:'에이든아네이 속싸개',pct:48,tags:['모슬린','통기성']},
-      {name:'머미쿨 속싸개',pct:30,tags:['지퍼식','편리']},
-      {name:'컨비 배냇저고리세트',pct:22,tags:['국산면']}]},
-    {name:'카시트',icon:'🚗',desc:'퇴원 시 필수! 신생아용',votes:445,picks:[
-      {name:'싸이벡스 클라우드Z2',pct:43,tags:['i-Size','회전형']},
-      {name:'맥시코시 페블360',pct:35,tags:['경량','인기']},
-      {name:'다이치 원픽스360',pct:22,tags:['가성비','국산']}]},
-    {name:'유모차',icon:'🚼',desc:'디럭스/절충형/휴대용 선택',votes:389,picks:[
-      {name:'잉글레시나 퀴드2',pct:38,tags:['경량','접이식']},
-      {name:'부가부 드래곤플라이',pct:35,tags:['올라운드']},
-      {name:'요야 플러스4',pct:27,tags:['휴대용','가성비']}]},
-    {name:'아기침대',icon:'🛏️',desc:'신생아 수면 안전 필수',votes:278,picks:[
-      {name:'도노도노 범퍼침대',pct:46,tags:['인기1위','범퍼']},
-      {name:'쁘레베베 아기침대',pct:32,tags:['원목','인테리어']},
-      {name:'알집 슈퍼싱글',pct:22,tags:['가성비']}]},
-    {name:'수유쿠션',icon:'🤱',desc:'수유 자세 보조',votes:301,picks:[
-      {name:'보보에코 수유쿠션',pct:44,tags:['인체공학']},
-      {name:'그래비티 수유쿠션',pct:33,tags:['높이조절']},
-      {name:'이케아 렌 수유쿠션',pct:23,tags:['가성비']}]},
-    {name:'체온계',icon:'🌡️',desc:'비접촉식 권장',votes:356,picks:[
-      {name:'브라운 써모스캔7',pct:48,tags:['귀체온계','정확']},
-      {name:'휴비딕 비접촉',pct:32,tags:['이마체온']},
-      {name:'보령 비접촉 체온계',pct:20,tags:['가성비']}]},
-    {name:'산모패드/위생용품',icon:'🩹',desc:'출산 후 산모 회복용',votes:234,picks:[
-      {name:'마더케이 산모패드',pct:45,tags:['대용량']},
-      {name:'네이처메이드 산모패드',pct:33,tags:['순면']},
-      {name:'유한킴벌리 산모패드',pct:22,tags:['가성비']}]}
+    {name:'기저귀',icon:'🩲',desc:'신생아용 1단계부터 준비',picks:[
+      {name:'하기스 네이처메이드',rating:4.8,reviewCount:18,tags:['흡수력↑','인기1위']},
+      {name:'팸퍼스 퓨어프로텍션',rating:4.3,reviewCount:8,tags:['순한성분']},
+      {name:'보솜이 리얼코튼',rating:4.1,reviewCount:5,tags:['가성비']}],
+      reviews:[
+        {author:'콩이맘',avatar:'👶',grade:'g2',tier:'별맘',rating:5,pick:0,text:'피부 예민한 아기라 걱정했는데 트러블 없었어요. 병원에서도 추천받았어요!',babyAge:'출산준비중',tags:['민감성피부','신생아'],time:'3일전'},
+        {author:'하늘맘',avatar:'🦊',grade:'g3',tier:'별똥별맘',rating:4,pick:0,text:'가성비는 별론데 피부가 약한 아기한테는 이게 답이에요',babyAge:'0-3개월',tags:['민감성피부','추천'],time:'1주전'},
+        {author:'수빈맘',avatar:'🐥',grade:'g2',tier:'별맘',rating:4,pick:2,text:'보솜이도 생각보다 괜찮아요! 가격 대비 흡수력 충분해요',babyAge:'0-3개월',tags:['가성비'],time:'2주전'}
+      ]},
+    {name:'물티슈',icon:'🧻',desc:'무향·저자극 아기 전용',picks:[
+      {name:'마더케이 순수물티슈',rating:4.7,reviewCount:22,tags:['무향','재구매율↑']},
+      {name:'보솜이 리얼코튼',rating:4.4,reviewCount:9,tags:['두꺼움']},
+      {name:'궁중비책 순수',rating:4.2,reviewCount:4,tags:['성분A+']}],
+      reviews:[
+        {author:'지안맘',avatar:'🌷',grade:'g3',tier:'별똥별맘',rating:5,pick:0,text:'무향이라 안심이에요. 두께감도 적당하고 하루에 한팩씩 쓰는데 질려도 안질려요',babyAge:'0-3개월',tags:['신생아','추천'],time:'2일전'},
+        {author:'시우맘',avatar:'🐻',grade:'g2',tier:'별맘',rating:4,pick:1,text:'보솜이가 두꺼워서 좋은데 가격이 좀 올랐어요',babyAge:'4-6개월',tags:['추천'],time:'5일전'}
+      ]},
+    {name:'젖병/젖꼭지',icon:'🍼',desc:'수유 방식에 맞게 선택',picks:[
+      {name:'닥터브라운 옵션플러스',rating:4.5,reviewCount:12,tags:['배앓이방지']},
+      {name:'피죤 모유실감',rating:4.4,reviewCount:9,tags:['모유수유병행']},
+      {name:'더블하트 젖병',rating:4.0,reviewCount:4,tags:['가성비']}],
+      reviews:[
+        {author:'유나맘',avatar:'🎀',grade:'g2',tier:'별맘',rating:5,pick:0,text:'배앓이가 심했는데 이 젖병으로 바꾸고 확실히 줄었어요',babyAge:'0-3개월',tags:['추천'],time:'4일전'}
+      ]},
+    {name:'속싸개/배냇저고리',icon:'👶',desc:'신생아 필수 의류',picks:[
+      {name:'에이든아네이 속싸개',rating:4.6,reviewCount:10,tags:['모슬린','통기성']},
+      {name:'머미쿨 속싸개',rating:4.3,reviewCount:6,tags:['지퍼식','편리']},
+      {name:'컨비 배냇저고리세트',rating:4.0,reviewCount:3,tags:['국산면']}],
+      reviews:[]},
+    {name:'카시트',icon:'🚗',desc:'퇴원 시 필수! 신생아용',picks:[
+      {name:'싸이벡스 클라우드Z2',rating:4.7,reviewCount:14,tags:['i-Size','회전형']},
+      {name:'맥시코시 페블360',rating:4.4,reviewCount:8,tags:['경량','인기']},
+      {name:'다이치 원픽스360',rating:4.1,reviewCount:4,tags:['가성비','국산']}],
+      reviews:[
+        {author:'도윤맘',avatar:'🚗',grade:'g2',tier:'별맘',rating:5,pick:0,text:'회전형이라 태우고 내리기 정말 편해요. 비싸지만 값어치해요',babyAge:'출산준비중',tags:['추천','프리미엄'],time:'6일전'}
+      ]},
+    {name:'유모차',icon:'🚼',desc:'디럭스/절충형/휴대용 선택',picks:[
+      {name:'잉글레시나 퀴드2',rating:4.4,reviewCount:9,tags:['경량','접이식']},
+      {name:'부가부 드래곤플라이',rating:4.6,reviewCount:7,tags:['올라운드']},
+      {name:'요야 플러스4',rating:4.2,reviewCount:5,tags:['휴대용','가성비']}],
+      reviews:[
+        {author:'서현맘',avatar:'🌺',grade:'g3',tier:'별똥별맘',rating:5,pick:0,text:'가볍고 접는게 한손으로 돼요! 지하철 탈 때 최고',babyAge:'0-3개월',tags:['추천','휴대용'],time:'1주전'}
+      ]},
+    {name:'아기침대',icon:'🛏️',desc:'신생아 수면 안전 필수',picks:[
+      {name:'도노도노 범퍼침대',rating:4.5,reviewCount:11,tags:['인기1위','범퍼']},
+      {name:'쁘레베베 아기침대',rating:4.2,reviewCount:5,tags:['원목','인테리어']},
+      {name:'알집 슈퍼싱글',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[]},
+    {name:'수유쿠션',icon:'🤱',desc:'수유 자세 보조',picks:[
+      {name:'보보에코 수유쿠션',rating:4.4,reviewCount:8,tags:['인체공학']},
+      {name:'그래비티 수유쿠션',rating:4.2,reviewCount:5,tags:['높이조절']},
+      {name:'이케아 렌 수유쿠션',rating:3.8,reviewCount:3,tags:['가성비']}],
+      reviews:[]},
+    {name:'체온계',icon:'🌡️',desc:'비접촉식 권장',picks:[
+      {name:'브라운 써모스캔7',rating:4.7,reviewCount:13,tags:['귀체온계','정확']},
+      {name:'휴비딕 비접촉',rating:4.2,reviewCount:6,tags:['이마체온']},
+      {name:'보령 비접촉 체온계',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[
+        {author:'은서맘',avatar:'🐧',grade:'g2',tier:'별맘',rating:5,pick:0,text:'귀에 넣는 타입이라 정확도가 높아요. 열 날 때 빠르게 체크 가능!',babyAge:'0-3개월',tags:['추천'],time:'3일전'}
+      ]},
+    {name:'산모패드/위생용품',icon:'🩹',desc:'출산 후 산모 회복용',picks:[
+      {name:'마더케이 산모패드',rating:4.3,reviewCount:7,tags:['대용량']},
+      {name:'네이처메이드 산모패드',rating:4.1,reviewCount:4,tags:['순면']},
+      {name:'유한킴벌리 산모패드',rating:3.8,reviewCount:2,tags:['가성비']}],
+      reviews:[]}
   ]},
   { id:'0-3m', name:'0-3개월', icon:'👶', items:[
-    {name:'분유 (혼합수유시)',icon:'🍼',desc:'모유와 병행하거나 완분 시',votes:367,picks:[
-      {name:'앱솔루트 명작',pct:40,tags:['소화흡수']},
-      {name:'일동후디스 산양분유',pct:35,tags:['산양유']},
-      {name:'남양 임페리얼XO',pct:25,tags:['가성비']}]},
-    {name:'아기로션',icon:'🧴',desc:'보습 필수! 목욕 후 바로',votes:445,picks:[
-      {name:'아토팜 MLE 크림',pct:46,tags:['무향','재구매92%']},
-      {name:'세타필 베이비',pct:32,tags:['저자극']},
-      {name:'큐텐 베이비 로션',pct:22,tags:['성분A+']}]},
-    {name:'아기세제',icon:'🧼',desc:'아기옷 전용 세탁세제',votes:312,picks:[
-      {name:'아우누리 세탁세제',pct:43,tags:['무향','식물성']},
-      {name:'닥터아토 아기세제',pct:34,tags:['피부과추천']},
-      {name:'우리아기 세탁세제',pct:23,tags:['가성비']}]},
-    {name:'바운서',icon:'💺',desc:'잠깐 내려놓을 때 필수',votes:289,picks:[
-      {name:'베이비뵨 바운서 블리스',pct:48,tags:['인기1위']},
-      {name:'리치웰 바운서',pct:30,tags:['가성비']},
-      {name:'콤비 로이스',pct:22,tags:['접이식']}]},
-    {name:'공갈젖꼭지',icon:'🍬',desc:'진정/수면 보조',votes:267,picks:[
-      {name:'누크 지니어스',pct:42,tags:['교정형']},
-      {name:'필립스 아벤트',pct:35,tags:['인기']},
-      {name:'MAM 퍼펙트',pct:23,tags:['디자인']}]},
-    {name:'모빌',icon:'🎠',desc:'시각 자극 발달 도움',votes:198,picks:[
-      {name:'타이니러브 테이크어롱',pct:45,tags:['다기능']},
-      {name:'브이텍 뮤지컬 모빌',pct:33,tags:['음악다양']},
-      {name:'이케아 클라파 모빌',pct:22,tags:['가성비']}]},
-    {name:'수유등',icon:'🌙',desc:'밤중수유 시 은은한 조명',votes:189,picks:[
-      {name:'루미 수유등',pct:44,tags:['밝기조절']},
-      {name:'이케아 수유등',pct:34,tags:['가성비']},
-      {name:'무아스 수유등',pct:22,tags:['충전식']}]},
-    {name:'기저귀크림',icon:'🧴',desc:'기저귀 발진 예방',votes:234,picks:[
-      {name:'데시틴 래피드릴리프',pct:46,tags:['즉효']},
-      {name:'수드크림',pct:32,tags:['영국직구']},
-      {name:'아토팜 페이스트',pct:22,tags:['순한성분']}]}
+    {name:'분유 (혼합수유시)',icon:'🍼',desc:'모유와 병행하거나 완분 시',picks:[
+      {name:'앱솔루트 명작',rating:4.5,reviewCount:14,tags:['소화흡수']},
+      {name:'일동후디스 산양분유',rating:4.3,reviewCount:8,tags:['산양유']},
+      {name:'남양 임페리얼XO',rating:4.0,reviewCount:4,tags:['가성비']}],
+      reviews:[
+        {author:'하은맘',avatar:'🐥',grade:'g2',tier:'별맘',rating:5,pick:0,text:'소화 잘 시키고 변 상태도 좋아요. 혼합수유 중인데 거부감 없이 잘 먹어요',babyAge:'0-3개월',tags:['추천','신생아'],time:'1일전'},
+        {author:'지호맘',avatar:'🦁',grade:'g3',tier:'별똥별맘',rating:4,pick:1,text:'산양분유라 소화가 잘 된다고 해서 선택했어요. 실제로 배앓이 줄었어요',babyAge:'0-3개월',tags:['추천'],time:'4일전'}
+      ]},
+    {name:'아기로션',icon:'🧴',desc:'보습 필수! 목욕 후 바로',picks:[
+      {name:'아토팜 MLE 크림',rating:4.8,reviewCount:20,tags:['무향','재구매율↑']},
+      {name:'세타필 베이비',rating:4.3,reviewCount:8,tags:['저자극']},
+      {name:'큐텐 베이비 로션',rating:4.1,reviewCount:4,tags:['성분A+']}],
+      reviews:[
+        {author:'린아맘',avatar:'🌼',grade:'g2',tier:'별맘',rating:5,pick:0,text:'아토피 있는 아기인데 이것만 발라요. 보습력 최고! 무향이라 안심',babyAge:'0-3개월',tags:['민감성피부','재구매'],time:'2일전'},
+        {author:'준서맘',avatar:'🐻',grade:'g2',tier:'별맘',rating:4,pick:0,text:'발림성이 좋고 끈적이지 않아요. 겨울에는 크림 타입으로!',babyAge:'4-6개월',tags:['추천'],time:'1주전'}
+      ]},
+    {name:'아기세제',icon:'🧼',desc:'아기옷 전용 세탁세제',picks:[
+      {name:'아우누리 세탁세제',rating:4.4,reviewCount:9,tags:['무향','식물성']},
+      {name:'닥터아토 아기세제',rating:4.2,reviewCount:5,tags:['피부과추천']},
+      {name:'우리아기 세탁세제',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[]},
+    {name:'바운서',icon:'💺',desc:'잠깐 내려놓을 때 필수',picks:[
+      {name:'베이비뵨 바운서 블리스',rating:4.7,reviewCount:13,tags:['인기1위']},
+      {name:'리치웰 바운서',rating:4.1,reviewCount:5,tags:['가성비']},
+      {name:'콤비 로이스',rating:4.0,reviewCount:3,tags:['접이식']}],
+      reviews:[
+        {author:'윤서맘',avatar:'🐰',grade:'g2',tier:'별맘',rating:5,pick:0,text:'진짜 없으면 안 될 육아템! 밥 먹을 때, 설거지할 때 항상 태워요',babyAge:'0-3개월',tags:['추천'],time:'5일전'}
+      ]},
+    {name:'공갈젖꼭지',icon:'🍬',desc:'진정/수면 보조',picks:[
+      {name:'누크 지니어스',rating:4.3,reviewCount:8,tags:['교정형']},
+      {name:'필립스 아벤트',rating:4.2,reviewCount:6,tags:['인기']},
+      {name:'MAM 퍼펙트',rating:4.0,reviewCount:3,tags:['디자인']}],
+      reviews:[]},
+    {name:'모빌',icon:'🎠',desc:'시각 자극 발달 도움',picks:[
+      {name:'타이니러브 테이크어롱',rating:4.4,reviewCount:7,tags:['다기능']},
+      {name:'브이텍 뮤지컬 모빌',rating:4.1,reviewCount:4,tags:['음악다양']},
+      {name:'이케아 클라파 모빌',rating:3.8,reviewCount:2,tags:['가성비']}],
+      reviews:[]},
+    {name:'수유등',icon:'🌙',desc:'밤중수유 시 은은한 조명',picks:[
+      {name:'루미 수유등',rating:4.3,reviewCount:6,tags:['밝기조절']},
+      {name:'이케아 수유등',rating:4.0,reviewCount:4,tags:['가성비']},
+      {name:'무아스 수유등',rating:3.9,reviewCount:2,tags:['충전식']}],
+      reviews:[]},
+    {name:'기저귀크림',icon:'🧴',desc:'기저귀 발진 예방',picks:[
+      {name:'데시틴 래피드릴리프',rating:4.6,reviewCount:11,tags:['즉효']},
+      {name:'수드크림',rating:4.3,reviewCount:6,tags:['영국직구']},
+      {name:'아토팜 페이스트',rating:4.0,reviewCount:3,tags:['순한성분']}],
+      reviews:[
+        {author:'채원맘',avatar:'🌈',grade:'g2',tier:'별맘',rating:5,pick:0,text:'발진 시작되자마자 바르면 하루만에 나아요. 무조건 하나 사두세요!',babyAge:'0-3개월',tags:['추천','신생아'],time:'3일전'}
+      ]}
   ]},
   { id:'4-6m', name:'4-6개월', icon:'🍚', items:[
-    {name:'이유식 도구',icon:'🥣',desc:'블렌더·찜기·소분용기 세트',votes:398,picks:[
-      {name:'베베쿡 이유식 마스터',pct:44,tags:['올인원']},
-      {name:'브라운 핸드블렌더',pct:33,tags:['다용도']},
-      {name:'에디슨 이유식 세트',pct:23,tags:['가성비']}]},
-    {name:'아기의자 (하이체어)',icon:'🪑',desc:'이유식 시작과 함께 필수',votes:356,picks:[
-      {name:'스토케 트립트랩',pct:42,tags:['성장형','인기']},
-      {name:'이케아 안틸롭',pct:35,tags:['가성비','실용']},
-      {name:'부메랑 하이체어',pct:23,tags:['접이식']}]},
-    {name:'턱받이',icon:'🧣',desc:'이유식 시 필수 침·음식 방지',votes:278,picks:[
-      {name:'먹깨비 실리콘 턱받이',pct:46,tags:['실리콘','세척편리']},
-      {name:'에이든아네이 턱받이',pct:32,tags:['모슬린']},
-      {name:'비팝 턱받이 세트',pct:22,tags:['가성비','10장']}]},
-    {name:'이유식 용기',icon:'📦',desc:'소분 냉동 보관',votes:312,picks:[
-      {name:'글라스락 이유식용기',pct:44,tags:['유리','안전']},
-      {name:'옥소 이유식 소분용기',pct:34,tags:['편리']},
-      {name:'베베쿡 소분용기',pct:22,tags:['실리콘']}]},
-    {name:'아기수저',icon:'🥄',desc:'BPA-free 실리콘 수저',votes:267,picks:[
-      {name:'에디슨 실리콘 스푼',pct:45,tags:['BPA-free']},
-      {name:'누크 이유식 스푼세트',pct:33,tags:['단계별']},
-      {name:'베베쿡 실리콘 스푼',pct:22,tags:['가성비']}]},
-    {name:'놀이매트',icon:'🏠',desc:'바닥 활동 시 안전 쿠션',votes:334,picks:[
-      {name:'알집 폴더매트',pct:43,tags:['인기1위','접이식']},
-      {name:'도노도노 PVC매트',pct:34,tags:['세척편리']},
-      {name:'아이코닉 층간소음매트',pct:23,tags:['두꺼움']}]},
-    {name:'치발기',icon:'🦷',desc:'이가 나기 시작할 때',votes:223,picks:[
-      {name:'소피 기린 치발기',pct:44,tags:['천연고무']},
-      {name:'누크 냉장 치발기',pct:34,tags:['쿨링']},
-      {name:'에디슨 치발기',pct:22,tags:['가성비']}]}
+    {name:'이유식 도구',icon:'🥣',desc:'블렌더·찜기·소분용기 세트',picks:[
+      {name:'베베쿡 이유식 마스터',rating:4.6,reviewCount:15,tags:['올인원']},
+      {name:'브라운 핸드블렌더',rating:4.3,reviewCount:7,tags:['다용도']},
+      {name:'에디슨 이유식 세트',rating:4.0,reviewCount:4,tags:['가성비']}],
+      reviews:[
+        {author:'예린맘',avatar:'🍳',grade:'g3',tier:'별똥별맘',rating:5,pick:0,text:'찌고 갈고 소분까지 올인원! 이유식 초기에 정말 편해요',babyAge:'4-6개월',tags:['추천'],time:'2일전'},
+        {author:'시현맘',avatar:'🐱',grade:'g2',tier:'별맘',rating:4,pick:1,text:'핸드블렌더가 이유식 끝나도 계속 쓸 수 있어서 좋아요',babyAge:'7-12개월',tags:['가성비'],time:'1주전'}
+      ]},
+    {name:'아기의자 (하이체어)',icon:'🪑',desc:'이유식 시작과 함께 필수',picks:[
+      {name:'스토케 트립트랩',rating:4.5,reviewCount:12,tags:['성장형','인기']},
+      {name:'이케아 안틸롭',rating:4.3,reviewCount:9,tags:['가성비','실용']},
+      {name:'부메랑 하이체어',rating:4.0,reviewCount:3,tags:['접이식']}],
+      reviews:[
+        {author:'은우맘',avatar:'🧸',grade:'g2',tier:'별맘',rating:4,pick:1,text:'이케아 안틸롭 가성비 끝판왕! 세척도 편하고 가격도 착해요',babyAge:'4-6개월',tags:['가성비','추천'],time:'4일전'}
+      ]},
+    {name:'턱받이',icon:'🧣',desc:'이유식 시 필수 침·음식 방지',picks:[
+      {name:'먹깨비 실리콘 턱받이',rating:4.5,reviewCount:10,tags:['실리콘','세척편리']},
+      {name:'에이든아네이 턱받이',rating:4.2,reviewCount:5,tags:['모슬린']},
+      {name:'비팝 턱받이 세트',rating:3.9,reviewCount:3,tags:['가성비','10장']}],
+      reviews:[]},
+    {name:'이유식 용기',icon:'📦',desc:'소분 냉동 보관',picks:[
+      {name:'글라스락 이유식용기',rating:4.4,reviewCount:8,tags:['유리','안전']},
+      {name:'옥소 이유식 소분용기',rating:4.2,reviewCount:5,tags:['편리']},
+      {name:'베베쿡 소분용기',rating:4.0,reviewCount:3,tags:['실리콘']}],
+      reviews:[]},
+    {name:'아기수저',icon:'🥄',desc:'BPA-free 실리콘 수저',picks:[
+      {name:'에디슨 실리콘 스푼',rating:4.3,reviewCount:7,tags:['BPA-free']},
+      {name:'누크 이유식 스푼세트',rating:4.1,reviewCount:4,tags:['단계별']},
+      {name:'베베쿡 실리콘 스푼',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[]},
+    {name:'놀이매트',icon:'🏠',desc:'바닥 활동 시 안전 쿠션',picks:[
+      {name:'알집 폴더매트',rating:4.6,reviewCount:13,tags:['인기1위','접이식']},
+      {name:'도노도노 PVC매트',rating:4.3,reviewCount:6,tags:['세척편리']},
+      {name:'아이코닉 층간소음매트',rating:4.0,reviewCount:3,tags:['두꺼움']}],
+      reviews:[
+        {author:'하린맘',avatar:'🏠',grade:'g2',tier:'별맘',rating:5,pick:0,text:'접이식이라 청소할 때 세워두면 돼요. 두께감도 딱 좋아요',babyAge:'4-6개월',tags:['추천'],time:'6일전'}
+      ]},
+    {name:'치발기',icon:'🦷',desc:'이가 나기 시작할 때',picks:[
+      {name:'소피 기린 치발기',rating:4.4,reviewCount:8,tags:['천연고무']},
+      {name:'누크 냉장 치발기',rating:4.2,reviewCount:5,tags:['쿨링']},
+      {name:'에디슨 치발기',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[]}
   ]},
   { id:'7-12m', name:'7-12개월', icon:'🧸', items:[
-    {name:'걸음마 보조기',icon:'🚶',desc:'걸음마 시작 시기',votes:289,picks:[
-      {name:'브이텍 걸음마학습기',pct:44,tags:['다기능']},
-      {name:'피셔프라이스 보행기',pct:33,tags:['안전인증']},
-      {name:'하페 걸음마 수레',pct:23,tags:['원목']}]},
-    {name:'아기 간식',icon:'🍘',desc:'쌀과자·퍼프 등 핑거푸드',votes:412,picks:[
-      {name:'떡뻥 유기농 쌀과자',pct:45,tags:['유기농','인기']},
-      {name:'베베쿡 퍼프',pct:33,tags:['무첨가']},
-      {name:'일동후디스 아이간식',pct:22,tags:['다양한맛']}]},
-    {name:'아기 식기세트',icon:'🍽️',desc:'흡착 그릇·칸막이 식판',votes:334,picks:[
-      {name:'에즈피지 미니매트',pct:43,tags:['실리콘','흡착']},
-      {name:'먹깨비 흡착식판',pct:34,tags:['칸막이']},
-      {name:'옥소 흡착 그릇',pct:23,tags:['뚜껑포함']}]},
-    {name:'놀이울타리',icon:'🏰',desc:'안전한 놀이 공간',votes:278,picks:[
-      {name:'아이팜 베이비룸',pct:44,tags:['인기','확장가능']},
-      {name:'리치웰 울타리',pct:33,tags:['가성비']},
-      {name:'세이지폴 베이비룸',pct:23,tags:['디자인']}]},
-    {name:'아기 물병/빨대컵',icon:'🥤',desc:'빨대컵으로 음수 연습',votes:312,picks:[
-      {name:'리치웰 빨대컵',pct:44,tags:['인기1위']},
-      {name:'누크 액티브컵',pct:33,tags:['역류방지']},
-      {name:'먹깨비 빨대컵',pct:23,tags:['가성비']}]},
-    {name:'아기 신발',icon:'👟',desc:'첫 걸음마 신발',votes:234,picks:[
-      {name:'뉴발란스 996 키즈',pct:42,tags:['발달지지']},
-      {name:'아식스 아이다호',pct:35,tags:['일본인기']},
-      {name:'이퓨 첫신발',pct:23,tags:['부드러움']}]},
-    {name:'선크림',icon:'☀️',desc:'외출 시 자외선 차단',votes:267,picks:[
-      {name:'에토랑 베이비 선크림',pct:44,tags:['물리차단']},
-      {name:'닥터지 그린마일드',pct:34,tags:['순한성분']},
-      {name:'마더케이 선크림',pct:22,tags:['가성비']}]}
+    {name:'걸음마 보조기',icon:'🚶',desc:'걸음마 시작 시기',picks:[
+      {name:'브이텍 걸음마학습기',rating:4.4,reviewCount:9,tags:['다기능']},
+      {name:'피셔프라이스 보행기',rating:4.2,reviewCount:5,tags:['안전인증']},
+      {name:'하페 걸음마 수레',rating:4.0,reviewCount:3,tags:['원목']}],
+      reviews:[]},
+    {name:'아기 간식',icon:'🍘',desc:'쌀과자·퍼프 등 핑거푸드',picks:[
+      {name:'떡뻥 유기농 쌀과자',rating:4.7,reviewCount:16,tags:['유기농','인기']},
+      {name:'베베쿡 퍼프',rating:4.4,reviewCount:8,tags:['무첨가']},
+      {name:'일동후디스 아이간식',rating:4.1,reviewCount:4,tags:['다양한맛']}],
+      reviews:[
+        {author:'서준맘',avatar:'🍘',grade:'g2',tier:'별맘',rating:5,pick:0,text:'유기농이라 안심이고 아기가 너무 잘 먹어요. 외출할 때 필수!',babyAge:'7-12개월',tags:['추천','신생아'],time:'2일전'},
+        {author:'도현맘',avatar:'🐻',grade:'g2',tier:'별맘',rating:4,pick:1,text:'퍼프는 혼자 집어먹기 좋아요. 소근육 발달에도 도움!',babyAge:'7-12개월',tags:['추천'],time:'5일전'}
+      ]},
+    {name:'아기 식기세트',icon:'🍽️',desc:'흡착 그릇·칸막이 식판',picks:[
+      {name:'에즈피지 미니매트',rating:4.5,reviewCount:11,tags:['실리콘','흡착']},
+      {name:'먹깨비 흡착식판',rating:4.3,reviewCount:7,tags:['칸막이']},
+      {name:'옥소 흡착 그릇',rating:4.0,reviewCount:3,tags:['뚜껑포함']}],
+      reviews:[]},
+    {name:'놀이울타리',icon:'🏰',desc:'안전한 놀이 공간',picks:[
+      {name:'아이팜 베이비룸',rating:4.4,reviewCount:9,tags:['인기','확장가능']},
+      {name:'리치웰 울타리',rating:4.1,reviewCount:5,tags:['가성비']},
+      {name:'세이지폴 베이비룸',rating:3.9,reviewCount:3,tags:['디자인']}],
+      reviews:[]},
+    {name:'아기 물병/빨대컵',icon:'🥤',desc:'빨대컵으로 음수 연습',picks:[
+      {name:'리치웰 빨대컵',rating:4.5,reviewCount:10,tags:['인기1위']},
+      {name:'누크 액티브컵',rating:4.2,reviewCount:5,tags:['역류방지']},
+      {name:'먹깨비 빨대컵',rating:4.0,reviewCount:3,tags:['가성비']}],
+      reviews:[
+        {author:'지율맘',avatar:'🥤',grade:'g2',tier:'별맘',rating:5,pick:0,text:'빨대 물고 빠는 걸 금방 배웠어요! 역류도 안 되고 좋아요',babyAge:'7-12개월',tags:['추천'],time:'3일전'}
+      ]},
+    {name:'아기 신발',icon:'👟',desc:'첫 걸음마 신발',picks:[
+      {name:'뉴발란스 996 키즈',rating:4.4,reviewCount:8,tags:['발달지지']},
+      {name:'아식스 아이다호',rating:4.3,reviewCount:6,tags:['일본인기']},
+      {name:'이퓨 첫신발',rating:4.0,reviewCount:3,tags:['부드러움']}],
+      reviews:[]},
+    {name:'선크림',icon:'☀️',desc:'외출 시 자외선 차단',picks:[
+      {name:'에토랑 베이비 선크림',rating:4.4,reviewCount:8,tags:['물리차단']},
+      {name:'닥터지 그린마일드',rating:4.2,reviewCount:5,tags:['순한성분']},
+      {name:'마더케이 선크림',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[]}
   ]},
   { id:'after-1yr', name:'돌이후', icon:'🎂', items:[
-    {name:'킥보드/세발자전거',icon:'🛴',desc:'대근육 발달 놀이',votes:234,picks:[
-      {name:'마이크로 미니 킥보드',pct:45,tags:['인기1위']},
-      {name:'스마트라이크 세발기',pct:33,tags:['성장형']},
-      {name:'옥소 마이라이드',pct:22,tags:['가성비']}]},
-    {name:'놀이매트 (두꺼운)',icon:'🏠',desc:'뛰어놀 수 있는 두꺼운 매트',votes:289,picks:[
-      {name:'알집 칼라폴더 4단',pct:44,tags:['두꺼움','접이식']},
-      {name:'도노도노 놀이방매트',pct:34,tags:['세척편리']},
-      {name:'파크론 실리콘매트',pct:22,tags:['프리미엄']}]},
-    {name:'아기 가방/배낭',icon:'🎒',desc:'외출 시 아기 소지품',votes:178,picks:[
-      {name:'스킵홉 동물 배낭',pct:46,tags:['귀여운디자인']},
-      {name:'미니멜리사 배낭',pct:32,tags:['방수']},
-      {name:'코지코트 배낭',pct:22,tags:['가성비']}]},
-    {name:'아기 식판',icon:'🍽️',desc:'혼자 먹기 연습용',votes:312,picks:[
-      {name:'먹깨비 흡착식판',pct:44,tags:['실리콘','흡착']},
-      {name:'에즈피지 해피매트',pct:34,tags:['인기']},
-      {name:'베베쿡 나눔식판',pct:22,tags:['스텐']}]},
-    {name:'칫솔/치약',icon:'🪥',desc:'첫 이빨 관리 시작',votes:267,picks:[
-      {name:'조르단 스텝1 칫솔',pct:45,tags:['첫칫솔','부드러움']},
-      {name:'2080 키즈 치약',pct:33,tags:['저불소']},
-      {name:'벨레다 어린이 치약',pct:22,tags:['천연성분']}]},
-    {name:'학습교구/장난감',icon:'📚',desc:'인지·언어 발달 자극',votes:345,picks:[
-      {name:'플레이도 클래식세트',pct:40,tags:['소근육']},
-      {name:'레고 듀플로',pct:35,tags:['창의력']},
-      {name:'한글나라 교구세트',pct:25,tags:['한글학습']}]}
+    {name:'킥보드/세발자전거',icon:'🛴',desc:'대근육 발달 놀이',picks:[
+      {name:'마이크로 미니 킥보드',rating:4.6,reviewCount:10,tags:['인기1위']},
+      {name:'스마트라이크 세발기',rating:4.2,reviewCount:5,tags:['성장형']},
+      {name:'옥소 마이라이드',rating:3.9,reviewCount:3,tags:['가성비']}],
+      reviews:[]},
+    {name:'놀이매트 (두꺼운)',icon:'🏠',desc:'뛰어놀 수 있는 두꺼운 매트',picks:[
+      {name:'알집 칼라폴더 4단',rating:4.5,reviewCount:11,tags:['두꺼움','접이식']},
+      {name:'도노도노 놀이방매트',rating:4.2,reviewCount:6,tags:['세척편리']},
+      {name:'파크론 실리콘매트',rating:4.0,reviewCount:3,tags:['프리미엄']}],
+      reviews:[]},
+    {name:'아기 가방/배낭',icon:'🎒',desc:'외출 시 아기 소지품',picks:[
+      {name:'스킵홉 동물 배낭',rating:4.5,reviewCount:8,tags:['귀여운디자인']},
+      {name:'미니멜리사 배낭',rating:4.1,reviewCount:4,tags:['방수']},
+      {name:'코지코트 배낭',rating:3.8,reviewCount:2,tags:['가성비']}],
+      reviews:[]},
+    {name:'아기 식판',icon:'🍽️',desc:'혼자 먹기 연습용',picks:[
+      {name:'먹깨비 흡착식판',rating:4.5,reviewCount:10,tags:['실리콘','흡착']},
+      {name:'에즈피지 해피매트',rating:4.3,reviewCount:6,tags:['인기']},
+      {name:'베베쿡 나눔식판',rating:4.0,reviewCount:3,tags:['스텐']}],
+      reviews:[]},
+    {name:'칫솔/치약',icon:'🪥',desc:'첫 이빨 관리 시작',picks:[
+      {name:'조르단 스텝1 칫솔',rating:4.5,reviewCount:9,tags:['첫칫솔','부드러움']},
+      {name:'2080 키즈 치약',rating:4.2,reviewCount:5,tags:['저불소']},
+      {name:'벨레다 어린이 치약',rating:4.0,reviewCount:3,tags:['천연성분']}],
+      reviews:[]},
+    {name:'학습교구/장난감',icon:'📚',desc:'인지·언어 발달 자극',picks:[
+      {name:'플레이도 클래식세트',rating:4.4,reviewCount:9,tags:['소근육']},
+      {name:'레고 듀플로',rating:4.6,reviewCount:8,tags:['창의력']},
+      {name:'한글나라 교구세트',rating:4.1,reviewCount:4,tags:['한글학습']}],
+      reviews:[]}
   ]}
 ];
 
@@ -4553,6 +4714,33 @@ var northStarData = [
 var nsCurrentStage = 0;
 var nsCheckedItems = {};
 
+// ─── 별점 렌더링 헬퍼 ───
+function renderStars(rating) {
+  var full = Math.floor(rating);
+  var half = (rating - full) >= 0.5;
+  var html = '';
+  for(var i=0;i<5;i++){
+    if(i<full) html += '★';
+    else if(i===full && half) html += '★';
+    else html += '☆';
+  }
+  return '<span class="ns-stars">'+html+'</span>';
+}
+
+function getNsItemRating(item) {
+  if(!item.reviews || !item.reviews.length) return 0;
+  var sum = 0;
+  item.reviews.forEach(function(r){ sum += r.rating; });
+  return (sum / item.reviews.length).toFixed(1);
+}
+
+function getNsTotalReviews(item) {
+  var total = 0;
+  item.picks.forEach(function(p){ total += p.reviewCount; });
+  return total;
+}
+
+// ─── 메인 렌더링 ───
 function renderNorthStar(stageIdx) {
   nsCurrentStage = stageIdx;
   var stage = northStarData[stageIdx];
@@ -4563,29 +4751,71 @@ function renderNorthStar(stageIdx) {
     tabsHtml += '<div class="ns-stage-tab'+(i===stageIdx?' active':'')+'" onclick="renderNorthStar('+i+')">'+s.icon+' '+s.name+'</div>';
   });
   document.getElementById('nsStageTabs').innerHTML = tabsHtml;
+
   // 체크리스트 렌더링
   var html = '<div class="ns-section-title">'+stage.icon+' '+stage.name+' 체크리스트 <span>'+stage.items.length+'개 항목</span></div>';
   stage.items.forEach(function(item, idx){
     var key = stageIdx+'-'+idx;
     var isChecked = nsCheckedItems[key] ? ' checked' : '';
     var rankClasses = ['gold','silver','bronze'];
+    var totalReviews = getNsTotalReviews(item);
+    var avgRating = item.reviews && item.reviews.length ? getNsItemRating(item) : (item.picks[0].rating || 0);
+
     html += '<div class="ns-item'+isChecked+'" id="ns-'+key+'">';
     html += '<div class="ns-item-row" onclick="toggleNsItem(this.parentElement)">';
     html += '<div class="ns-item-check" onclick="toggleNsCheck(this,event)">'+(nsCheckedItems[key]?'✓':'')+'</div>';
     html += '<div class="ns-item-icon">'+item.icon+'</div>';
     html += '<div class="ns-item-info"><div class="ns-item-name">'+item.name+'</div>';
-    html += '<div class="ns-item-meta">'+item.votes+'명 참여 · 1위 '+item.picks[0].name+' '+item.picks[0].pct+'%</div></div>';
+    html += '<div class="ns-item-meta">리뷰 '+totalReviews+'개 · '+renderStars(avgRating)+' '+avgRating+'</div></div>';
     html += '<div class="ns-item-arrow">▶</div></div>';
-    // 인라인 랭킹
+
+    // 인라인 랭킹 + 리뷰
     html += '<div class="ns-picks">';
+    // 1~3위 제품
     item.picks.forEach(function(pick, pi){
       html += '<div class="ns-pick"><div class="ns-rank '+rankClasses[pi]+'">'+(pi+1)+'</div>';
       html += '<div class="ns-pick-info"><div class="ns-pick-name">'+pick.name+'</div>';
       html += '<div class="ns-pick-tags">';
       pick.tags.forEach(function(t){ html += '<span class="ns-pick-tag">'+t+'</span>'; });
-      html += '</div></div><div class="ns-pick-pct">'+pick.pct+'%</div></div>';
+      html += '</div></div>';
+      html += '<div class="ns-pick-rating">'+renderStars(pick.rating)+' '+pick.rating+'<div class="ns-pick-rc">('+pick.reviewCount+')</div></div></div>';
     });
-    html += '<div class="ns-vote-btn" onclick="nsVote('+stageIdx+','+idx+',event)">나도 투표하기</div>';
+
+    // 리뷰 섹션
+    if(item.reviews && item.reviews.length > 0) {
+      html += '<div class="ns-reviews-title">💬 소행성맘 리뷰</div>';
+      var showCount = Math.min(item.reviews.length, 2);
+      for(var ri=0; ri<showCount; ri++){
+        var rv = item.reviews[ri];
+        html += '<div class="ns-review">';
+        html += '<div class="ns-review-top">';
+        html += '<span class="ns-review-avatar" style="background:linear-gradient(135deg,#F5EDE4,#EDE4D8);">'+rv.avatar+'</span>';
+        html += '<span class="ns-review-author">'+rv.author+'</span>';
+        html += '<span class="ns-review-tier">'+rv.tier+'</span>';
+        html += '<span class="ns-review-stars">'+renderStars(rv.rating)+'</span>';
+        html += '<span class="ns-review-age">'+rv.babyAge+'</span>';
+        html += '<span class="ns-review-time">'+rv.time+'</span>';
+        html += '</div>';
+        html += '<div class="ns-review-text">'+rv.text+'</div>';
+        if(rv.tags && rv.tags.length){
+          html += '<div class="ns-review-tags">';
+          rv.tags.forEach(function(t){ html += '<span class="ns-review-tag">#'+t+'</span>'; });
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+    } else {
+      html += '<div class="ns-no-review">아직 리뷰가 없어요 🌟<br><strong>첫 번째 리뷰어</strong>가 되어보세요!</div>';
+    }
+
+    // 버튼 영역
+    html += '<div class="ns-review-actions">';
+    if(item.reviews && item.reviews.length > 2){
+      html += '<div class="ns-more-btn" onclick="showMoreReviews('+stageIdx+','+idx+',event)">리뷰 '+(item.reviews.length - 2)+'개 더보기</div>';
+    }
+    html += '<div class="ns-write-btn" onclick="openReviewSheet('+stageIdx+','+idx+',event)">나도 써봤어요 ✋</div>';
+    html += '</div>';
+
     html += '</div></div>';
   });
   document.getElementById('nsChecklist').innerHTML = html;
@@ -4598,7 +4828,6 @@ function toggleNsItem(el) {
   if(el.classList.contains('open')){
     el.classList.remove('open');
   } else {
-    // 다른 열린 항목 닫기
     document.querySelectorAll('.ns-item.open').forEach(function(o){ o.classList.remove('open'); });
     el.classList.add('open');
   }
@@ -4619,9 +4848,122 @@ function toggleNsCheck(el, e) {
   }
 }
 
-function nsVote(stageIdx, itemIdx, e) {
-  e.stopPropagation();
-  showToast(northStarData[stageIdx].items[itemIdx].name+' 투표 완료! ⭐');
+// ─── 리뷰 바텀시트 ───
+var nsSheetStage = 0, nsSheetItem = 0, nsSheetPick = -1, nsSheetStar = 0, nsSheetTags = [];
+
+function openReviewSheet(stageIdx, itemIdx, e) {
+  if(e) e.stopPropagation();
+  if(!canWriteReview()){
+    showToast('리뷰는 ⭐별맘 이상부터 작성할 수 있어요');
+    return;
+  }
+  nsSheetStage = stageIdx;
+  nsSheetItem = itemIdx;
+  nsSheetPick = -1;
+  nsSheetStar = 0;
+  nsSheetTags = [];
+  var item = northStarData[stageIdx].items[itemIdx];
+  document.getElementById('nsSheetTitle').textContent = item.name + ' 리뷰 쓰기';
+
+  var body = '';
+  // 제품 선택
+  body += '<div class="ns-sheet-label">어떤 제품을 사용하셨나요?</div>';
+  body += '<div class="ns-radio-group" id="nsRadioGroup">';
+  item.picks.forEach(function(pick, pi){
+    body += '<div class="ns-radio" onclick="selectNsRadio(this,'+pi+')">';
+    body += '<div class="ns-radio-dot"></div>';
+    body += '<span class="ns-radio-name">'+pick.name+'</span>';
+    body += '</div>';
+  });
+  body += '</div>';
+
+  // 별점
+  body += '<div class="ns-sheet-label">별점</div>';
+  body += '<div class="ns-star-input" id="nsStarInput">';
+  for(var i=1;i<=5;i++){
+    body += '<span onclick="selectNsStar('+i+')">☆</span>';
+  }
+  body += '</div>';
+
+  // 한줄후기
+  body += '<div class="ns-sheet-label">한줄 후기</div>';
+  body += '<textarea class="ns-review-input" id="nsReviewText" placeholder="솔직한 사용 후기를 남겨주세요" maxlength="100"></textarea>';
+
+  // 태그 선택
+  body += '<div class="ns-sheet-label" style="margin-top:12px;">태그 선택 <span style="font-weight:400;color:var(--sub);">(선택사항)</span></div>';
+  body += '<div class="ns-tag-select" id="nsTagSelect">';
+  nsReviewTags.forEach(function(t){
+    body += '<span class="ns-tag-option" onclick="toggleNsTag(this)">'+t+'</span>';
+  });
+  body += '</div>';
+
+  // 등록 버튼
+  body += '<button class="ns-submit-btn" onclick="submitNsReview()">리뷰 등록하기</button>';
+
+  document.getElementById('nsSheetBody').innerHTML = body;
+  document.getElementById('nsSheetOverlay').classList.add('active');
+  document.getElementById('nsReviewSheet').classList.add('active');
+}
+
+function closeReviewSheet() {
+  document.getElementById('nsSheetOverlay').classList.remove('active');
+  document.getElementById('nsReviewSheet').classList.remove('active');
+}
+
+function selectNsRadio(el, idx) {
+  nsSheetPick = idx;
+  document.querySelectorAll('#nsRadioGroup .ns-radio').forEach(function(r){ r.classList.remove('selected'); });
+  el.classList.add('selected');
+}
+
+function selectNsStar(n) {
+  nsSheetStar = n;
+  var stars = document.querySelectorAll('#nsStarInput span');
+  stars.forEach(function(s, i){
+    s.textContent = i < n ? '★' : '☆';
+    if(i < n) s.classList.add('on'); else s.classList.remove('on');
+  });
+}
+
+function toggleNsTag(el) {
+  var tag = el.textContent;
+  el.classList.toggle('selected');
+  var idx = nsSheetTags.indexOf(tag);
+  if(idx > -1) nsSheetTags.splice(idx, 1);
+  else nsSheetTags.push(tag);
+}
+
+function submitNsReview() {
+  if(nsSheetPick < 0){ showToast('제품을 선택해주세요'); return; }
+  if(nsSheetStar < 1){ showToast('별점을 선택해주세요'); return; }
+  var text = document.getElementById('nsReviewText').value.trim();
+  if(!text){ showToast('후기를 작성해주세요'); return; }
+
+  var item = northStarData[nsSheetStage].items[nsSheetItem];
+  // 리뷰 추가
+  var newReview = {
+    author:'하은맘', avatar:'🐥', grade:'g1', tier:'별맘',
+    rating: nsSheetStar, pick: nsSheetPick,
+    text: text, babyAge: babyData.monthLabel || '11개월',
+    tags: nsSheetTags.slice(), time:'방금'
+  };
+  if(!item.reviews) item.reviews = [];
+  item.reviews.unshift(newReview);
+
+  // pick의 rating/reviewCount 업데이트
+  var pick = item.picks[nsSheetPick];
+  var newTotal = pick.reviewCount + 1;
+  pick.rating = parseFloat(((pick.rating * pick.reviewCount + nsSheetStar) / newTotal).toFixed(1));
+  pick.reviewCount = newTotal;
+
+  closeReviewSheet();
+  renderNorthStar(nsSheetStage);
+  showToast('리뷰가 등록됐어요! ⭐');
+}
+
+function showMoreReviews(stageIdx, itemIdx, e) {
+  if(e) e.stopPropagation();
+  showToast('전체 리뷰 보기는 준비 중이에요!');
 }
 
 // 초기 렌더링
